@@ -26,9 +26,6 @@ module ViewComponentReflex
 
     def initialize_state(obj)
       @state = obj
-      @state.each do |k, v|
-        instance_variable_set("@#{k}", v)
-      end
     end
 
     def key
