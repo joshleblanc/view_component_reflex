@@ -31,10 +31,10 @@ lets ViewComponentReflex keep track of which state belongs to which component.
     class CounterComponent < ViewComponentReflex::Component
       connect_stimulus_reflex
     
-      def initialize(count: 0)
+      def initialize
         super()
         initialize_state({
-          count: count
+          count: 0
         })
       end
     
