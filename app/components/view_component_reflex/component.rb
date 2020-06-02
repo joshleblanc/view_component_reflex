@@ -7,8 +7,6 @@ module ViewComponentReflex
 
       def connect_stimulus_reflex
         @stimulus_reflex ||= Object.const_set(name + "Reflex", Class.new(StimulusReflex::Reflex) {
-          include CableReady::Broadcaster
-
           def state
             session[element.dataset[:key]] ||= {}
           end
