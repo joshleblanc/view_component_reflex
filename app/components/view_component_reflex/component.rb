@@ -6,9 +6,14 @@ module ViewComponentReflex
       end
 
       def stimulus_reflex
+        klass = self
         @stimulus_reflex ||= Object.const_set(name + "Reflex", Class.new(StimulusReflex::Reflex) {
           def state
             session[element.dataset[:key]] ||= {}
+          end
+
+          define_method :stimulus_controller do
+            klass.name.chomp("Component").underscore.dasherize
           end
 
           define_singleton_method(:reflex) do |name, &blk|
