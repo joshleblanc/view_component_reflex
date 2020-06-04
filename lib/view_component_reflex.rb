@@ -1,6 +1,5 @@
 require "view_component_reflex/engine"
 require 'stimulus_reflex'
-require 'stimulus_reflex/channel'
 
 module ViewComponentReflex
   # Your code goes here...
