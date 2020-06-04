@@ -4,8 +4,7 @@ ViewComponentReflex allows you to write reflexes right in your view component co
 
 ## Usage
 
-You can add reflexes to your component by adding inheriting from `ViewComponentReflex::Component`, and 
-running `connect_stimulus_reflex` as soon as possible.
+You can add reflexes to your component by adding inheriting from `ViewComponentReflex::Component`.
 
 To add a reflex to your component, use the `reflex` method.
 
@@ -29,8 +28,7 @@ lets ViewComponentReflex keep track of which state belongs to which component.
 ```ruby
     # counter_component.rb
     class CounterComponent < ViewComponentReflex::Component
-      connect_stimulus_reflex
-    
+   
       def initialize
         super()
         initialize_state({
