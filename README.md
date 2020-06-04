@@ -30,7 +30,6 @@ lets ViewComponentReflex keep track of which state belongs to which component.
     class CounterComponent < ViewComponentReflex::Component
    
       def initialize
-        super()
         initialize_state({
           count: 0
         })
