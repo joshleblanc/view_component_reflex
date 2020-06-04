@@ -5,7 +5,7 @@ module ViewComponentReflex
   # Your code goes here...
 end
 
-class StimulusReflex::Channel < ActionCable::Channel::Base
+module StimulusReflexChannelExtension
   def render_page_and_broadcast_morph(reflex, selectors, data = {})
     html = render_page(reflex)
     if reflex.respond_to? :stimulus_controller
@@ -14,3 +14,5 @@ class StimulusReflex::Channel < ActionCable::Channel::Base
     broadcast_morphs selectors, data, html if html.present?
   end
 end
+
+StimulusReflex::Channel.include StimulusReflexChannelExtension
