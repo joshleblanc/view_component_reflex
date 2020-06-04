@@ -3,7 +3,7 @@ PATH
   specs:
     view_component_reflex (0.2.2)
       rails (~> 6.0.3, >= 6.0.3.1)
-      stimulus_reflex
+      stimulus_reflex (= 3.2.2.pre1)
       view_component
 
 GEM
@@ -126,11 +126,11 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    stimulus_reflex (3.2.1)
+    stimulus_reflex (3.2.2.pre1)
       cable_ready (>= 4.1.2)
       nokogiri
       rack
-      rails (>= 6.0)
+      rails (>= 5.2)
     thor (1.0.1)
     thread_safe (0.3.6)
     tzinfo (1.2.7)
