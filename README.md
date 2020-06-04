@@ -44,8 +44,10 @@ lets ViewComponentReflex keep track of which state belongs to which component.
 
 ```erb
 # counter_component.html.erb
-<p><%= state[:count] %></p>
-<button type="button" data-reflex="click->CounterComponentReflex#increment" data-key="<%= key %>">Click</button>
+<div data-controller="counter">
+    <p><%= state[:count] %></p>
+    <button type="button" data-reflex="click->CounterComponentReflex#increment" data-key="<%= key %>">Click</button>
+</div>
 ```
 
 ## Installation
