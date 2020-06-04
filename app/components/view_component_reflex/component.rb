@@ -25,18 +25,17 @@ module ViewComponentReflex
       end
     end
 
-    def initialize
-      @key = caller.find { |p| p.include? ".html.erb" }&.hash.to_s
-    end
-
     def initialize_state(obj)
       @state = obj
     end
 
     def key
+      @key ||= caller.find { |p| p.include? ".html.erb" }&.hash.to_s
+
+      # initialize session state
       if session[@key].nil?
         session[@key] = {}
-        @state.each do |key, v|
+        (@state ||= {}).each do |key, v|
           session[@key][key] = v
         end
       end
