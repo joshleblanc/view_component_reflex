@@ -2,10 +2,10 @@ module ViewComponentReflex
   class Component < ViewComponent::Base
     class << self
       def reflex(name, &blk)
-        @stimulus_reflex.reflex(name, &blk)
+        stimulus_reflex.reflex(name, &blk)
       end
 
-      def connect_stimulus_reflex
+      def stimulus_reflex
         @stimulus_reflex ||= Object.const_set(name + "Reflex", Class.new(StimulusReflex::Reflex) {
           def state
             session[element.dataset[:key]] ||= {}
