@@ -29,6 +29,10 @@ module ViewComponentReflex
       @state = obj
     end
 
+    # key is required if you're using state
+    # We can't initialize the session state in the initiale method
+    # because it doesn't have a view_context yet
+    # This is the next best place to do it
     def key
       @key ||= caller.find { |p| p.include? ".html.erb" }&.hash.to_s
 
