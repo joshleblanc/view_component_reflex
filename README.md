@@ -21,7 +21,7 @@ In addition to calling reflexes, there is a rudimentary state system. You can in
 
 You can access state with the `state` helper. See the code below for an example.
 
-If you're using state, include `super()` at the beginning of your initialize method, and add `data-key="<%= key %>"` to any html element using a reflex. This 
+If you're using state add `data-key="<%= key %>"` to any html element using a reflex. This 
 lets ViewComponentReflex keep track of which state belongs to which component.
 
 
