@@ -9,7 +9,7 @@ module ViewComponentReflex
         klass = self
         @stimulus_reflex ||= Object.const_set(name + "Reflex", Class.new(StimulusReflex::Reflex) {
           def state
-            session[element.dataset[:key]] ||= {}
+            ViewComponentReflex::Engine.state_adapter.state(request, element.dataset[:key])
           end
 
           define_method :stimulus_controller do
@@ -38,39 +38,16 @@ module ViewComponentReflex
 
       # initialize session state
       if session[@key].nil?
-        store_state(@key)
-        store_state("#{@key}_initial")
+        ViewComponentReflex::Engine.state_adapter.store_state(request, @key, @state)
+        ViewComponentReflex::Engine.state_adapter.store_state(request, "#{@key}_initial", @state)
       else
-        reconcile_state
+        ViewComponentReflex::Engine.state_adapter.reconcile_state(request, @key, @state)
       end
       @key
     end
 
     def state
-      session[key]
-    end
-
-    private
-
-    # The passed state should always match the initial state of the component
-    # if it doesn't, we need to reset the state to the passed value.
-    #
-    # This handles cases where your initialize_state param computes some value that changes
-    # initialize_state({ transaction: @customer.transactions.first })
-    # if you delete the first transaction, that ^ is no longer valid. We need to update the state.
-    def reconcile_state
-      session["#{@key}_initial"].each do |k, v|
-        if @state[k] != v
-          session[@key][k] = @state[k]
-        end
-      end
-    end
-
-    def store_state(a_key)
-      session[a_key] = {}
-      (@state ||= {}).each do |key, v|
-        session[a_key][key] = v
-      end
+      ViewComponentReflex::Engine.state_adapter.state(request, key)
     end
   end
 end
