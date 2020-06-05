@@ -38,16 +38,39 @@ module ViewComponentReflex
 
       # initialize session state
       if session[@key].nil?
-        session[@key] = {}
-        (@state ||= {}).each do |key, v|
-          session[@key][key] = v
-        end
+        store_state(@key)
+        store_state("#{@key}_initial")
+      else
+        reconcile_state
       end
       @key
     end
 
     def state
       session[key]
+    end
+
+    private
+
+    # The passed state should always match the initial state of the component
+    # if it doesn't, we need to reset the state to the passed value.
+    #
+    # This handles cases where your initialize_state param computes some value that changes
+    # initialize_state({ transaction: @customer.transactions.first })
+    # if you delete the first transaction, that ^ is no longer valid. We need to update the state.
+    def reconcile_state
+      session["#{@key}_initial"].each do |k, v|
+        if @state[k] != v
+          session[@key][k] = @state[k]
+        end
+      end
+    end
+
+    def store_state(a_key)
+      session[a_key] = {}
+      (@state ||= {}).each do |key, v|
+        session[a_key][key] = v
+      end
     end
   end
 end
