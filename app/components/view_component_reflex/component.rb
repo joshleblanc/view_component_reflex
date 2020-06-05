@@ -30,7 +30,7 @@ module ViewComponentReflex
     end
 
     # key is required if you're using state
-    # We can't initialize the session state in the initiale method
+    # We can't initialize the session state in the initial method
     # because it doesn't have a view_context yet
     # This is the next best place to do it
     def key
