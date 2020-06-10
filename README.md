@@ -19,7 +19,8 @@ using stimulus reflex.
 
 In addition to calling reflexes, there is a rudimentary state system. You can initialize component-local state with `initialize_state(obj)`, where `obj` is a hash.
 
-You can access state with the `state` helper. See the code below for an example.
+You can access state with the `state` helper. See the code below for an example. Calling `set_state` will set the state, 
+and also re-render your component.
 
 If you're using state add `data-key="<%= key %>"` to any html element using a reflex. This 
 lets ViewComponentReflex keep track of which state belongs to which component.
