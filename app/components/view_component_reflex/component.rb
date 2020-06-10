@@ -12,13 +12,35 @@ module ViewComponentReflex
             ViewComponentReflex::Engine.state_adapter.state(request, element.dataset[:key])
           end
 
+          def set_state(new_state)
+            ViewComponentReflex::Engine.state_adapter.set_state(self, element.dataset[:key], new_state)
+            @channel.render_page_and_broadcast_morph(self, nil, {
+              dataset: element.dataset.to_h,
+              args: [],
+              attrs: element.attributes.to_h,
+              selectors: ['body'],
+              target: "#{self.class.name}##{method_name}",
+              url: request.url,
+              permanentAttributeName: "data-reflex-permanent"
+            })
+          end
+
+          before_reflex do |reflex, *args|
+            instance_exec(*args, &self.class.callbacks[self.method_name.to_sym]) if self.class.callbacks.include?(self.method_name.to_sym)
+            throw :abort
+          end
+
+          def self.callbacks
+            @callbacks ||= {}
+          end
+
           define_method :stimulus_controller do
             klass.name.chomp("Component").underscore.dasherize
           end
 
           define_singleton_method(:reflex) do |name, &blk|
+            callbacks[name] = blk
             define_method(name) do |*args|
-              instance_exec(*args, &blk)
             end
           end
         })

@@ -36,7 +36,7 @@ lets ViewComponentReflex keep track of which state belongs to which component.
       end
     
       reflex :increment do
-        state[:count] = state[:count] + 1
+        set_state(count: state[:count] + 1)
       end
     end
 ```
@@ -70,6 +70,14 @@ class YourAdapter
   def self.state(request, key)
     # Return state for a given key
   end
+
+  ##
+  # reflex - The reflex instance that's trying to set the state
+  # key - a unique string that identifies the component
+  # new_state - the new state to set
+  def self.set_state(reflex, key, new_state)
+  end
+
 
   ##
   # request - a rails request object
