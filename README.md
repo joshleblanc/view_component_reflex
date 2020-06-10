@@ -11,11 +11,14 @@ To add a reflex to your component, use the `reflex` method.
 ```ruby
     reflex :my_cool_reflex do
       # do stuff
+      refresh!
     end
 ```
 
 This will act as if you created a reflex with the method `my_cool_stuff`. To call this reflex, add `data-reflex="click->MyComponentReflex#my_cool_reflex"`, just like you're
 using stimulus reflex.
+
+#####note: A reflex will not automatically re-render the component upon its completion. A component will re-render whenever the `set_state` or `refresh!` method is called.
 
 In addition to calling reflexes, there is a rudimentary state system. You can initialize component-local state with `initialize_state(obj)`, where `obj` is a hash.
 
