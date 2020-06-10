@@ -12,7 +12,7 @@ module ViewComponentReflex
             ViewComponentReflex::Engine.state_adapter.state(request, element.dataset[:key])
           end
 
-          def set_state(new_state)
+          def set_state(new_state = {})
             ViewComponentReflex::Engine.state_adapter.set_state(self, element.dataset[:key], new_state)
             @channel.render_page_and_broadcast_morph(self, nil, {
               dataset: element.dataset.to_h,
