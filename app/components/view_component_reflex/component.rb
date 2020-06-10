@@ -13,7 +13,7 @@ module ViewComponentReflex
           end
 
           def refresh!
-            @channel.render_page_and_broadcast_morph(self, nil, {
+            @channel.render_page_and_broadcast_morph(self, ["[data-controller=\"#{stimulus_controller}\"]"], {
               dataset: element.dataset.to_h,
               args: [],
               attrs: element.attributes.to_h,
