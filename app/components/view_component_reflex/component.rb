@@ -55,6 +55,10 @@ module ViewComponentReflex
       @state = obj
     end
 
+    def stimulus_reflex?
+      helpers.controller.instance_variable_get(:@stimulus_reflex)
+    end
+
     # key is required if you're using state
     # We can't initialize the session state in the initial method
     # because it doesn't have a view_context yet
@@ -63,7 +67,7 @@ module ViewComponentReflex
       @key ||= caller.find { |p| p.include? ".html.erb" }&.hash.to_s
 
       # initialize session state
-      if session[@key].nil?
+      if !stimulus_reflex? || session[@key].nil?
         ViewComponentReflex::Engine.state_adapter.store_state(request, @key, @state)
         ViewComponentReflex::Engine.state_adapter.store_state(request, "#{@key}_initial", @state)
       else
