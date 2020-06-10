@@ -13,7 +13,7 @@ module ViewComponentReflex
           end
 
           def refresh!
-            @channel.render_page_and_broadcast_morph(self, ["[data-controller=\"#{stimulus_controller}\"]"], {
+            @channel.send :render_page_and_broadcast_morph, self, ["[data-controller=\"#{stimulus_controller}\"]"], {
               dataset: element.dataset.to_h,
               args: [],
               attrs: element.attributes.to_h,
@@ -21,7 +21,7 @@ module ViewComponentReflex
               target: "#{self.class.name}##{method_name}",
               url: request.url,
               permanentAttributeName: "data-reflex-permanent"
-            })
+            }
           end
 
           def set_state(new_state = {})
