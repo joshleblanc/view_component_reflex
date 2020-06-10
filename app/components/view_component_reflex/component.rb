@@ -12,8 +12,7 @@ module ViewComponentReflex
             ViewComponentReflex::Engine.state_adapter.state(request, element.dataset[:key])
           end
 
-          def set_state(new_state = {})
-            ViewComponentReflex::Engine.state_adapter.set_state(self, element.dataset[:key], new_state)
+          def refresh!
             @channel.render_page_and_broadcast_morph(self, nil, {
               dataset: element.dataset.to_h,
               args: [],
@@ -23,6 +22,11 @@ module ViewComponentReflex
               url: request.url,
               permanentAttributeName: "data-reflex-permanent"
             })
+          end
+
+          def set_state(new_state = {})
+            ViewComponentReflex::Engine.state_adapter.set_state(self, element.dataset[:key], new_state)
+            refresh!
           end
 
           before_reflex do |reflex, *args|
