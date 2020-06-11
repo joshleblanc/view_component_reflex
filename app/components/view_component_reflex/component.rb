@@ -12,8 +12,8 @@ module ViewComponentReflex
             ViewComponentReflex::Engine.state_adapter.state(request, element.dataset[:key])
           end
 
-          def refresh!
-            @channel.send :render_page_and_broadcast_morph, self, ["[data-controller=\"#{stimulus_controller}\"]"], {
+          def refresh!(selectors = ["[data-controller=\"#{stimulus_controller}\"]"])
+            @channel.send :render_page_and_broadcast_morph, self, selectors , {
               dataset: element.dataset.to_h,
               args: [],
               attrs: element.attributes.to_h,
@@ -22,6 +22,10 @@ module ViewComponentReflex
               url: request.url,
               permanentAttributeName: "data-reflex-permanent"
             }
+          end
+
+          def refresh_all!
+            refresh!(['body'])
           end
 
           def set_state(new_state = {})
