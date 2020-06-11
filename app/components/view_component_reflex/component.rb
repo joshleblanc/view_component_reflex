@@ -12,8 +12,8 @@ module ViewComponentReflex
             ViewComponentReflex::Engine.state_adapter.state(request, element.dataset[:key])
           end
 
-          def refresh!(selectors = ["[data-controller=\"#{stimulus_controller}\"]"])
-            @channel.send :render_page_and_broadcast_morph, self, selectors , {
+          def refresh!(primary_selector = "[data-controller=\"#{stimulus_controller}\"]", *selectors)
+            @channel.send :render_page_and_broadcast_morph, self, [primary_selector, *selectors], {
               dataset: element.dataset.to_h,
               args: [],
               attrs: element.attributes.to_h,
