@@ -71,7 +71,7 @@ module ViewComponentReflex
         ViewComponentReflex::Engine.state_adapter.store_state(request, @key, @state)
         ViewComponentReflex::Engine.state_adapter.store_state(request, "#{@key}_initial", @state)
       else
-        ViewComponentReflex::Engine.state_adapter.reconcile_state(request, @key, @state)
+        # ViewComponentReflex::Engine.state_adapter.reconcile_state(request, @key, @state)
       end
       @key
     end
