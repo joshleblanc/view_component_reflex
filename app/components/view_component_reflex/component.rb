@@ -25,7 +25,7 @@ module ViewComponentReflex
           end
 
           def refresh_all!
-            refresh!(['body'])
+            refresh!('body')
           end
 
           def set_state(new_state = {})
