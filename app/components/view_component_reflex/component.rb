@@ -28,9 +28,9 @@ module ViewComponentReflex
             refresh!('body')
           end
 
-          def set_state(new_state = {})
+          def set_state(new_state = {}, primary_selector = nil, *selectors)
             ViewComponentReflex::Engine.state_adapter.set_state(self, element.dataset[:key], new_state)
-            refresh!
+            refresh!(primary_selector, *selectors)
           end
 
           before_reflex do |reflex, *args|
