@@ -94,19 +94,6 @@ class YourAdapter
     # it should be used in reconcile_state to decide whether or not
     # to re-initialize the state
   end
-  
-  ##
-  # request - a rails request object
-  # key - a unique string that identifies the component instance
-  # new_state - a hash containing the component state
-  def self.reconcile_state(request, key, new_state)
-  # The passed state should always match the initial state of the component
-  # if it doesn't, we need to reset the state to the passed value.
-  #
-  # This handles cases where your initialize_state param computes some value that changes
-  # initialize_state({ transaction: @customer.transactions.first })
-  # if you delete the first transaction, that ^ is no longer valid. We need to update the state.
-  end
 end
 ```
 
