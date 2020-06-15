@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.6.3](https://github.com/joshleblanc/view_component_reflex/compare/v0.6.2...v0.6.3) (2020-06-15)
+
+
+### Bug Fixes
+
+* remove reconcile state from session state adapter ([653cb54](https://github.com/joshleblanc/view_component_reflex/commit/653cb546719dda141f0cdcdad36d21c035c705f9))
+* remove unneccessary initial state ([8ce3fba](https://github.com/joshleblanc/view_component_reflex/commit/8ce3fba17c6f5b2af96a64653b96bf17247c4b4b))
+
 ### [0.6.2](https://github.com/joshleblanc/view_component_reflex/compare/v0.6.1...v0.6.2) (2020-06-13)
 
 
