@@ -73,7 +73,6 @@ module ViewComponentReflex
       # initialize session state
       if !stimulus_reflex? || session[@key].nil?
         ViewComponentReflex::Engine.state_adapter.store_state(request, @key, @state)
-        ViewComponentReflex::Engine.state_adapter.store_state(request, "#{@key}_initial", @state)
       end
       @key
     end

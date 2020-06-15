@@ -89,10 +89,6 @@ class YourAdapter
   # new_state - a hash containing the component state
   def self.store_state(request, key, new_state = {})
     # store the state 
-    # this will be called twice, once with key, once with key_initial
-    # key_initial contains the initial, unmodified state.
-    # it should be used in reconcile_state to decide whether or not
-    # to re-initialize the state
   end
 end
 ```
