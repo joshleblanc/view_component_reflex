@@ -41,17 +41,17 @@ module ViewComponentReflex
             refresh!
           end
 
-          define_method :stimulus_controller do
-            klass.name.chomp("Component").underscore.dasherize
-          end
-
           define_method :component_class do
             @component_class ||= klass
           end
 
-          private :component_class, :stimulus_controller
+          private :component_class
 
           private
+
+          def stimulus_controller
+            component_class.name.chomp("Component").underscore.dasherize
+          end
 
           def component
             return @component if @component
