@@ -4,10 +4,6 @@ module ViewComponentReflex
       def init_stimulus_reflex
         klass = self
         @stimulus_reflex ||= Object.const_set(name + "Reflex", Class.new(StimulusReflex::Reflex) {
-          def state
-            ViewComponentReflex::Engine.state_adapter.state(request, element.dataset[:key])
-          end
-
           def refresh!(primary_selector = "[data-controller=\"#{stimulus_controller}\"]", *selectors)
             @channel.send :render_page_and_broadcast_morph, self, [primary_selector, *selectors], {
               dataset: element.dataset.to_h,
@@ -58,6 +54,10 @@ module ViewComponentReflex
           private
           def set_state(new_state = {}, primary_selector = nil, *selectors)
             ViewComponentReflex::Engine.state_adapter.set_state(self, element.dataset[:key], new_state)
+          end
+
+          def state
+            ViewComponentReflex::Engine.state_adapter.state(request, element.dataset[:key])
           end
         })
       end
