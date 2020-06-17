@@ -64,6 +64,8 @@ module ViewComponentReflex
       # initialize session state
       if !stimulus_reflex? || session[@key].nil?
         new_state = {}
+
+        # this will almost certainly break
         blacklist = [
           :@view_context, :@lookup_context, :@view_renderer, :@view_flow,
           :@virtual_path, :@variant, :@current_template, :@output_buffer, :@key,
