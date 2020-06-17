@@ -39,8 +39,11 @@ module ViewComponentReflex
           define_method :method_missing do |name, *args|
             reflex = self
             instance = klass.allocate
-            instance.define_singleton_method(:element) do
-              reflex.element
+            exposed_methods = [:element, :refresh!, :refresh_all!]
+            exposed_methods.each do |meth|
+              instance.define_singleton_method(meth) do |*a|
+                reflex.send(meth, *a)
+              end
             end
             state.each do |k, v|
               instance.instance_variable_set(k, v)
