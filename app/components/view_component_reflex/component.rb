@@ -26,7 +26,6 @@ module ViewComponentReflex
 
           def set_state(new_state = {}, primary_selector = nil, *selectors)
             ViewComponentReflex::Engine.state_adapter.set_state(self, element.dataset[:key], new_state)
-            refresh!(primary_selector, *selectors)
           end
 
           # SR's delegate_call_to_reflex in channel.rb
