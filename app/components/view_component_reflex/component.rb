@@ -34,12 +34,25 @@ module ViewComponentReflex
           end
 
           before_reflex do |reflex, *args|
-            instance_exec(*args, &self.class.callbacks[self.method_name.to_sym]) if self.class.callbacks.include?(self.method_name.to_sym)
-            throw :abort
+            # instance_exec(*args, &self.class.callbacks[self.method_name.to_sym]) if self.class.callbacks.include?(self.method_name.to_sym)
+            # throw :abort
           end
 
           def self.callbacks
             @callbacks ||= {}
+          end
+
+          define_method :method_missing do |name, *args|
+            instance = klass.new
+            state.each do |k, v|
+              instance.instance_variable_set(k, v)
+            end
+            name.to_proc.call(instance, *args)
+            new_state = {}
+            instance.instance_variables.each do |k|
+              new_state[k] = instance.instance_variable_get(k)
+            end
+            set_state(new_state)
           end
 
           define_method :stimulus_controller do
@@ -68,11 +81,25 @@ module ViewComponentReflex
     # because it doesn't have a view_context yet
     # This is the next best place to do it
     def key
-      @key ||= caller.find { |p| p.include? ".html.erb" }&.hash.to_s
+      self.class.stimulus_reflex
+      @key ||= caller.select { |p| p.include? ".html.erb" }.last&.hash.to_s
 
       # initialize session state
       if !stimulus_reflex? || session[@key].nil?
-        ViewComponentReflex::Engine.state_adapter.store_state(request, @key, @state)
+        new_state = {}
+        blacklist = [
+          :@view_context, :@lookup_context, :@view_renderer, :@view_flow,
+          :@virtual_path, :@variant, :@current_template, :@output_buffer, :@key,
+          :@helpers, :@controller, :@request
+        ]
+        instance_variables.reject { |k| blacklist.include?(k) }.each do |k|
+          new_state[k] = instance_variable_get(k)
+        end
+        ViewComponentReflex::Engine.state_adapter.store_state(request, @key, new_state)
+      else
+        ViewComponentReflex::Engine.state_adapter.state(request, @key).each do |k, v|
+          instance_variable_set(k, v)
+        end
       end
       @key
     end
