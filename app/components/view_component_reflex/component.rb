@@ -1,11 +1,7 @@
 module ViewComponentReflex
   class Component < ViewComponent::Base
     class << self
-      def reflex(name, &blk)
-        stimulus_reflex.reflex(name, &blk)
-      end
-
-      def stimulus_reflex
+      def init_stimulus_reflex
         klass = self
         @stimulus_reflex ||= Object.const_set(name + "Reflex", Class.new(StimulusReflex::Reflex) {
           def state
@@ -33,15 +29,6 @@ module ViewComponentReflex
             refresh!(primary_selector, *selectors)
           end
 
-          before_reflex do |reflex, *args|
-            # instance_exec(*args, &self.class.callbacks[self.method_name.to_sym]) if self.class.callbacks.include?(self.method_name.to_sym)
-            # throw :abort
-          end
-
-          def self.callbacks
-            @callbacks ||= {}
-          end
-
           define_method :method_missing do |name, *args|
             instance = klass.allocate
             state.each do |k, v|
@@ -58,18 +45,8 @@ module ViewComponentReflex
           define_method :stimulus_controller do
             klass.name.chomp("Component").underscore.dasherize
           end
-
-          define_singleton_method(:reflex) do |name, &blk|
-            callbacks[name] = blk
-            define_method(name) do |*args|
-            end
-          end
         })
       end
-    end
-
-    def initialize_state(obj)
-      @state = obj
     end
 
     def stimulus_reflex?
@@ -81,7 +58,7 @@ module ViewComponentReflex
     # because it doesn't have a view_context yet
     # This is the next best place to do it
     def key
-      self.class.stimulus_reflex
+      self.class.init_stimulus_reflex
       @key ||= caller.select { |p| p.include? ".html.erb" }.last&.hash.to_s
 
       # initialize session state
@@ -102,10 +79,6 @@ module ViewComponentReflex
         end
       end
       @key
-    end
-
-    def state
-      ViewComponentReflex::Engine.state_adapter.state(request, key)
     end
   end
 end
