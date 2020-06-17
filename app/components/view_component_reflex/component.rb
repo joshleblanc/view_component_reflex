@@ -57,7 +57,9 @@ module ViewComponentReflex
           end
 
           private :component_class, :stimulus_controller
+
           private
+
           def component
             @component ||= component_class.allocate
           end
