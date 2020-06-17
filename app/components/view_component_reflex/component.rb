@@ -10,7 +10,7 @@ module ViewComponentReflex
               dataset: element.dataset.to_h,
               args: [],
               attrs: element.attributes.to_h,
-              selectors: ['body'],
+              selectors: ["body"],
               target: "#{self.class.name}##{method_name}",
               url: request.url,
               permanentAttributeName: "data-reflex-permanent"
@@ -18,7 +18,7 @@ module ViewComponentReflex
           end
 
           def refresh_all!
-            refresh!('body')
+            refresh!("body")
           end
 
           # SR's delegate_call_to_reflex in channel.rb
@@ -52,7 +52,7 @@ module ViewComponentReflex
           private :component_class, :stimulus_controller
 
           private
-          
+
           def component
             return @component if @component
             @component = component_class.allocate
