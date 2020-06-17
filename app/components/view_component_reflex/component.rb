@@ -27,37 +27,49 @@ module ViewComponentReflex
             name.to_sym.to_proc
           end
 
-          define_method :method_missing do |name, *args|
+          def method_missing(name, *args)
             reflex = self
-            instance = klass.allocate
             exposed_methods = [:element, :refresh!, :refresh_all!]
             exposed_methods.each do |meth|
-              instance.define_singleton_method(meth) do |*a|
+              component.define_singleton_method(meth) do |*a|
                 reflex.send(meth, *a)
               end
             end
             state.each do |k, v|
-              instance.instance_variable_set(k, v)
+              component.instance_variable_set(k, v)
             end
-            name.to_proc.call(instance, *args)
-            new_state = {}
-            instance.instance_variables.each do |k|
-              new_state[k] = instance.instance_variable_get(k)
-            end
-            set_state(new_state)
+            name.to_proc.call(component, *args)
+            refresh!
           end
 
           define_method :stimulus_controller do
             klass.name.chomp("Component").underscore.dasherize
           end
 
+          define_method :component_class do
+            @component_class ||= klass
+          end
+
+          private :component_class, :stimulus_controller
           private
+          def component
+            @component ||= component_class.allocate
+          end
+
           def set_state(new_state = {}, primary_selector = nil, *selectors)
             ViewComponentReflex::Engine.state_adapter.set_state(self, element.dataset[:key], new_state)
           end
 
           def state
             ViewComponentReflex::Engine.state_adapter.state(request, element.dataset[:key])
+          end
+
+          def save_state
+            new_state = {}
+            component.instance_variables.each do |k|
+              new_state[k] = component.instance_variable_get(k)
+            end
+            set_state(new_state)
           end
         })
       end
