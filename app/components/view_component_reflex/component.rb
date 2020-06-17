@@ -64,7 +64,7 @@ module ViewComponentReflex
             @component ||= component_class.allocate
           end
 
-          def set_state(new_state = {}, primary_selector = nil, *selectors)
+          def set_state(new_state = {})
             ViewComponentReflex::Engine.state_adapter.set_state(self, element.dataset[:key], new_state)
           end
 
