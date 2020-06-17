@@ -34,13 +34,6 @@ module ViewComponentReflex
 
           def method_missing(name, *args)
             super unless respond_to_missing?(name)
-            reflex = self
-            exposed_methods = [:element, :refresh!, :refresh_all!]
-            exposed_methods.each do |meth|
-              component.define_singleton_method(meth) do |*a|
-                reflex.send(meth, *a)
-              end
-            end
             state.each do |k, v|
               component.instance_variable_set(k, v)
             end
@@ -59,9 +52,18 @@ module ViewComponentReflex
           private :component_class, :stimulus_controller
 
           private
-
+          
           def component
-            @component ||= component_class.allocate
+            return @component if @component
+            @component = component_class.allocate
+            reflex = self
+            exposed_methods = [:element, :refresh!, :refresh_all!]
+            exposed_methods.each do |meth|
+              @component.define_singleton_method(meth) do |*a|
+                reflex.send(meth, *a)
+              end
+            end
+            @component
           end
 
           def set_state(new_state = {})
