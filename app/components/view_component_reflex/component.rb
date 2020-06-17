@@ -43,7 +43,7 @@ module ViewComponentReflex
           end
 
           define_method :method_missing do |name, *args|
-            instance = klass.new
+            instance = klass.allocate
             state.each do |k, v|
               instance.instance_variable_set(k, v)
             end
