@@ -29,6 +29,13 @@ module ViewComponentReflex
             refresh!(primary_selector, *selectors)
           end
 
+          # SR's delegate_call_to_reflex in channel.rb
+          # uses method to gather the method parameters, but since we're abusing
+          # method_missing here, that'll always fail
+          def method(name)
+            name.to_sym.to_proc
+          end
+
           define_method :method_missing do |name, *args|
             instance = klass.allocate
             state.each do |k, v|
