@@ -59,7 +59,7 @@ module ViewComponentReflex
     # This is the next best place to do it
     def key
       self.class.init_stimulus_reflex
-      @key ||= caller.reverse.find { |p| p.include? ".html.erb" }&.hash.to_s
+      @key ||= caller.select { |p| p.include? ".html.erb" }[1]&.hash.to_s
 
       # initialize session state
       if !stimulus_reflex? || session[@key].nil?
