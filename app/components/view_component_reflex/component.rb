@@ -24,10 +24,6 @@ module ViewComponentReflex
             refresh!('body')
           end
 
-          def set_state(new_state = {}, primary_selector = nil, *selectors)
-            ViewComponentReflex::Engine.state_adapter.set_state(self, element.dataset[:key], new_state)
-          end
-
           # SR's delegate_call_to_reflex in channel.rb
           # uses method to gather the method parameters, but since we're abusing
           # method_missing here, that'll always fail
@@ -57,6 +53,11 @@ module ViewComponentReflex
 
           define_method :stimulus_controller do
             klass.name.chomp("Component").underscore.dasherize
+          end
+
+          private
+          def set_state(new_state = {}, primary_selector = nil, *selectors)
+            ViewComponentReflex::Engine.state_adapter.set_state(self, element.dataset[:key], new_state)
           end
         })
       end
