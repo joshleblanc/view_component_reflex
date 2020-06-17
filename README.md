@@ -6,49 +6,30 @@ ViewComponentReflex allows you to write reflexes right in your view component co
 
 You can add reflexes to your component by adding inheriting from `ViewComponentReflex::Component`.
 
-To add a reflex to your component, use the `reflex` method.
-
-```ruby
-    reflex :my_cool_reflex do
-      # do stuff
-      refresh!
-    end
-```
-
 This will act as if you created a reflex with the method `my_cool_stuff`. To call this reflex, add `data-reflex="click->MyComponentReflex#my_cool_reflex"`, just like you're
 using stimulus reflex.
 
-#####note: A reflex will not automatically re-render the component upon its completion. A component will re-render whenever the `set_state` or `refresh!` method is called.
+ViewComponentReflex will maintain your component's instance variables between renders. You need to include `data-key=<%= key %>` on your root element, as well 
+as any element that stimulates a reflex. ViewComponent is inherently state-less, so the key is used to reconcile state to its respective component.
 
-In addition to calling reflexes, there is a rudimentary state system. You can initialize component-local state with `initialize_state(obj)`, where `obj` is a hash.
-
-You can access state with the `state` helper. See the code below for an example. Calling `set_state` will set the state, 
-and also re-render your component.
-
-If you're using state add `data-key="<%= key %>"` to any html element using a reflex. This 
-lets ViewComponentReflex keep track of which state belongs to which component.
-
-
+### Example
 ```ruby
     # counter_component.rb
     class CounterComponent < ViewComponentReflex::Component
-   
       def initialize
-        initialize_state({
-          count: 0
-        })
+        @count = 0
       end
     
-      reflex :increment do
-        set_state(count: state[:count] + 1)
+      def increment
+        @count += 1
       end
     end
 ```
 
 ```erb
 # counter_component.html.erb
-<div data-controller="counter">
-    <p><%= state[:count] %></p>
+<div data-controller="counter" data-key="<%= key %>">
+    <p><%= @count %></p>
     <button type="button" data-reflex="click->CounterComponentReflex#increment" data-key="<%= key %>">Click</button>
 </div>
 ```
@@ -76,19 +57,27 @@ class YourAdapter
   end
 
   ##
+  # set_state is used to modify the state. It accepts a reflex, which gives you
+  # access to the request, as well as the controller and other useful objects. 
+  #
   # reflex - The reflex instance that's trying to set the state
   # key - a unique string that identifies the component
   # new_state - the new state to set
   def self.set_state(reflex, key, new_state)
+    # update the state
   end
 
 
   ##
+  # store_state is used to replace the state entirely. It only accepts
+  # a request object, rather than a reflex because it's called from the component's 
+  # side with the component's instance variables.
+  #
   # request - a rails request object
   # key - a unique string that identifies the component instance
   # new_state - a hash containing the component state
   def self.store_state(request, key, new_state = {})
-    # store the state 
+    # replace the state
   end
 end
 ```
