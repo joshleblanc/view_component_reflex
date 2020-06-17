@@ -28,11 +28,12 @@ module ViewComponentReflex
             name.to_sym.to_proc
           end
 
-          def respond_to_missing?(name, _)
+          def respond_to_missing?(name, _ = false)
             !!name.to_proc
           end
 
           def method_missing(name, *args)
+            super unless respond_to_missing?(name)
             reflex = self
             exposed_methods = [:element, :refresh!, :refresh_all!]
             exposed_methods.each do |meth|
