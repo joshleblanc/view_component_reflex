@@ -14,16 +14,16 @@ as any element that stimulates a reflex. ViewComponent is inherently state-less,
 
 ### Example
 ```ruby
-    # counter_component.rb
-    class CounterComponent < ViewComponentReflex::Component
-      def initialize
-        @count = 0
-      end
-    
-      def increment
-        @count += 1
-      end
-    end
+# counter_component.rb
+class CounterComponent < ViewComponentReflex::Component
+  def initialize
+    @count = 0
+  end
+
+  def increment
+    @count += 1
+  end
+end
 ```
 
 ```erb
