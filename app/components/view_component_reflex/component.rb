@@ -55,14 +55,14 @@ module ViewComponentReflex
           private
 
           def stimulus_controller
-            component_class.name.chomp("Component").underscore.dasherize
+            component_class.stimulus_controller
           end
 
           def component
             return @component if @component
             @component = component_class.allocate
             reflex = self
-            exposed_methods = [:element, :refresh!, :refresh_all!]
+            exposed_methods = [:element, :refresh!, :refresh_all!, :stimulus_controller]
             exposed_methods.each do |meth|
               @component.define_singleton_method(meth) do |*a|
                 reflex.send(meth, *a)
@@ -90,8 +90,17 @@ module ViewComponentReflex
       end
     end
 
+    def self.stimulus_controller
+      name.chomp("Component").underscore.dasherize
+    end
+
     def stimulus_reflex?
       helpers.controller.instance_variable_get(:@stimulus_reflex)
+    end
+
+    def component_controller(&blk)
+      opts = {data: {controller: self.class.stimulus_controller, key: key}}
+      view_context.content_tag :div, capture(&blk), opts
     end
 
     # key is required if you're using state
@@ -102,7 +111,10 @@ module ViewComponentReflex
       self.class.init_stimulus_reflex
       # we want the erb file that renders the component. `caller` gives the file name,
       # and line number, which should be unique. We hash it to make it a nice number
-      @key ||= caller.select { |p| p.include? ".html.erb" }[1]&.hash.to_s
+      key = caller.select { |p| p.include? ".html.erb" }[1]&.hash.to_s
+      if @key.nil? || @key.empty?
+        @key = key
+      end
 
       # initialize session state
       if !stimulus_reflex? || session[@key].nil?
