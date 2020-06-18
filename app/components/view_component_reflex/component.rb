@@ -7,13 +7,13 @@ module ViewComponentReflex
           def refresh!(primary_selector = "[data-controller=\"#{stimulus_controller}\"][data-key=\"#{element.dataset[:key]}\"]", *selectors)
             save_state
             @channel.send :render_page_and_broadcast_morph, self, [primary_selector, *selectors], {
-              dataset: element.dataset.to_h,
-              args: [],
-              attrs: element.attributes.to_h,
-              selectors: ["body"],
-              target: "#{self.class.name}##{method_name}",
-              url: request.url,
-              permanentAttributeName: "data-reflex-permanent"
+              "dataset" => element.dataset.to_h,
+              "args" => [],
+              "attrs" => element.attributes.to_h,
+              "selectors" => ["body"],
+              "target" => "#{self.class.name}##{method_name}",
+              "url" => request.url,
+              "permanent_attribute_name" => "data-reflex-permanent"
             }
           end
 
