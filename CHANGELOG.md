@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/joshleblanc/view_component_reflex/compare/v1.0.0...v1.0.1) (2020-06-19)
+
+
+### Bug Fixes
+
+* forward request to reflex component ([43fc585](https://github.com/joshleblanc/view_component_reflex/commit/43fc5854d82672ebe64ae73277f8d65837565854))
+* foward params ([0fa1ae1](https://github.com/joshleblanc/view_component_reflex/commit/0fa1ae1cefa6af8bbc4ba6f0f5cb4400eaa5a731))
+* permanent attribute name wasn't being detected ([fce1e3c](https://github.com/joshleblanc/view_component_reflex/commit/fce1e3cf47a455cb1c3412ba5970b196a49609c4))
+
 ## [1.0.0](https://github.com/joshleblanc/view_component_reflex/compare/v0.6.3...v1.0.0) (2020-06-18)
 
 
