@@ -103,7 +103,7 @@ module ViewComponentReflex
       opts[:data] = {
         controller: self.class.stimulus_controller,
         key: key,
-        **opts[:data]
+        **(opts[:data] || {})
       }
       content_tag :div, capture(&blk), opts
     end
