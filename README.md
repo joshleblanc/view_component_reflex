@@ -34,6 +34,25 @@ end
 <% end %>
 ```
 
+## Collections
+
+In order to reconcile state to components in collections, you can specify a `collection_key` method that returns some
+value unique to that component.
+
+```
+class TodoComponent < ViewComponentReflex::Component
+  def initialize(todo:)
+    @todo = todo
+  end
+
+  def collection_key
+    @todo.id
+  end
+end
+#
+<%= render(TodoComponent.with_collection(Todo.all)) %>
+```
+
 ## Custom State Adapters
 
 ViewComponentReflex uses session for its state by default. To change this, add

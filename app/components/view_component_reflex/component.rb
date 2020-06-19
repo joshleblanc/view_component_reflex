@@ -104,6 +104,10 @@ module ViewComponentReflex
       view_context.content_tag :div, capture(&blk), opts
     end
 
+    def collection_key
+      nil
+    end
+
     # key is required if you're using state
     # We can't initialize the session state in the initial method
     # because it doesn't have a view_context yet
@@ -112,6 +116,7 @@ module ViewComponentReflex
       # we want the erb file that renders the component. `caller` gives the file name,
       # and line number, which should be unique. We hash it to make it a nice number
       key = caller.select { |p| p.include? ".html.erb" }[1]&.hash.to_s
+      key += collection_key.to_s if collection_key
       if @key.nil? || @key.empty?
         @key = key
       end
