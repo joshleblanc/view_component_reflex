@@ -62,7 +62,7 @@ module ViewComponentReflex
             return @component if @component
             @component = component_class.allocate
             reflex = self
-            exposed_methods = [:request, :element, :refresh!, :refresh_all!, :stimulus_controller]
+            exposed_methods = [:params, :request, :element, :refresh!, :refresh_all!, :stimulus_controller]
             exposed_methods.each do |meth|
               @component.define_singleton_method(meth) do |*a|
                 reflex.send(meth, *a)
