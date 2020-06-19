@@ -98,10 +98,15 @@ module ViewComponentReflex
       helpers.controller.instance_variable_get(:@stimulus_reflex)
     end
 
-    def component_controller(&blk)
+    def component_controller(opts = {}, &blk)
       self.class.init_stimulus_reflex
-      opts = {data: {controller: self.class.stimulus_controller, key: key}}
-      view_context.content_tag :div, capture(&blk), opts
+      opts.merge!(
+        data: {
+          controller: self.class.stimulus_controller,
+          key: key
+        }
+      )
+      content_tag :div, capture(&blk), opts
     end
 
     def collection_key
