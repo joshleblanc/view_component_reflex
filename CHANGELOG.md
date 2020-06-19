@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/joshleblanc/view_component_reflex/compare/v1.0.1...v1.1.0) (2020-06-19)
+
+
+### Features
+
+* add collection_key functionality for collection rendering ([4410987](https://github.com/joshleblanc/view_component_reflex/commit/44109878b72842253a83d0a5ca457c2970932b02))
+* all passing options to component_controller ([606c03b](https://github.com/joshleblanc/view_component_reflex/commit/606c03bde5b2d433ee231ec138af219c3cb2371d))
+
+
+### Bug Fixes
+
+* add default ([b1c1526](https://github.com/joshleblanc/view_component_reflex/commit/b1c15266323e8822807d2b9de6f38cd844ebe47d))
+* include any passed data attributes ([ab04569](https://github.com/joshleblanc/view_component_reflex/commit/ab0456983cea3460ddd6249d6cb7592db021a93c))
+* initialize stimulus in component_controller ([cd6e9da](https://github.com/joshleblanc/view_component_reflex/commit/cd6e9dac725df28779fdcfbb4319b78ec34e222c))
+* loosen selector requirement ([3454a44](https://github.com/joshleblanc/view_component_reflex/commit/3454a44b8a5a6c711ed60402ab53326a6edb6616))
+
 ### [1.0.1](https://github.com/joshleblanc/view_component_reflex/compare/v1.0.0...v1.0.1) (2020-06-19)
 
 
