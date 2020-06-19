@@ -100,12 +100,10 @@ module ViewComponentReflex
 
     def component_controller(opts = {}, &blk)
       self.class.init_stimulus_reflex
-      opts.merge!(
-        data: {
-          controller: self.class.stimulus_controller,
-          key: key
-        }
-      )
+      opts[:data] = {
+        controller: self.class.stimulus_controller,
+        key: key
+      }
       content_tag :div, capture(&blk), opts
     end
 
