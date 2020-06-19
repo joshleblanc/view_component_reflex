@@ -99,6 +99,7 @@ module ViewComponentReflex
     end
 
     def component_controller(&blk)
+      self.class.init_stimulus_reflex
       opts = {data: {controller: self.class.stimulus_controller, key: key}}
       view_context.content_tag :div, capture(&blk), opts
     end
@@ -108,7 +109,6 @@ module ViewComponentReflex
     # because it doesn't have a view_context yet
     # This is the next best place to do it
     def key
-      self.class.init_stimulus_reflex
       # we want the erb file that renders the component. `caller` gives the file name,
       # and line number, which should be unique. We hash it to make it a nice number
       key = caller.select { |p| p.include? ".html.erb" }[1]&.hash.to_s
