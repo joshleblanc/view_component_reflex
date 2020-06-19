@@ -102,7 +102,8 @@ module ViewComponentReflex
       self.class.init_stimulus_reflex
       opts[:data] = {
         controller: self.class.stimulus_controller,
-        key: key
+        key: key,
+        **opts[:data]
       }
       content_tag :div, capture(&blk), opts
     end
