@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/joshleblanc/view_component_reflex/compare/v1.1.1...v1.2.0) (2020-06-20)
+
+
+### Features
+
+* allow instance variables to be overridden by props ([c9e3a9e](https://github.com/joshleblanc/view_component_reflex/commit/c9e3a9e01170069b0bd56df5994738b1b349f7d2))
+
+
+### Bug Fixes
+
+* pass request and controller instead of reflex ([6d8c295](https://github.com/joshleblanc/view_component_reflex/commit/6d8c295836d1fb38c09a88cf8516102ea40071bb))
+
 ### [1.1.1](https://github.com/joshleblanc/view_component_reflex/compare/v1.1.0...v1.1.1) (2020-06-20)
 
 
