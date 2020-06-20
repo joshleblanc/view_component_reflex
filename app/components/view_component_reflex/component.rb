@@ -72,7 +72,7 @@ module ViewComponentReflex
           end
 
           def set_state(new_state = {})
-            ViewComponentReflex::Engine.state_adapter.set_state(self, element.dataset[:key], new_state)
+            ViewComponentReflex::Engine.state_adapter.set_state(request, controller, element.dataset[:key], new_state)
           end
 
           def state
