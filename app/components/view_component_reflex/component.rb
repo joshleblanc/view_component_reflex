@@ -134,7 +134,7 @@ module ViewComponentReflex
         blacklist = [
           :@view_context, :@lookup_context, :@view_renderer, :@view_flow,
           :@virtual_path, :@variant, :@current_template, :@output_buffer, :@key,
-          :@helpers, :@controller, :@request
+          :@helpers, :@controller, :@request, :@content
         ]
         instance_variables.reject { |k| blacklist.include?(k) }.each do |k|
           new_state[k] = instance_variable_get(k)
