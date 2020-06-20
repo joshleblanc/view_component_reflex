@@ -125,6 +125,10 @@ module ViewComponentReflex
       nil
     end
 
+    def permit_parameter?(initial_param, new_param)
+      initial_param != new_param
+    end
+
     def key
       # initialize session state
       if !stimulus_reflex? || session[@key].nil?
@@ -140,9 +144,13 @@ module ViewComponentReflex
           new_state[k] = instance_variable_get(k)
         end
         ViewComponentReflex::Engine.state_adapter.store_state(request, @key, new_state)
+        ViewComponentReflex::Engine.state_adapter.store_state(request, "#{@key}_initial", new_state)
       else
+        initial_state = ViewComponentReflex::Engine.state_adapter.state(request, "#{@key}_initial")
         ViewComponentReflex::Engine.state_adapter.state(request, @key).each do |k, v|
-          instance_variable_set(k, v)
+          unless permit_parameter?(initial_state[k], instance_variable_get(k))
+            instance_variable_set(k, v)
+          end
         end
       end
       @key
