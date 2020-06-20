@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/joshleblanc/view_component_reflex/compare/v1.1.0...v1.1.1) (2020-06-20)
+
+
+### Bug Fixes
+
+* initialize key in component_controller ([26da2f4](https://github.com/joshleblanc/view_component_reflex/commit/26da2f494f275331d94262410e9334cf0f5001b0))
+* nested components wouldn't maintain state ([e27e0dc](https://github.com/joshleblanc/view_component_reflex/commit/e27e0dc1d9ddb3fc4ecaf8875465ce0af72bba1e))
+
 ## [1.1.0](https://github.com/joshleblanc/view_component_reflex/compare/v1.0.1...v1.1.0) (2020-06-19)
 
 
