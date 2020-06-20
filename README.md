@@ -53,6 +53,13 @@ end
 <%= render(TodoComponent.with_collection(Todo.all)) %>
 ```
 
+## API
+
+### permit_parameter?(initial_param, new_params)
+If a new parameter is passed to the component during rendering, it is used instead of what's in state.
+If you're storing instances in state, you can use this to properly compare them.
+
+
 ## Custom State Adapters
 
 ViewComponentReflex uses session for its state by default. To change this, add
@@ -76,13 +83,13 @@ class YourAdapter
   end
 
   ##
-  # set_state is used to modify the state. It accepts a reflex, which gives you
-  # access to the request, as well as the controller and other useful objects. 
+  # set_state is used to modify the state.
   #
-  # reflex - The reflex instance that's trying to set the state
+  # request - a rails request object
+  # controller - the current controller
   # key - a unique string that identifies the component
   # new_state - the new state to set
-  def self.set_state(reflex, key, new_state)
+  def self.set_state(request, controller, key, new_state)
     # update the state
   end
 
