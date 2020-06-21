@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/joshleblanc/view_component_reflex/compare/v1.2.0...v1.3.0) (2020-06-21)
+
+
+### Features
+
+* add ability to not save vars to state ([c11f611](https://github.com/joshleblanc/view_component_reflex/commit/c11f611f089962e6fd3bcd74dfc803dfe6fc6c70))
+
+
+### Bug Fixes
+
+* forward session ([3dbb98e](https://github.com/joshleblanc/view_component_reflex/commit/3dbb98e27fe835e75362a51e2a11b22bd600b98f))
+
 ## [1.2.0](https://github.com/joshleblanc/view_component_reflex/compare/v1.1.1...v1.2.0) (2020-06-20)
 
 
