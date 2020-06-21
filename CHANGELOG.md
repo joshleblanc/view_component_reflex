@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/joshleblanc/view_component_reflex/compare/v1.3.0...v1.4.0) (2020-06-21)
+
+
+### Features
+
+* add flag to prevent default re-render ([acb84ca](https://github.com/joshleblanc/view_component_reflex/commit/acb84caeb4fb8c8518c332cd7befd210b2d03ee1))
+
 ## [1.3.0](https://github.com/joshleblanc/view_component_reflex/compare/v1.2.0...v1.3.0) (2020-06-21)
 
 
