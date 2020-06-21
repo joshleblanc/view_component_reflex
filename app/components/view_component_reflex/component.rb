@@ -43,7 +43,11 @@ module ViewComponentReflex
               component.instance_variable_set(k, v)
             end
             name.to_proc.call(component, *args)
-            refresh!
+            refresh! unless @prevent_refresh
+          end
+
+          def prevent_refresh!
+            @prevent_refresh = true
           end
 
           define_method :component_class do
@@ -62,7 +66,7 @@ module ViewComponentReflex
             return @component if @component
             @component = component_class.allocate
             reflex = self
-            exposed_methods = [:params, :request, :element, :refresh!, :refresh_all!, :stimulus_controller, :session]
+            exposed_methods = [:params, :request, :element, :refresh!, :refresh_all!, :stimulus_controller, :session, :prevent_refresh!]
             exposed_methods.each do |meth|
               @component.define_singleton_method(meth) do |*a|
                 reflex.send(meth, *a)
