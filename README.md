@@ -59,6 +59,16 @@ end
 If a new parameter is passed to the component during rendering, it is used instead of what's in state.
 If you're storing instances in state, you can use this to properly compare them.
 
+### omitted_from_state
+Return an array of instance variables you want to omit from state. Useful if you have an object 
+that isn't serializable as an instance variable, like a form.
+
+```
+def omitted_from_state
+  [:@form]
+end
+```
+
 
 ## Custom State Adapters
 

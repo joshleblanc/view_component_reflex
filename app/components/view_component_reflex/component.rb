@@ -129,6 +129,10 @@ module ViewComponentReflex
       initial_param != new_param
     end
 
+    def omitted_from_state
+      []
+    end
+
     def key
       # initialize session state
       if !stimulus_reflex? || session[@key].nil?
@@ -141,7 +145,7 @@ module ViewComponentReflex
           :@helpers, :@controller, :@request, :@content
         ]
         instance_variables.reject { |k| blacklist.include?(k) }.each do |k|
-          new_state[k] = instance_variable_get(k)
+          new_state[k] = instance_variable_get(k) unless omitted_from_state.include?(k)
         end
         ViewComponentReflex::Engine.state_adapter.store_state(request, @key, new_state)
         ViewComponentReflex::Engine.state_adapter.store_state(request, "#{@key}_initial", new_state)
