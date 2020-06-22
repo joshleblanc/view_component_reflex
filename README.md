@@ -39,7 +39,7 @@ end
 In order to reconcile state to components in collections, you can specify a `collection_key` method that returns some
 value unique to that component.
 
-```
+```ruby
 class TodoComponent < ViewComponentReflex::Component
   def initialize(todo:)
     @todo = todo
@@ -59,16 +59,112 @@ end
 If a new parameter is passed to the component during rendering, it is used instead of what's in state.
 If you're storing instances in state, you can use this to properly compare them.
 
+```ruby
+def permit_parameter?(initial_param, new_param)
+  if new_param.instance_of? MyModel 
+    new_param.id == @my_model.id
+  else
+    super
+  end
+end
+```
+
 ### omitted_from_state
 Return an array of instance variables you want to omit from state. Useful if you have an object 
 that isn't serializable as an instance variable, like a form.
 
-```
+```ruby
 def omitted_from_state
   [:@form]
 end
 ```
 
+### collection_key
+If you're rendering a component as a collection with `MyComponent.with_collection(SomeCollection)`, you must define this method to return some unique value for the component.
+This is used to reconcile state in the background.
+
+```ruby
+def initialize
+  @my_model = MyModel.new
+end
+
+def collection_key
+ @my_model.id
+end
+```
+
+### prevent_refresh!
+By default, VCR will re-render your component after it executes your method. `revent_refresh!` prevents this from happening.
+
+```ruby
+def my_method
+  prevent_refresh!
+  @foo = Lbar
+end # the rendered page will not reflect this change
+```
+
+### refresh_all!
+Refresh the entire body of the page
+
+```ruby
+def do_some_global_action
+  prevent_refresh!
+  session[:model] = MyModel.new
+  refresh_all!
+end
+```
+
+### key
+This is a key unique to a particular component. It's used to reconcile state between renders, and should be passed as a data attribute whenever a reflex is called
+
+```erb
+<button type="button" data-reflex="click->MyComponent#do_something" data-key="<%= key %>">Click me!</button>
+```
+
+### component_controller(options = {}, &blk)
+This is a view helper to properly connect VCR to the component. It outputs `<div data-controller="my-controller" key=<%= key %></div>`
+You *must* wrap your component in this for everything to work properly.
+
+```erb
+<%= component_controller do %>
+  <p><%= @count %></p
+<% end %>
+```
+
+## Common patterns
+A lot of the time, you only need to update specific components when changing instance variables. For example, changing `@loading` might only need
+to display a spinner somewhere on the page. You can define setters to implicitly render the appropriate pieces of dom whenever that variable is set
+
+```ruby
+def initialize
+  @loading = false
+end
+
+def loading=(new_value)
+  @loading = new_value
+  refresh! '#loader'
+end
+
+def do_expensive_action
+  prevent_refresh! 
+
+  self.loading = true
+  execute_it
+  self.loading = false
+end
+```
+
+```erb
+<%= component_controller do %>
+  <div id="loader"> 
+    <% if @loading %>
+      <p>Loading...</p>
+    <% end %>
+  </div>
+
+  <button type="button" data-reflex="click->MyComponent#do_expensive_action" data-key="<%= key %>">Click me!</button>
+<% end
+```
 
 ## Custom State Adapters
 
