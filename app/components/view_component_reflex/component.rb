@@ -125,6 +125,24 @@ module ViewComponentReflex
       @key = key
     end
 
+    def reflex_tag(reflex, name, content_or_options_with_block = nil, options = nil, escape = true, &block)
+      action, method = reflex.split("->")
+      if method.nil?
+        method = action
+        action = "click"
+      end
+      data_attributes = {
+        reflex: "#{action}->#{self.class.name}##{method}",
+        key: key
+      }
+      if content_or_options_with_block.is_a?(Hash)
+        merge_data_attributes(content_or_options_with_block, data_attributes)
+      else
+        merge_data_attributes(options, data_attributes)
+      end
+      content_tag(name, content_or_options_with_block, options, escape, &block)
+    end
+
     def collection_key
       nil
     end
@@ -162,6 +180,17 @@ module ViewComponentReflex
         end
       end
       @key
+    end
+
+    private
+
+    def merge_data_attributes(options, attributes)
+      data = options[:data]
+      if data.nil?
+        options[:data] = attributes
+      else
+        options[:data].merge! attributes
+      end
     end
   end
 end
