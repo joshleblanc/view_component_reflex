@@ -30,7 +30,7 @@ end
 # counter_component.html.erb
 <%= component_controller do %>
     <p><%= @count %></p>
-    <button type="button" data-reflex="click->CounterComponentReflex#increment" data-key="<%= key %>">Click</button>
+    <%= reflex_tag :increment, :button, "Click" %>
 <% end %>
 ```
 
