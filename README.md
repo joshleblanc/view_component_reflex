@@ -79,6 +79,21 @@ def omitted_from_state
 end
 ```
 
+### reflex_tag(reflex, name, content_or_options_with_block = nil, options = nil, escape = true, &block)
+This shares the same definition as `content_tag`, except it accepts a reflex as the first parameter.
+
+```erb
+<%= reflex_tag :increment, :button, "Click me!" %>
+```
+
+Would add a click handler to the `increment` method on your component.
+
+To use a non-click event, specific that with `->` notiation
+
+```erb
+<%= reflex_tag "mouseenter->increment", :button, "Click me!" %>
+```
+
 ### collection_key
 If you're rendering a component as a collection with `MyComponent.with_collection(SomeCollection)`, you must define this method to return some unique value for the component.
 This is used to reconcile state in the background.
