@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/joshleblanc/view_component_reflex/compare/v1.4.0...v1.5.0) (2020-06-22)
+
+
+### Features
+
+* add reflex tag helper ([c2395f4](https://github.com/joshleblanc/view_component_reflex/commit/c2395f4b8d75b1db56dc84c6dd13f4976e813d39))
+
 ## [1.4.0](https://github.com/joshleblanc/view_component_reflex/compare/v1.3.0...v1.4.0) (2020-06-21)
 
 
