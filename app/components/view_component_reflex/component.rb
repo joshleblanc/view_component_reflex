@@ -102,15 +102,23 @@ module ViewComponentReflex
       helpers.controller.instance_variable_get(:@stimulus_reflex)
     end
 
-    def component_controller(opts = {}, &blk)
+    def component_controller(opts_or_tag = :div, opts = {}, &blk)
       self.class.init_stimulus_reflex
       init_key
-      opts[:data] = {
+
+      tag = :div
+      if opts_or_tag.is_a? Hash
+        options = opts_or_tag
+      else
+        tag = opts_or_tag
+        options = opts
+      end
+      options[:data] = {
         controller: self.class.stimulus_controller,
         key: key,
-        **(opts[:data] || {})
+        **(options[:data] || {})
       }
-      content_tag :div, capture(&blk), opts
+      content_tag tag, capture(&blk), options
     end
 
     # key is required if you're using state
