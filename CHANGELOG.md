@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/joshleblanc/view_component_reflex/compare/v1.5.0...v1.6.0) (2020-06-25)
+
+
+### Features
+
+* allow passing element to component_controller ([3ddbd28](https://github.com/joshleblanc/view_component_reflex/commit/3ddbd288a8f8175c0bfbf1b0ab5a5fe8e01d16e6))
+
+
+### Bug Fixes
+
+* ensure reflex is a string ([55cec0a](https://github.com/joshleblanc/view_component_reflex/commit/55cec0a0b43aa5653421ee10b86e1eb227c0e2f9))
+
 ## [1.5.0](https://github.com/joshleblanc/view_component_reflex/compare/v1.4.0...v1.5.0) (2020-06-22)
 
 
