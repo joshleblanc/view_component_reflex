@@ -126,7 +126,7 @@ module ViewComponentReflex
     end
 
     def reflex_tag(reflex, name, content_or_options_with_block = nil, options = nil, escape = true, &block)
-      action, method = reflex.split("->")
+      action, method = reflex.to_s.split("->")
       if method.nil?
         method = action
         action = "click"
