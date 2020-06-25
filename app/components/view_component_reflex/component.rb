@@ -1,5 +1,6 @@
 module ViewComponentReflex
   class Component < ViewComponent::Base
+    attr_reader :key
     class << self
       def init_stimulus_reflex
         klass = self
@@ -94,6 +95,27 @@ module ViewComponentReflex
       end
     end
 
+    def render_in(view_context, &block)
+      @view_context = view_context
+      init_with_view_context # to get the key and the instance variables we require the view_context
+      rendered = super # we call render to see if component_controller helper is being used
+      if @component_controller_used
+        rendered
+      else
+        content_tag(:div, data: {controller: self.class.stimulus_controller, key: key}) { rendered }
+      end
+    end
+
+    def init_with_view_context
+      self.class.init_stimulus_reflex
+      init_key
+      if !stimulus_reflex? || session[@key].nil?
+        store_instance_variables
+      else
+        load_instance_variables
+      end
+    end
+
     def self.stimulus_controller
       name.chomp("Component").underscore.dasherize
     end
@@ -103,10 +125,7 @@ module ViewComponentReflex
     end
 
     def component_controller(opts_or_tag = :div, opts = {}, &blk)
-      @with_component_controller = true
-      self.class.init_stimulus_reflex
-      init_key
-
+      @component_controller_used = true
       tag = :div
       if opts_or_tag.is_a? Hash
         options = opts_or_tag
@@ -121,37 +140,6 @@ module ViewComponentReflex
       }
       content_tag tag, capture(&blk), options
     end
-
-    # key is required if you're using state
-    # We can't initialize the session state in the initial method
-    # because it doesn't have a view_context yet
-    # This is the next best place to do it
-    def render_in(view_context, &block)
-      @view_context = view_context
-      self.class.init_stimulus_reflex
-      init_key
-      key
-      # we call render to see if component_controller helper is being used
-      rendered = super
-      if @with_component_controller
-        rendered
-      else
-        content_tag(:div, data: {controller: self.class.stimulus_controller, key: key}) { rendered }
-      end
-    end
-
-    def init_key
-      return @key if @key.present?
-
-      key = caller.select { |p| p.include? ".html.erb" }[0]&.hash.to_s
-      key += collection_key.to_s if collection_key
-      @key = key
-    end
-
-    def request
-      @view_context.request
-    end
-
 
     def reflex_tag(reflex, name, content_or_options_with_block = nil, options = nil, escape = true, &block)
       action, method = reflex.to_s.split("->")
@@ -183,34 +171,42 @@ module ViewComponentReflex
       []
     end
 
-    def key
-      # initialize session state
-      if !stimulus_reflex? || session[@key].nil?
-        new_state = {}
 
-        # this will almost certainly break
-        blacklist = [
+
+    private
+
+    def init_key
+      return @key if @key.present?
+
+      key = caller.select { |p| p.include? ".html.erb" }[0]&.hash.to_s
+      key += collection_key.to_s if collection_key
+      @key = key
+    end
+
+    def load_instance_variables
+      initial_state = ViewComponentReflex::Engine.state_adapter.state(request, "#{@key}_initial")
+      ViewComponentReflex::Engine.state_adapter.state(request, @key).each do |k, v|
+        unless permit_parameter?(initial_state[k], instance_variable_get(k))
+          instance_variable_set(k, v)
+        end
+      end
+    end
+
+    def store_instance_variables
+      new_state = {}
+
+      # this will almost certainly break
+      blacklist = [
           :@view_context, :@lookup_context, :@view_renderer, :@view_flow,
           :@virtual_path, :@variant, :@current_template, :@output_buffer, :@key,
           :@helpers, :@controller, :@request, :@content
-        ]
-        instance_variables.reject { |k| blacklist.include?(k) }.each do |k|
-          new_state[k] = instance_variable_get(k) unless omitted_from_state.include?(k)
-        end
-        ViewComponentReflex::Engine.state_adapter.store_state(request, @key, new_state)
-        ViewComponentReflex::Engine.state_adapter.store_state(request, "#{@key}_initial", new_state)
-      else
-        initial_state = ViewComponentReflex::Engine.state_adapter.state(request, "#{@key}_initial")
-        ViewComponentReflex::Engine.state_adapter.state(request, @key).each do |k, v|
-          unless permit_parameter?(initial_state[k], instance_variable_get(k))
-            instance_variable_set(k, v)
-          end
-        end
+      ]
+      instance_variables.reject { |k| blacklist.include?(k) }.each do |k|
+        new_state[k] = instance_variable_get(k) unless omitted_from_state.include?(k)
       end
-      @key
+      ViewComponentReflex::Engine.state_adapter.store_state(request, @key, new_state)
+      ViewComponentReflex::Engine.state_adapter.store_state(request, "#{@key}_initial", new_state)
     end
-
-    private
 
     def merge_data_attributes(options, attributes)
       data = options[:data]
