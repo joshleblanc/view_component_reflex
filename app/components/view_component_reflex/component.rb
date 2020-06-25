@@ -99,10 +99,11 @@ module ViewComponentReflex
     end
 
     def stimulus_reflex?
-      helpers.controller.instance_variable_get(:@stimulus_reflex)
+      view_context.instance_variable_get(:@stimulus_reflex)
     end
 
     def component_controller(opts_or_tag = :div, opts = {}, &blk)
+      @with_component_controller = true
       self.class.init_stimulus_reflex
       init_key
 
@@ -125,13 +126,32 @@ module ViewComponentReflex
     # We can't initialize the session state in the initial method
     # because it doesn't have a view_context yet
     # This is the next best place to do it
+    def render_in(view_context, &block)
+      @view_context = view_context
+      self.class.init_stimulus_reflex
+      init_key
+      key
+      # we call render to see if component_controller helper is being used
+      rendered = super
+      if @with_component_controller
+        rendered
+      else
+        content_tag(:div, data: {controller: self.class.stimulus_controller, key: key}) { rendered }
+      end
+    end
+
     def init_key
-      # we want the erb file that renders the component. `caller` gives the file name,
-      # and line number, which should be unique. We hash it to make it a nice number
-      key = caller.select { |p| p.include? ".html.erb" }[1]&.hash.to_s
+      return @key if @key.present?
+
+      key = caller.select { |p| p.include? ".html.erb" }[0]&.hash.to_s
       key += collection_key.to_s if collection_key
       @key = key
     end
+
+    def request
+      @view_context.request
+    end
+
 
     def reflex_tag(reflex, name, content_or_options_with_block = nil, options = nil, escape = true, &block)
       action, method = reflex.to_s.split("->")
