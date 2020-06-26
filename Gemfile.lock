@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    view_component_reflex (1.6.0)
+    view_component_reflex (1.6.1)
       rails (~> 6.0.3, >= 6.0.3.1)
       stimulus_reflex
       view_component
