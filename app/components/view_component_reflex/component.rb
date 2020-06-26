@@ -133,7 +133,7 @@ module ViewComponentReflex
       @key = key
     end
 
-    def reflex_tag(reflex, name, content_or_options_with_block = nil, options = nil, escape = true, &block)
+    def reflex_tag(reflex, name, content_or_options_with_block = {}, options = {}, escape = true, &block)
       action, method = reflex.to_s.split("->")
       if method.nil?
         method = action
