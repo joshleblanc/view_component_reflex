@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.1](https://github.com/joshleblanc/view_component_reflex/compare/v1.6.0...v1.6.1) (2020-06-26)
+
+
+### Bug Fixes
+
+* default options to hashes ([d56a732](https://github.com/joshleblanc/view_component_reflex/commit/d56a732e390ad7d05686f42c987c0d7ff399c5e2))
+
 ## [1.6.0](https://github.com/joshleblanc/view_component_reflex/compare/v1.5.0...v1.6.0) (2020-06-25)
 
 
