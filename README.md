@@ -12,7 +12,7 @@ using stimulus reflex.
 ViewComponentReflex will maintain your component's instance variables between renders. You need to include `data-key=<%= key %>` on your root element, as well 
 as any element that stimulates a reflex. ViewComponent is inherently state-less, so the key is used to reconcile state to its respective component.
 
-### Example
+### example
 ```ruby
 # counter_component.rb
 class CounterComponent < ViewComponentReflex::Component
@@ -28,10 +28,8 @@ end
 
 ```erb
 # counter_component.html.erb
-<%= component_controller do %>
-    <p><%= @count %></p>
-    <%= reflex_tag :increment, :button, "Click" %>
-<% end %>
+<p><%= @count %></p>
+<%= reflex_tag :increment, :button, "Click" %>
 ```
 
 ## Collections
@@ -136,14 +134,15 @@ This is a key unique to a particular component. It's used to reconcile state bet
 <button type="button" data-reflex="click->MyComponent#do_something" data-key="<%= key %>">Click me!</button>
 ```
 
-### component_controller(options = {}, &blk)
-This is a view helper to properly connect VCR to the component. It outputs `<div data-controller="my-controller" key=<%= key %></div>`
-You *must* wrap your component in this for everything to work properly.
+### component_controller(opts_or_tag = :div, opts = {}, &blk)
+
+The rendered componentis automatically wrapped in a div to properly connect VCR to the component. If you want more control, you can use this helper in your view.
 
 ```erb
-<%= component_controller do %>
-  <p><%= @count %></p
+<%= component_controller :p, class: "fancy_count" do %>
+  <%= @count %>
 <% end %>
+<p>I won't be touched by updates</p>
 ```
 
 ## Common patterns
@@ -170,14 +169,13 @@ end
 ```
 
 ```erb
-<%= component_controller do %>
-  <div id="loader"> 
-    <% if @loading %>
-      <p>Loading...</p>
-    <% end %>
-  </div>
+<div id="loader">
+  <% if @loading %>
+    <p>Loading...</p>
+  <% end %>
+</div>
 
-  <button type="button" data-reflex="click->MyComponent#do_expensive_action" data-key="<%= key %>">Click me!</button>
+<button type="button" data-reflex="click->MyComponent#do_expensive_action" data-key="<%= key %>">Click me!</button>
 <% end
 ```
 
