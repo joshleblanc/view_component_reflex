@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.7.1](https://github.com/joshleblanc/view_component_reflex/compare/v1.7.0...v1.7.1) (2020-07-05)
+
+
+### Bug Fixes
+
+* set correct versions in gemspec ([8b4916c](https://github.com/joshleblanc/view_component_reflex/commit/8b4916c6b82dd271d65358835a143b5de1193b69))
+
 ## [1.7.0](https://github.com/joshleblanc/view_component_reflex/compare/v1.6.1...v1.7.0) (2020-07-05)
 
 
