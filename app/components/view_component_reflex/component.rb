@@ -18,7 +18,7 @@ module ViewComponentReflex
           end
 
           def refresh_all!
-            refresh!("body")
+            morph :body, render_page(self)
           end
 
           # SR's delegate_call_to_reflex in channel.rb
