@@ -70,8 +70,8 @@ end
 ```
 
 ### omitted_from_state
-Return an array of instance variables you want to omit from state. Useful if you have an object 
-that isn't serializable as an instance variable, like a form.
+Return an array of instance variables you want to omit from state. Only really useful if you're using the session state
+adapter, and you have an instance variable that can't be serialized.
 
 ```ruby
 def omitted_from_state
@@ -180,6 +180,11 @@ end
   <button type="button" data-reflex="click->MyComponent#do_expensive_action" data-key="<%= key %>">Click me!</button>
 <% end
 ```
+
+## State
+
+By default, view_component_reflex stores component state in memory. You can optionally set the state adapter
+to use the session by changing `config.state_adapter` to `ViewComponentReflex::StateAdapter::Session`
 
 ## Custom State Adapters
 
