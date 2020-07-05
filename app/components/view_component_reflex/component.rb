@@ -80,7 +80,7 @@ module ViewComponentReflex
 
           def save_state
             new_state = {}
-            component.instance_variables.each do |k|
+            component.safe_instance_variables.each do |k|
               new_state[k] = component.instance_variable_get(k)
             end
             set_state(new_state)
@@ -163,15 +163,8 @@ module ViewComponentReflex
       if !stimulus_reflex? || session[@key].nil?
         new_state = {}
 
-        # this will almost certainly break
-        blacklist = [
-          :@view_context, :@lookup_context, :@view_renderer, :@view_flow,
-          :@virtual_path, :@variant, :@current_template, :@output_buffer, :@key,
-          :@helpers, :@controller, :@request, :@content
-        ]
-        instance_variables.reject { |k| blacklist.include?(k) }.each do |k|
-          new_state[k] = instance_variable_get(k) unless omitted_from_state.include?(k)
-        end
+        new_state = create_safe_state
+
         ViewComponentReflex::Engine.state_adapter.store_state(request, @key, new_state)
         ViewComponentReflex::Engine.state_adapter.store_state(request, "#{@key}_initial", new_state)
       else
@@ -185,7 +178,29 @@ module ViewComponentReflex
       @key
     end
 
+    def safe_instance_variables
+      instance_variables - unsafe_instance_variables
+    end
+
     private
+
+    def unsafe_instance_variables
+      [
+        :@view_context, :@lookup_context, :@view_renderer, :@view_flow,
+        :@virtual_path, :@variant, :@current_template, :@output_buffer, :@key,
+        :@helpers, :@controller, :@request, :@content, :@tag_builder
+      ]
+    end
+
+    def create_safe_state
+      new_state = {}
+
+      # this will almost certainly break
+      safe_instance_variables.each do |k|
+        new_state[k] = instance_variable_get(k) unless omitted_from_state.include?(k)
+      end
+      new_state
+    end
 
     def merge_data_attributes(options, attributes)
       data = options[:data]
