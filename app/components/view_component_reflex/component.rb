@@ -196,8 +196,7 @@ module ViewComponentReflex
 
     def key
       # initialize session state
-      if !stimulus_reflex? || session[@key].nil?
-        new_state = {}
+      if !stimulus_reflex? || ViewComponentReflex::Engine.state_adapter.state(request, @key).empty?
 
         new_state = create_safe_state
 
