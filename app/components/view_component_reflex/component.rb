@@ -32,11 +32,6 @@ module ViewComponentReflex
             !!name.to_proc
           end
 
-          before_reflex do |a|
-            a.send a.method_name
-            throw :abort
-          end
-
           def method_missing(name, *args)
             super unless respond_to_missing?(name)
             state.each do |k, v|
