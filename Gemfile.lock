@@ -3,8 +3,8 @@ PATH
   specs:
     view_component_reflex (1.7.0)
       rails (~> 6.0.3, >= 6.0.3.1)
-      stimulus_reflex
-      view_component
+      stimulus_reflex (>= 3.3.0.pre0)
+      view_component (>= 2.13.0)
 
 GEM
   remote: https://rubygems.org/
@@ -126,7 +126,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    stimulus_reflex (3.2.3)
+    stimulus_reflex (3.3.0.pre0)
       cable_ready (>= 4.1.2)
       nokogiri
       rack
