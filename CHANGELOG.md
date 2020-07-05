@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/joshleblanc/view_component_reflex/compare/v1.6.1...v1.7.0) (2020-07-05)
+
+
+### Features
+
+* add memory state adapter ([83403d2](https://github.com/joshleblanc/view_component_reflex/commit/83403d2a2a6a41a7bfe425d1253a57bf38def4d8))
+* make memory adapter the default ([68079b7](https://github.com/joshleblanc/view_component_reflex/commit/68079b77d5db22f2e639239a8f90560b917fd3e9))
+
+
+### Bug Fixes
+
+* decouple key from session ([bdd41b5](https://github.com/joshleblanc/view_component_reflex/commit/bdd41b5261673d57f51d9e3abc76fe3883f56b07))
+
 ### [1.6.1](https://github.com/joshleblanc/view_component_reflex/compare/v1.6.0...v1.6.1) (2020-06-26)
 
 
