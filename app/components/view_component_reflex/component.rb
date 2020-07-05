@@ -48,6 +48,10 @@ module ViewComponentReflex
           def selector
             "[data-controller~=\"#{stimulus_controller}\"][data-key=\"#{element.dataset[:key]}\"]"
           end
+          
+          def permanent_attribute_name
+            "data-reflex-permanent"
+          end
 
           def refresh_all!
             morph :body, render_page(self)
