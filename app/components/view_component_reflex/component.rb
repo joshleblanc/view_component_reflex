@@ -4,49 +4,17 @@ module ViewComponentReflex
       def init_stimulus_reflex
         klass = self
         @stimulus_reflex ||= Object.const_set(name + "Reflex", Class.new(StimulusReflex::Reflex) {
-          def refresh!(*selectors)
+          def refresh!(primary_selector = "[data-controller~=\"#{stimulus_controller}\"][data-key=\"#{element.dataset[:key]}\"]", *selectors)
             save_state
-
-            # If the component has instance variables omitted from state,
-            # we can't render it to string from here because those instance
-            # variables will be missing. In that case, set the selectors to the
-            # default selector and manually morph the page
-            if selectors.empty? && !component.can_render_to_string?
-              selectors.push selector
-            end
-
-            # If we're just updating the component itself, we can
-            # directly render it instead of rendering the entire page again
-            if selectors.empty?
-              refresh_component!
-            else
-              @channel.send :render_page_and_broadcast_morph, self, selectors, {
-                "dataset" => element.dataset.to_h,
-                "args" => [],
-                "attrs" => element.attributes.to_h,
-                "selectors" => ["body"],
-                "target" => "#{self.class.name}##{method_name}",
-                "url" => request.url,
-                "permanent_attribute_name" => permanent_attribute_name
-              }
-            end
-          end
-
-          def refresh_component!
-            # The component can't figure out the key when we render from here
-            # Luckily we already know the key, so we can manually override it
-            component.tap do |k|
-              k.define_singleton_method(:key) do
-                element.dataset[:key]
-              end
-            end
-            html = controller.render_component_to_string(component)
-            document = Nokogiri::HTML(html)
-            morph selector, document.css("#{selector} > *").to_s
-          end
-
-          def selector
-            "[data-controller~=\"#{stimulus_controller}\"][data-key=\"#{element.dataset[:key]}\"]"
+            @channel.send :render_page_and_broadcast_morph, self, [primary_selector, *selectors], {
+              "dataset" => element.dataset.to_h,
+              "args" => [],
+              "attrs" => element.attributes.to_h,
+              "selectors" => ["body"],
+              "target" => "#{self.class.name}##{method_name}",
+              "url" => request.url,
+              "permanent_attribute_name" => "data-reflex-permanent"
+            }
           end
 
           def refresh_all!
@@ -127,10 +95,6 @@ module ViewComponentReflex
 
     def stimulus_reflex?
       helpers.controller.instance_variable_get(:@stimulus_reflex)
-    end
-
-    def can_render_to_string?
-      omitted_from_state.empty?
     end
 
     def component_controller(opts_or_tag = :div, opts = {}, &blk)
