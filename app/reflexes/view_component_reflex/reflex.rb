@@ -23,7 +23,8 @@ module ViewComponentReflex
             cable_ready[channel.stream_name].morph(
               selector: s,
               html: html.inner_html,
-              children_only: true
+              children_only: true,
+              permanent_attribute_name: "data-reflex-permanent"
             )
           end
         end
@@ -39,10 +40,12 @@ module ViewComponentReflex
           element.dataset[:key]
         end
       end
+      document = Nokogiri::HTML(controller.render_component_to_string(component))
       cable_ready[channel.stream_name].morph(
         selector: selector,
-        children_only: false,
-        html: controller.render_component_to_string(component)
+        children_only: true,
+        html: document.css(selector).inner_html,
+        permanent_attribute_name: "data-reflex-permanent"
       )
     end
 
