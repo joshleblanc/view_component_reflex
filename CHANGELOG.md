@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/joshleblanc/view_component_reflex/compare/v1.7.2...v2.0.0) (2020-07-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* prevent_refresh! default was a breaking change
+
+### Features
+
+* manually replace only the component html, without rendering page ([106f643](https://github.com/joshleblanc/view_component_reflex/commit/106f643943df34a46f3e24155c336ffef93b1e17))
+
+
+### Bug Fixes
+
+* check if a selector is passed before replacing it ([6201b4f](https://github.com/joshleblanc/view_component_reflex/commit/6201b4f4c22bbbb12722d45b37b597024c7735f9))
+* only render component directly if nothing omitted_from_state ([239a2bb](https://github.com/joshleblanc/view_component_reflex/commit/239a2bbce8bf01d61614f1ad61ea13bc025122ea))
+* render entire page if custom selector provided ([fc37c6c](https://github.com/joshleblanc/view_component_reflex/commit/fc37c6c9eed98850de7cca865387dc55c90651a7))
+* share selector with component ([0405565](https://github.com/joshleblanc/view_component_reflex/commit/0405565c77fcd72e78944d9e0da6c8f41e3d8ef4))
+
+
+* prevent_refresh! default was a breaking change ([b043ea2](https://github.com/joshleblanc/view_component_reflex/commit/b043ea215d58ee565eb99e8a66036d867d229715))
+
 ### [1.7.2](https://github.com/joshleblanc/view_component_reflex/compare/v1.7.1...v1.7.2) (2020-07-06)
 
 ### [1.7.1](https://github.com/joshleblanc/view_component_reflex/compare/v1.7.0...v1.7.1) (2020-07-05)
