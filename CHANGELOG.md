@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1](https://github.com/joshleblanc/view_component_reflex/compare/v2.0.0...v2.0.1) (2020-07-07)
+
+
+### Bug Fixes
+
+* broadcast morphs ([803651b](https://github.com/joshleblanc/view_component_reflex/commit/803651be0727f8212fc5de82e032a03314801aac))
+* morph instead of x_html ([1dde351](https://github.com/joshleblanc/view_component_reflex/commit/1dde351df62b1388411cb3da4942b6be7c736eb4))
+* save content to state ([1d62395](https://github.com/joshleblanc/view_component_reflex/commit/1d62395fe24d304c936de632cf6d4485a1bf347a))
+
 ## [2.0.0](https://github.com/joshleblanc/view_component_reflex/compare/v1.7.2...v2.0.0) (2020-07-07)
 
 
