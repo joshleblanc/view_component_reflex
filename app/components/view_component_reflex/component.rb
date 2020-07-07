@@ -34,6 +34,10 @@ module ViewComponentReflex
       content_tag tag, capture(&blk), options
     end
 
+    def can_render_to_string?
+      omitted_from_state.empty?
+    end
+
     # key is required if you're using state
     # We can't initialize the session state in the initial method
     # because it doesn't have a view_context yet
