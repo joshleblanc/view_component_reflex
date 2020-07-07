@@ -108,6 +108,19 @@ def collection_key
 end
 ```
 
+### refresh!(selectors)
+Refresh a specific element on the page. Using this will implicitly run `prevent_render!`.
+If you want to render a specific element, as well as the component, a common pattern would be to pass `selector` as one of the parameters
+
+```
+def my_method
+  refresh! '#my-special-element', selector
+end
+```
+
+### selector
+Returns the unique selector for this component. Useful to pass to `refresh!` when refreshing custom elements.
+
 ### prevent_refresh!
 By default, VCR will re-render your component after it executes your method. `revent_refresh!` prevents this from happening.
 
