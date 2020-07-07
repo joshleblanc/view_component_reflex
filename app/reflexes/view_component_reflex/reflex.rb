@@ -10,6 +10,7 @@ module ViewComponentReflex
       save_state
       if primary_selector
         prevent_refresh!
+
         controller.process(url_params[:action])
         document = Nokogiri::HTML(controller.response.body)
         [primary_selector, *rest].each do |s|
