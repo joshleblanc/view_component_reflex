@@ -20,7 +20,7 @@ module ViewComponentReflex
         [primary_selector, *rest].each do |s|
           html = document.css(s)
           if html.present?
-            cable_ready[channel.stream_name].inner_html(
+            cable_ready[channel.stream_name].morph(
               selector: s,
               html: html.inner_html,
               children_only: true
@@ -38,8 +38,9 @@ module ViewComponentReflex
           element.dataset[:key]
         end
       end
-      cable_ready[channel.stream_name].outer_html(
+      cable_ready[channel.stream_name].morph(
         selector: selector,
+        children_only: false,
         html: controller.render_component_to_string(component)
       )
     end
