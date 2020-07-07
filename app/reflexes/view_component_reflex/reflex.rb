@@ -30,6 +30,7 @@ module ViewComponentReflex
       else
         refresh_component!
       end
+      cable_ready.broadcast
     end
 
     def refresh_component!
