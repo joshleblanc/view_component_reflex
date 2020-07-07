@@ -6,21 +6,43 @@ module ViewComponentReflex
       attr_accessor :component_class
     end
 
-    def refresh!(primary_selector = "[data-controller~=\"#{stimulus_controller}\"][data-key=\"#{element.dataset[:key]}\"]", *selectors)
+    def refresh!(primary_selector = nil, *rest)
       save_state
+      if primary_selector
+        prevent_refresh!
+        controller.process(url_params[:action])
+        document = Nokogiri::HTML(controller.response.body)
+        [primary_selector, *rest].each do |s|
+          html = document.css(s)
+          cable_ready[channel.stream_name].inner_html(
+            selector: s,
+            html: html.inner_html,
+            children_only: true
+          ) if html.present?
+        end
+      else
+        refresh_component!
+      end
+    end
+
+    def refresh_component!
       component.tap do |k|
         k.define_singleton_method(:key) do
           element.dataset[:key]
         end
       end
       cable_ready[channel.stream_name].outer_html(
-        selector: primary_selector,
+        selector: selector,
         html: controller.render_component_to_string(component)
       )
     end
 
     def refresh_all!
       refresh!("body")
+    end
+
+    def selector
+      "[data-controller~=\"#{stimulus_controller}\"][data-key=\"#{element.dataset[:key]}\"]"
     end
 
     # SR's delegate_call_to_reflex in channel.rb
