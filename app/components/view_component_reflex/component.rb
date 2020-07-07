@@ -109,7 +109,7 @@ module ViewComponentReflex
       [
         :@view_context, :@lookup_context, :@view_renderer, :@view_flow,
         :@virtual_path, :@variant, :@current_template, :@output_buffer, :@key,
-        :@helpers, :@controller, :@request, :@content, :@tag_builder
+        :@helpers, :@controller, :@request, :@tag_builder
       ]
     end
 
