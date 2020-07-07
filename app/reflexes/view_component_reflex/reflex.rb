@@ -14,11 +14,13 @@ module ViewComponentReflex
         document = Nokogiri::HTML(controller.response.body)
         [primary_selector, *rest].each do |s|
           html = document.css(s)
-          cable_ready[channel.stream_name].inner_html(
-            selector: s,
-            html: html.inner_html,
-            children_only: true
-          ) if html.present?
+          if html.present?
+            cable_ready[channel.stream_name].inner_html(
+              selector: s,
+              html: html.inner_html,
+              children_only: true
+            )
+          end
         end
       else
         refresh_component!
