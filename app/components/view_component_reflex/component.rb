@@ -4,17 +4,19 @@ module ViewComponentReflex
       def init_stimulus_reflex
         klass = self
         @stimulus_reflex ||= Object.const_set(name + "Reflex", Class.new(StimulusReflex::Reflex) {
+          include CableReady::Broadcaster
+
           def refresh!(primary_selector = "[data-controller~=\"#{stimulus_controller}\"][data-key=\"#{element.dataset[:key]}\"]", *selectors)
             save_state
-            @channel.send :render_page_and_broadcast_morph, self, [primary_selector, *selectors], {
-              "dataset" => element.dataset.to_h,
-              "args" => [],
-              "attrs" => element.attributes.to_h,
-              "selectors" => ["body"],
-              "target" => "#{self.class.name}##{method_name}",
-              "url" => request.url,
-              "permanent_attribute_name" => "data-reflex-permanent"
-            }
+            component.tap do |k|
+              k.define_singleton_method(:key) do
+                element.dataset[:key]
+              end
+            end
+            cable_ready[channel.stream_name].outer_html(
+              selector: primary_selector,
+              html: controller.render_component_to_string(component)
+            )
           end
 
           def refresh_all!
