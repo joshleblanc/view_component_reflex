@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    view_component_reflex (1.7.2)
+    view_component_reflex (2.0.0)
       rails (~> 6.0.3, >= 6.0.3.1)
       stimulus_reflex
       view_component
@@ -137,7 +137,7 @@ GEM
       thread_safe (~> 0.1)
     tzinfo-data (1.2020.1)
       tzinfo (>= 1.0.0)
-    view_component (2.13.0)
+    view_component (2.14.0)
       activesupport (>= 5.0.0, < 7.0)
     websocket-driver (0.7.2)
       websocket-extensions (>= 0.1.0)
