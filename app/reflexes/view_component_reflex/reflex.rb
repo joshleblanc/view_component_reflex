@@ -96,11 +96,23 @@ module ViewComponentReflex
       component_class.stimulus_controller
     end
 
+    def stimulate(target, data)
+      dataset = {}
+      data.each do |k, v|
+        dataset["data-#{k}"] = v.to_s
+      end
+      channel.receive({
+        "target" => target,
+        "attrs" => element.attributes.to_h.symbolize_keys,
+        "dataset" => dataset
+      })
+    end
+
     def component
       return @component if @component
       @component = component_class.allocate
       reflex = self
-      exposed_methods = [:params, :request, :element, :refresh!, :refresh_all!, :stimulus_controller, :session, :prevent_refresh!, :selector]
+      exposed_methods = [:params, :request, :element, :refresh!, :refresh_all!, :stimulus_controller, :session, :prevent_refresh!, :selector, :stimulate]
       exposed_methods.each do |meth|
         @component.define_singleton_method(meth) do |*a|
           reflex.send(meth, *a)
