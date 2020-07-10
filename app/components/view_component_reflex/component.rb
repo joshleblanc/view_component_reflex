@@ -91,7 +91,11 @@ module ViewComponentReflex
       else
         initial_state = ViewComponentReflex::Engine.state_adapter.state(request, "#{@key}_initial")
         ViewComponentReflex::Engine.state_adapter.state(request, @key).each do |k, v|
-          unless permit_parameter?(initial_state[k], instance_variable_get(k))
+          instance_value = instance_variable_get(k)
+          if permit_parameter?(initial_state[k], instance_value)
+            ViewComponentReflex::Engine.state_adapter.set_state(request, controller, "#{@key}_initial", { k => instance_value })
+            ViewComponentReflex::Engine.state_adapter.set_state(request, controller, @key, { k => instance_value })
+          else
             instance_variable_set(k, v)
           end
         end
