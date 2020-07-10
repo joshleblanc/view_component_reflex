@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/joshleblanc/view_component_reflex/compare/v2.0.2...v2.1.0) (2020-07-10)
+
+
+### Features
+
+* add stimulate method to stimulate other reflex from a reflex ([a110330](https://github.com/joshleblanc/view_component_reflex/commit/a110330b4faf2424f09bb1e7df74c9a9e9f6f3e1))
+
+
+### Bug Fixes
+
+* save state if reset by parem ([9f759b4](https://github.com/joshleblanc/view_component_reflex/commit/9f759b4a46cd34b10aa69b222369b7ef0de48263))
+
 ### [2.0.2](https://github.com/joshleblanc/view_component_reflex/compare/v2.0.1...v2.0.2) (2020-07-07)
 
 
