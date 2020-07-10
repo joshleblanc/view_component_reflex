@@ -108,6 +108,20 @@ def collection_key
 end
 ```
 
+### stimulate(target, data)
+Stimulate another reflex from within your component. This typically requires the key of the component you're stimulating
+which can be passed in via parameters.
+
+```ruby
+def initialize(parent_key)
+  @parent_key = parent_key
+end
+
+def stimulate_other
+  stimulate("OtherComponent#method", { key: @parent_key })
+end
+```
+
 ### refresh!(selectors)
 Refresh a specific element on the page. Using this will implicitly run `prevent_render!`.
 If you want to render a specific element, as well as the component, a common pattern would be to pass `selector` as one of the parameters
