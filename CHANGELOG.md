@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.1](https://github.com/joshleblanc/view_component_reflex/compare/v2.1.0...v2.1.1) (2020-07-15)
+
+
+### Bug Fixes
+
+* support namespaced components ([2a326cb](https://github.com/joshleblanc/view_component_reflex/commit/2a326cb81c2205a0fa0cea2ebbd76140cccd7f86))
+
 ## [2.1.0](https://github.com/joshleblanc/view_component_reflex/compare/v2.0.2...v2.1.0) (2020-07-10)
 
 
