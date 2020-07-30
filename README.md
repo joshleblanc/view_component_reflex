@@ -290,3 +290,8 @@ The gem is available as open source under the terms of the [MIT License](https:/
 ## Caveats
 
 State uses session to maintain state as of right now. It also assumes your component view is written with the file extension `.html.erb`
+
+## Support me
+
+<a href="https://www.buymeacoffee.com/jleblanc" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="40" ></a>
+
