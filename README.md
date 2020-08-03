@@ -279,9 +279,19 @@ Or install it yourself as:
 $ gem install view_component_reflex
 ```
 
+## Common problems
+
+# Uninitialized constants \<component\>Reflex
+A component needs to be wrapped in `<%= component_controller do %>` in order to properly initialize, otherwise the Reflex class won't get created.
+
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
 ## Caveats
 
 State uses session to maintain state as of right now. It also assumes your component view is written with the file extension `.html.erb`
+
+## Support me
+
+<a href="https://www.buymeacoffee.com/jleblanc" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="40" ></a>
+
