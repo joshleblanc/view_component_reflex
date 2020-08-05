@@ -15,7 +15,7 @@ module ViewComponentReflex
 
       def self.store_state(request, key, new_state = {})
         VIEW_COMPONENT_REFLEX_MEMORY_STATE[request.session.id.to_s] ||= {}
-        VIEW_COMPONENT_REFLEX_MEMORY_STATE[request.session.id.to_s][key] ||= {}
+        VIEW_COMPONENT_REFLEX_MEMORY_STATE[request.session.id.to_s][key] = {}
         new_state.each do |k, v|
           VIEW_COMPONENT_REFLEX_MEMORY_STATE[request.session.id.to_s][key][k] = v
         end
