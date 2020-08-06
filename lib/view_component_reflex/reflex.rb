@@ -61,19 +61,26 @@ module ViewComponentReflex
     # uses method to gather the method parameters, but since we're abusing
     # method_missing here, that'll always fail
     def method(name)
-      name.to_sym.to_proc
+      component.method(name.to_sym)
     end
 
     def respond_to_missing?(name, _ = false)
       !!name.to_proc
     end
 
-    before_reflex do |a|
-      a.send a.method_name
-      throw :abort
+    # this is copied out of stimulus_reflex/reflex.rb and modified
+    def morph(selectors, html = "")
+      case selectors
+      when :nothing
+        @broadcaster = StimulusReflex::NothingBroadcaster.new(self)
+      else
+        @broadcaster = StimulusReflex::SelectorBroadcaster.new(self) unless broadcaster.selector?
+        broadcaster.morphs << [selectors, html]
+      end
     end
 
     def method_missing(name, *args)
+      morph :nothing
       super unless respond_to_missing?(name)
       state.each do |k, v|
         component.instance_variable_set(k, v)
