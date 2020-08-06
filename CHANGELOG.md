@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.3](https://github.com/joshleblanc/view_component_reflex/compare/v2.1.2...v2.1.3) (2020-08-06)
+
+
+### Bug Fixes
+
+* replace state in memory's store_state ([8ba916d](https://github.com/joshleblanc/view_component_reflex/commit/8ba916dea7b78e593dce18f7b1e883d17e1d7ca6))
+* view component reflexes wouldn't accept arguments ([6086ecc](https://github.com/joshleblanc/view_component_reflex/commit/6086ecc44dc22c83a56e5e96ee5438231679b6fa))
+
 ### [2.1.1](https://github.com/joshleblanc/view_component_reflex/compare/v2.1.0...v2.1.1) (2020-07-15)
 
 
