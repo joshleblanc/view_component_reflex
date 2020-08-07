@@ -86,6 +86,7 @@ module ViewComponentReflex
         component.instance_variable_set(k, v)
       end
       name.to_proc.call(component, *args)
+      controller.instance_variable_set(:@test, "blah")
       refresh! unless @prevent_refresh
     end
 
@@ -123,7 +124,7 @@ module ViewComponentReflex
       exposed_methods.each do |meth|
         @component.define_singleton_method(meth) do |*a|
           reflex.send(meth, *a)
-        end
+        end4
       end
       @component
     end
@@ -133,7 +134,7 @@ module ViewComponentReflex
     end
 
     def state
-      ViewComponentReflex::Engine.state_adapter.state(request, element.dataset[:key])
+      ViewComponentReflex::Engine.state_adapter.state(request, controller, element.dataset[:key])
     end
 
     def save_state

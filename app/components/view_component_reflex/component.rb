@@ -22,7 +22,6 @@ module ViewComponentReflex
     def component_controller(opts_or_tag = :div, opts = {}, &blk)
       self.class.init_stimulus_reflex
       init_key
-
       tag = :div
       if opts_or_tag.is_a? Hash
         options = opts_or_tag
@@ -51,6 +50,10 @@ module ViewComponentReflex
       # and line number, which should be unique. We hash it to make it a nice number
       key = caller.select { |p| p.include? ".html.erb" }[1]&.hash.to_s
       key += collection_key.to_s if collection_key
+      new_state = create_safe_state
+
+      ViewComponentReflex::Engine.state_adapter.store_state(request, controller, @key, new_state)
+      ViewComponentReflex::Engine.state_adapter.store_state(request, controller, "#{@key}_initial", new_state)
       @key = key
     end
 
@@ -90,8 +93,8 @@ module ViewComponentReflex
 
         new_state = create_safe_state
 
-        ViewComponentReflex::Engine.state_adapter.store_state(request, @key, new_state)
-        ViewComponentReflex::Engine.state_adapter.store_state(request, "#{@key}_initial", new_state)
+        ViewComponentReflex::Engine.state_adapter.store_state(request, controller, @key, new_state)
+        ViewComponentReflex::Engine.state_adapter.store_state(request, controller, "#{@key}_initial", new_state)
       else
         initial_state = ViewComponentReflex::Engine.state_adapter.state(request, "#{@key}_initial")
         ViewComponentReflex::Engine.state_adapter.state(request, @key).each do |k, v|

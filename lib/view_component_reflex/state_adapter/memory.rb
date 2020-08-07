@@ -2,7 +2,7 @@ VIEW_COMPONENT_REFLEX_MEMORY_STATE = {}
 module ViewComponentReflex
   module StateAdapter
     class Memory
-      def self.state(request, key)
+      def self.state(request, controller, key)
         VIEW_COMPONENT_REFLEX_MEMORY_STATE[request.session.id.to_s] ||= {}
         VIEW_COMPONENT_REFLEX_MEMORY_STATE[request.session.id.to_s][key] ||= {}
       end
@@ -13,7 +13,7 @@ module ViewComponentReflex
         end
       end
 
-      def self.store_state(request, key, new_state = {})
+      def self.store_state(request, controller, key, new_state = {})
         VIEW_COMPONENT_REFLEX_MEMORY_STATE[request.session.id.to_s] ||= {}
         VIEW_COMPONENT_REFLEX_MEMORY_STATE[request.session.id.to_s][key] = {}
         new_state.each do |k, v|
