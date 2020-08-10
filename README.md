@@ -219,7 +219,7 @@ ViewComponentReflex uses session for its state by default. To change this, add
 an initializer to `config/initializers/view_component_reflex.rb`.
 
 ```ruby
-ViewComponentReflex.configure do |config|
+ViewComponentReflex::Engine.configure do |config|
   config.state_adapter = YourAdapter
 end
 ```
