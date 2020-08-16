@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.5](https://github.com/joshleblanc/view_component_reflex/compare/v2.1.4...v2.1.5) (2020-08-16)
+
+
+### Bug Fixes
+
+* pin stimulus_reflex to 3.3.0.pre2 ([52e935b](https://github.com/joshleblanc/view_component_reflex/commit/52e935b0da2379d68acdab2754bb8547656ebc8a))
+
 ### [2.1.4](https://github.com/joshleblanc/view_component_reflex/compare/v2.1.3...v2.1.4) (2020-08-16)
 
 
