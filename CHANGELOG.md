@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.4](https://github.com/joshleblanc/view_component_reflex/compare/v2.1.3...v2.1.4) (2020-08-16)
+
+
+### Bug Fixes
+
+* possibly modifying frozen object ([7d50b60](https://github.com/joshleblanc/view_component_reflex/commit/7d50b60286feae6c804b94389928258f1f8fb923))
+
 ### [2.1.3](https://github.com/joshleblanc/view_component_reflex/compare/v2.1.2...v2.1.3) (2020-08-06)
 
 
