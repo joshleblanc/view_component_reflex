@@ -24,11 +24,11 @@ module ViewComponentReflex
       init_key
 
       tag = :div
-      if opts_or_tag.is_a? Hash
-        options = opts_or_tag
+      options = if opts_or_tag.is_a? Hash
+        opts_or_tag
       else
         tag = opts_or_tag
-        options = opts
+        opts
       end
       options[:data] = {
         controller: self.class.stimulus_controller,
