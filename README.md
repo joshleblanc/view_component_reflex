@@ -2,6 +2,8 @@
 
 ViewComponentReflex allows you to write reflexes right in your view component code.
 
+It builds upon [stimulus_reflex](https://github.com/hopsoft/stimulus_reflex) and [view_component](https://github.com/github/view_component)
+
 ## Usage
 
 You can add reflexes to your component by adding inheriting from `ViewComponentReflex::Component`.
