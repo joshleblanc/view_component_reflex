@@ -109,7 +109,7 @@ Build your own tag:
 Render a ViewComponent
 
 ```erb
-<%= render ButtonComponent.new(data: reflex_data_attributes(:increment)) %>
+<%= render ButtonComponent.new(data: reflex_data_attributes("mouseenter->increment")) %>
 ```
 
 Make sure that you assign the reflex_data_attributes to the correct element in your component.
