@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/joshleblanc/view_component_reflex/compare/v2.1.5...v2.2.0) (2020-08-24)
+
+
+### Features
+
+* add reflex_data_attributes ([#8](https://github.com/joshleblanc/view_component_reflex/issues/8)) ([51119e3](https://github.com/joshleblanc/view_component_reflex/commit/51119e39827dc43b24b85439aab98a0a20e3846b))
+
 ### [2.1.5](https://github.com/joshleblanc/view_component_reflex/compare/v2.1.4...v2.1.5) (2020-08-16)
 
 
