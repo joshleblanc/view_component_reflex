@@ -90,11 +90,29 @@ This shares the same definition as `content_tag`, except it accepts a reflex as 
 
 Would add a click handler to the `increment` method on your component.
 
-To use a non-click event, specific that with `->` notiation
+To use a non-click event, specific that with `->` notation
 
 ```erb
 <%= reflex_tag "mouseenter->increment", :button, "Click me!" %>
 ```
+
+### reflex_data_attributes(reflex)
+
+This helper will give you the data attributes used in the reflex_tag above if you want to build your own elements.
+
+Build your own tag:
+
+```erb
+<%= link_to (image_tag photo.image.url(:medium)), data: reflex_data_attributes(:increment) %>
+```
+
+Render a ViewComponent
+
+```erb
+<%= render ButtonComponent.new(data: reflex_data_attributes("mouseenter->increment")) %>
+```
+
+Make sure that you assign the reflex_data_attributes to the correct element in your component.
 
 ### collection_key
 If you're rendering a component as a collection with `MyComponent.with_collection(SomeCollection)`, you must define this method to return some unique value for the component.
