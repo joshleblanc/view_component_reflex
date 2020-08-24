@@ -54,20 +54,25 @@ module ViewComponentReflex
       @key = key
     end
 
-    def reflex_tag(reflex, name, content_or_options_with_block = {}, options = {}, escape = true, &block)
-      action, method = reflex.to_s.split("->")
+    # Helper to use to create the proper reflex data attributes for an element
+    def reflex_data_attributes(reflex)
+      action, method = reflex.to_s.split('->')
       if method.nil?
         method = action
-        action = "click"
+        action = 'click'
       end
-      data_attributes = {
+
+      {
         reflex: "#{action}->#{self.class.name}##{method}",
         key: key
       }
+    end
+
+    def reflex_tag(reflex, name, content_or_options_with_block = {}, options = {}, escape = true, &block)
       if content_or_options_with_block.is_a?(Hash)
-        merge_data_attributes(content_or_options_with_block, data_attributes)
+        merge_data_attributes(content_or_options_with_block, reflex_data_attributes(reflex))
       else
-        merge_data_attributes(options, data_attributes)
+        merge_data_attributes(options, reflex_data_attributes(reflex))
       end
       content_tag(name, content_or_options_with_block, options, escape, &block)
     end
