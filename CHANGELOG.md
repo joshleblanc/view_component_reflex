@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.2.1](https://github.com/joshleblanc/view_component_reflex/compare/v2.2.0...v2.2.1) (2020-08-26)
+
+
+### Bug Fixes
+
+* explicitly use ViewComponentReflex::Reflex ([3ddd2e3](https://github.com/joshleblanc/view_component_reflex/commit/3ddd2e39e9eb18db0f1341dc6cb5bd1abc0f0da4))
+
 ## [2.2.0](https://github.com/joshleblanc/view_component_reflex/compare/v2.1.5...v2.2.0) (2020-08-24)
 
 
