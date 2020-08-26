@@ -3,9 +3,9 @@ module ViewComponentReflex
     class << self
       def init_stimulus_reflex
         @stimulus_reflex ||= if name.include? "::"
-          module_parent.const_set(name.split("::").last + "Reflex", Class.new(Reflex))
+          module_parent.const_set(name.split("::").last + "Reflex", Class.new(ViewComponentReflex::Reflex))
         else
-          Object.const_set(name + "Reflex", Class.new(Reflex))
+          Object.const_set(name + "Reflex", Class.new(ViewComponentReflex::Reflex))
         end
         @stimulus_reflex.component_class = self
       end
