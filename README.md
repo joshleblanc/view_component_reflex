@@ -156,7 +156,7 @@ end
 Returns the unique selector for this component. Useful to pass to `refresh!` when refreshing custom elements.
 
 ### prevent_refresh!
-By default, VCR will re-render your component after it executes your method. `revent_refresh!` prevents this from happening.
+By default, VCR will re-render your component after it executes your method. `prevent_refresh!` prevents this from happening.
 
 ```ruby
 def my_method
