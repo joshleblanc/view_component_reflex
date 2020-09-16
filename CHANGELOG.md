@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [2.2.2](https://github.com/joshleblanc/view_component_reflex/compare/v2.2.1...v2.2.2) (2020-09-16)
 
+* data-key blank in views due to html file detection ([97b63f2f](https://github.com/joshleblanc/view_component_reflex/commit/97b63f2f6db3c3cf54cadc527cd1979304391399))
+
 ### [2.2.1](https://github.com/joshleblanc/view_component_reflex/compare/v2.2.0...v2.2.1) (2020-08-26)
 
 
