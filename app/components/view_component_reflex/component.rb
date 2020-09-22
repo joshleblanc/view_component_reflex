@@ -65,7 +65,6 @@ module ViewComponentReflex
     end
 
     def component_controller(opts_or_tag = :div, opts = {}, &blk)
-      self.class.init_stimulus_reflex
       init_key
 
       tag = :div
