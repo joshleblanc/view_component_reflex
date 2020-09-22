@@ -1,8 +1,18 @@
-# Changelog
+# Change Log
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [2.2.2](https://github.com/joshleblanc/view_component_reflex/compare/v2.2.1...v2.2.2) (2020-09-16)
+# [](https://github.com/joshleblanc/view_component_reflex/compare/v2.2.2...v) (2020-09-22)
+
+
+### Features
+
+* allow specifying the base reflex class ([7147d6c](https://github.com/joshleblanc/view_component_reflex/commit/7147d6c))
+* allow using callbacks ([f1a8224](https://github.com/joshleblanc/view_component_reflex/commit/f1a8224))
+
+
+
+## [2.2.2](https://github.com/joshleblanc/view_component_reflex/compare/v2.2.1...v2.2.2) (2020-09-16)
 
 * data-key blank in views due to html file detection ([97b63f2f](https://github.com/joshleblanc/view_component_reflex/commit/97b63f2f6db3c3cf54cadc527cd1979304391399))
 
