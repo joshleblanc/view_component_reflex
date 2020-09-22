@@ -5,8 +5,8 @@ module ViewComponentReflex
       @new = false
       reflex.component_class = component
 
-      Rails.logger.info "initialized reflex factory"
-      Rails.logger.info component
+      p "initialized reflex factory"
+      p component
     end
 
     def nested?
@@ -47,16 +47,16 @@ module ViewComponentReflex
     end
 
     def reflex_from_component
-      Rails.logger.info "Getting reflex from component"
-      Rails.logger.info reflex_name
+      p "Getting reflex from component"
+      p reflex_name
       if Object.const_defined?(reflex_name)
-        Rails.logger.info "Reflex exists"
+        p "Reflex exists"
         Object.const_get(reflex_name)
       else
         @new = true
-        Rails.logger.info "reflex doesn't exist"
+        p "reflex doesn't exist"
         val = Object.const_set(reflex_name, reflex_instance)
-        Rails.logger.info val
+        p val
         val
       end
     end
