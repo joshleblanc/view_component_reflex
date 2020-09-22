@@ -4,9 +4,6 @@ module ViewComponentReflex
       @component = component
       @new = false
       reflex.component_class = component
-
-      p "initialized reflex factory"
-      p component
     end
 
     def nested?
@@ -47,17 +44,11 @@ module ViewComponentReflex
     end
 
     def reflex_from_component
-      p "Getting reflex from component"
-      p reflex_name
       if Object.const_defined?(reflex_name)
-        p "Reflex exists"
         Object.const_get(reflex_name)
       else
         @new = true
-        p "reflex doesn't exist"
-        val = Object.const_set(reflex_name, reflex_instance)
-        p val
-        val
+        Object.const_set(reflex_name, reflex_instance)
       end
     end
   end
