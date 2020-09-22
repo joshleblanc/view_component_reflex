@@ -193,6 +193,21 @@ You *must* wrap your component in this for everything to work properly.
 <% end %>
 ```
 
+## Custom reflex base class
+Reflexes typically inherit from a base ApplicationReflex. You can define the base class for a view_component_reflex by using the `reflex_base_class` method.
+The parent class must inherit ViewComponentReflex::Reflex, and will throw an error if it does not.
+
+```ruby
+class ApplicationReflex < ViewComponentReflex::Reflex
+
+end
+
+
+class MyComponent < ViewComponentReflex::Component
+  reflex_base_class ApplicationReflex
+end
+```
+
 ## Common patterns
 A lot of the time, you only need to update specific components when changing instance variables. For example, changing `@loading` might only need
 to display a spinner somewhere on the page. You can define setters to implicitly render the appropriate pieces of dom whenever that variable is set

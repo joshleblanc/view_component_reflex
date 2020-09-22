@@ -3,11 +3,23 @@ module ViewComponentReflex
     class << self
       def init_stimulus_reflex
         @stimulus_reflex ||= if name.include? "::"
-          module_parent.const_set(name.split("::").last + "Reflex", Class.new(ViewComponentReflex::Reflex))
+          module_parent.const_set(name.split("::").last + "Reflex", Class.new(reflex_base_class))
         else
-          Object.const_set(name + "Reflex", Class.new(ViewComponentReflex::Reflex))
+          Object.const_set(name + "Reflex", Class.new(reflex_base_class))
         end
         @stimulus_reflex.component_class = self
+      end
+
+      def reflex_base_class(new_base_class = nil)
+        if new_base_class.nil?
+          @reflex_base_class ||= ViewComponentReflex::Reflex
+        else
+          if new_base_class <= ViewComponentReflex::Reflex
+            @reflex_base_class = new_base_class
+          else
+            raise StandardError.new("The reflex base class must inherit from ViewComponentReflex::Reflex")
+          end
+        end
       end
     end
 

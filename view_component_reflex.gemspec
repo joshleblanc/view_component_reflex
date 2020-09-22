@@ -26,6 +26,6 @@ Gem::Specification.new do |spec|
   spec.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
   spec.add_dependency "rails", "~> 6.0.3", ">= 6.0.3.1"
-  spec.add_dependency "stimulus_reflex", "= 3.3.0.pre2"
+  spec.add_dependency "stimulus_reflex", "~> 3.3.0"
   spec.add_dependency "view_component"
 end
