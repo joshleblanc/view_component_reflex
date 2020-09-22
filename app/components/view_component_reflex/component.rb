@@ -7,6 +7,16 @@ module ViewComponentReflex
         else
           Object.const_set(name + "Reflex", Class.new(reflex_base_class))
         end
+
+        Array(@before_reflex_args).each do |before_args|
+          @stimulus_reflex.before_reflex(**before_args[:args], &before_args[:blk])
+        end
+        Array(@after_reflex_args).each do |after_args|
+          @stimulus_reflex.after_reflex(**after_args[:args], &after_args[:blk])
+        end
+        Array(@around_reflex_args).each do |around_args|
+          @stimulus_reflex.around_reflex(**around_args[:args], &around_args[:blk])
+        end
         @stimulus_reflex.component_class = self
       end
 
@@ -20,6 +30,30 @@ module ViewComponentReflex
             raise StandardError.new("The reflex base class must inherit from ViewComponentReflex::Reflex")
           end
         end
+      end
+
+      def before_reflex(**args, &blk)
+        @before_reflex_args ||= []
+        @before_reflex_args.push({
+          args: args,
+          blk: blk
+        })
+      end
+
+      def after_reflex(**args, &blk)
+        @after_reflex_args ||= []
+        @after_reflex_args.push({
+          args: args,
+          blk: blk
+        })
+      end
+
+      def around_reflex(**args, &blk)
+        @around_reflex_args ||= []
+        @around_reflex_args.push({
+          args: args,
+          blk: blk
+        })
       end
     end
 
