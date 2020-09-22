@@ -2,22 +2,9 @@ module ViewComponentReflex
   class Component < ViewComponent::Base
     class << self
       def init_stimulus_reflex
-        @stimulus_reflex ||= if name.include? "::"
-          module_parent.const_set(name.split("::").last + "Reflex", Class.new(reflex_base_class))
-        else
-          Object.const_set(name + "Reflex", Class.new(reflex_base_class))
-        end
-
-        Array(@before_reflex_args).each do |before_args|
-          @stimulus_reflex.before_reflex(**before_args[:args], &before_args[:blk])
-        end
-        Array(@after_reflex_args).each do |after_args|
-          @stimulus_reflex.after_reflex(**after_args[:args], &after_args[:blk])
-        end
-        Array(@around_reflex_args).each do |around_args|
-          @stimulus_reflex.around_reflex(**around_args[:args], &around_args[:blk])
-        end
-        @stimulus_reflex.component_class = self
+        factory = ViewComponentReflex::ReflexFactory.new(self)
+        @stimulus_reflex ||= factory.reflex
+        wire_up_callbacks if factory.new?
       end
 
       def reflex_base_class(new_base_class = nil)
@@ -32,28 +19,40 @@ module ViewComponentReflex
         end
       end
 
-      def before_reflex(**args, &blk)
-        @before_reflex_args ||= []
-        @before_reflex_args.push({
+      def queue_callback(key, args, blk)
+        callbacks(key).push({
           args: args,
           blk: blk
         })
       end
 
-      def after_reflex(**args, &blk)
-        @after_reflex_args ||= []
-        @after_reflex_args.push({
-          args: args,
-          blk: blk
-        })
+      def callbacks(key)
+        @callbacks ||= {}
+        @callbacks[key] ||= []
       end
 
-      def around_reflex(**args, &blk)
-        @around_reflex_args ||= []
-        @around_reflex_args.push({
-          args: args,
-          blk: blk
-        })
+      def register_callbacks(key)
+        callbacks(key).each do |cb|
+          @stimulus_reflex.send("#{key}_reflex", *cb[:args], &cb[:blk])
+        end
+      end
+
+      def before_reflex(*args, &blk)
+        queue_callback(:before, args, blk)
+      end
+
+      def after_reflex(*args, &blk)
+        queue_callback(:after, args, blk)
+      end
+
+      def around_reflex(*args, &blk)
+        queue_callback(:around, args, blk)
+      end
+
+      def wire_up_callbacks
+        register_callbacks(:before)
+        register_callbacks(:after)
+        register_callbacks(:around)
       end
     end
 
