@@ -3,7 +3,7 @@ module ViewComponentReflex
     class << self
       def init_stimulus_reflex
         factory = ViewComponentReflex::ReflexFactory.new(self)
-        @stimulus_reflex ||= factory.reflex
+        @stimulus_reflex = factory.reflex
         wire_up_callbacks if factory.new?
       end
 
