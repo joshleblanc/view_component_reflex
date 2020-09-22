@@ -3,7 +3,7 @@ module ViewComponentReflex
     class << self
       mattr_accessor :state_adapter
 
-      self.state_adapter = StateAdapter::Memory
+      self.state_adapter = StateAdapter::Session
     end
 
     config.to_prepare do
