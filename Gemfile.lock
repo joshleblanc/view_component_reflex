@@ -5,6 +5,7 @@ PATH
       rails (~> 6.0.3, >= 6.0.3.1)
       stimulus_reflex (~> 3.3.0)
       view_component
+      xxhash
 
 GEM
   remote: https://rubygems.org/
@@ -144,6 +145,7 @@ GEM
     websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    xxhash (0.4.0)
     zeitwerk (2.4.0)
 
 PLATFORMS
