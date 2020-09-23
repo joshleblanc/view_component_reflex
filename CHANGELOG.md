@@ -2,7 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-# [](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.1...v) (2020-09-22)
+# [](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.2...v) (2020-09-23)
+
+
+### Bug Fixes
+
+* #hash isn't consistent across processes, use SHA2 ([d1bdf18](https://github.com/joshleblanc/view_component_reflex/commit/d1bdf18))
 
 
 
