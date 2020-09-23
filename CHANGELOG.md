@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.3...v) (2020-09-23)
+
+
+### Bug Fixes
+
+* convert hash to string ([d843944](https://github.com/joshleblanc/view_component_reflex/commit/d843944))
+* omit nonsense from template file location ([31cc91b](https://github.com/joshleblanc/view_component_reflex/commit/31cc91b))
+* remove bad require ([2fb49ec](https://github.com/joshleblanc/view_component_reflex/commit/2fb49ec))
+* remove discrete updates? ([478433d](https://github.com/joshleblanc/view_component_reflex/commit/478433d))
+* remove xxhash ([ad112ab](https://github.com/joshleblanc/view_component_reflex/commit/ad112ab))
+* use xxhash ([f8d03be](https://github.com/joshleblanc/view_component_reflex/commit/f8d03be))
+
+
+
 # [2.3.3](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.2...v) (2020-09-23)
 
 
