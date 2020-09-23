@@ -18,6 +18,7 @@ module ViewComponentReflex
         controller.process(url_params[:action])
         document = Nokogiri::HTML(controller.response.body)
         [primary_selector, *rest].each do |s|
+          Rails.logger.info "Trying to render #{s}"
           html = document.css(s)
           if html.present?
             cable_ready[channel.stream_name].morph(
