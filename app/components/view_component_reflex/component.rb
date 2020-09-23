@@ -94,15 +94,11 @@ module ViewComponentReflex
       # we want the erb file that renders the component. `caller` gives the file name,
       # and line number, which should be unique. We hash it to make it a nice number
       erb_file = caller.select { |p| p.match? /.\.html\.(haml|erb|slim)/ }[1]
-      Rails.logger.info "######"
-      Rails.logger.info erb_file
       key = if erb_file
         Digest::SHA2.hexdigest(erb_file)
       else
         ""
       end
-      Rails.logger.info key
-      Rails.logger.info "######"
       key += collection_key.to_s if collection_key
       @key = key
     end
@@ -155,7 +151,7 @@ module ViewComponentReflex
         ViewComponentReflex::Engine.state_adapter.state(request, @key).each do |k, v|
           instance_value = instance_variable_get(k)
           if permit_parameter?(initial_state[k], instance_value)
-            ViewComponentReflex::Engine.state_adapter.set_state(request, controller, "#{@key}_initial", {k => instance_value})
+            # ViewComponentReflex::Engine.state_adapter.set_state(request, controller, "#{@key}_initial", {k => instance_value})
             ViewComponentReflex::Engine.state_adapter.set_state(request, controller, @key, {k => instance_value})
           else
             instance_variable_set(k, v)

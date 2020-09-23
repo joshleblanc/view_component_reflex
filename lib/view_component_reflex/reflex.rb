@@ -9,7 +9,7 @@ module ViewComponentReflex
     def refresh!(primary_selector = nil, *rest)
       save_state
 
-      if primary_selector.nil? && !component.can_render_to_string?
+      if primary_selector.nil?
         primary_selector = selector
       end
       if primary_selector
