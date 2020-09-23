@@ -1,5 +1,4 @@
 require "stimulus_reflex"
-require 'xxhash'
 require 'view_component_reflex/reflex_factory'
 require "view_component_reflex/state_adapter/session"
 require "view_component_reflex/state_adapter/memory"
