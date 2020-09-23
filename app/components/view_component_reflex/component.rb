@@ -100,7 +100,7 @@ module ViewComponentReflex
       Rails.logger.info "Generating key for #{self.class.name}"
       Rails.logger.info "file: #{erb_file}"
       key = if erb_file
-        XXhash.xxh32(erb_file.split(":in")[0])
+        XXhash.xxh32(erb_file.split(":in")[0]).to_s
       else
         ""
       end
