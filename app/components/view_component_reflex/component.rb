@@ -74,6 +74,9 @@ module ViewComponentReflex
         tag = opts_or_tag
         opts
       end
+
+      Rails.logger.info "Using this key #{key} for #{self.class.name}"
+
       options[:data] = {
         controller: self.class.stimulus_controller,
         key: key,
@@ -94,11 +97,14 @@ module ViewComponentReflex
       # we want the erb file that renders the component. `caller` gives the file name,
       # and line number, which should be unique. We hash it to make it a nice number
       erb_file = caller.select { |p| p.match? /.\.html\.(haml|erb|slim)/ }[1]
+      Rails.logger.info "Generating key for #{self.class.name}"
+      Rails.logger.info "file: #{erb_file}"
       key = if erb_file
         Digest::SHA2.hexdigest(erb_file)
       else
         ""
       end
+      Rails.logger.info "key: #{key}"
       key += collection_key.to_s if collection_key
       @key = key
     end
