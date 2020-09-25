@@ -1,6 +1,20 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [2.3.5](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.2...v2.3.5) (2020-09-25)
+
+
+### Bug Fixes
+
+* #hash isn't consistent across processes, use SHA2 ([d1bdf18](https://github.com/joshleblanc/view_component_reflex/commit/d1bdf183c9802eba6ed5336735d28a58c095ec23))
+* convert hash to string ([d843944](https://github.com/joshleblanc/view_component_reflex/commit/d8439447747a17a81c188beca5acc6d49565a40b))
+* omit nonsense from template file location ([31cc91b](https://github.com/joshleblanc/view_component_reflex/commit/31cc91bdaecd83982e0bbd4e870c20697bc3782c))
+* re-add commented code ([f1fa16a](https://github.com/joshleblanc/view_component_reflex/commit/f1fa16a1ae0d146c9c366f4dba48522073e66e21))
+* remove bad require ([2fb49ec](https://github.com/joshleblanc/view_component_reflex/commit/2fb49ecc4c97e8f78339ef12a58aa16b77aa71fd))
+* remove discrete updates? ([478433d](https://github.com/joshleblanc/view_component_reflex/commit/478433d5ea6f12a372f70bc22714d2d3375dddcc))
+* remove xxhash ([ad112ab](https://github.com/joshleblanc/view_component_reflex/commit/ad112abbd79d9bf449bb13c5756c370f68bdba70))
+* use xxhash ([f8d03be](https://github.com/joshleblanc/view_component_reflex/commit/f8d03be86bd9295d9a483023f1f808fab3acf72f))
 
 # [2.3.4](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.3...v) (2020-09-23)
 
