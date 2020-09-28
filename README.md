@@ -324,7 +324,7 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Caveats
 
-State uses session to maintain state as of right now. It also assumes your component view is written with the file extension `.html.erb`
+State uses session to maintain state as of right now. It also assumes your component view is written with a file extension of either `.html.erb`, `.html.haml` or `.html.slim`.
 
 ## Support me
 
