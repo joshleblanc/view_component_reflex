@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.3.9](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.8...v2.3.9) (2020-10-02)
+
 ### [2.3.8](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.7...v2.3.8) (2020-10-02)
 
 
