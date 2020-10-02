@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.3.7](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.6...v2.3.7) (2020-10-02)
+
+
+### Bug Fixes
+
+* replace manual cableready calls with morphs ([6924321](https://github.com/joshleblanc/view_component_reflex/commit/69243218d4b30d5ce872db28b94911cbefb0dade))
+
 ### [2.3.6](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.5...v2.3.6) (2020-10-02)
 
 
