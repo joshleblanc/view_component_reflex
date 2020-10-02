@@ -20,7 +20,7 @@ module ViewComponentReflex
         [primary_selector, *rest].each do |s|
           html = document.css(s)
           if html.present?
-            morph(s, html.to_html)
+            morph(s, html.inner_html)
           end
         end
       else
