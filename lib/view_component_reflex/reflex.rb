@@ -20,18 +20,12 @@ module ViewComponentReflex
         [primary_selector, *rest].each do |s|
           html = document.css(s)
           if html.present?
-            cable_ready[channel.stream_name].morph(
-              selector: s,
-              html: html.inner_html,
-              children_only: true,
-              permanent_attribute_name: "data-reflex-permanent"
-            )
+            morph(s, html.inner_html)
           end
         end
       else
         refresh_component!
       end
-      cable_ready.broadcast
     end
 
     def refresh_component!
