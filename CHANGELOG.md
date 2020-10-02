@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.3.8](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.7...v2.3.8) (2020-10-02)
+
+
+### Bug Fixes
+
+* morphing a selector was duplicating the content ([daf2eef](https://github.com/joshleblanc/view_component_reflex/commit/daf2eefeebbd6675a05b742bb062e38ca76a166b))
+
 ### [2.3.7](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.6...v2.3.7) (2020-10-02)
 
 
