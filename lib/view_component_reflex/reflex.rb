@@ -35,12 +35,7 @@ module ViewComponentReflex
         end
       end
       document = Nokogiri::HTML(controller.render_component_to_string(component))
-      cable_ready[channel.stream_name].morph(
-        selector: selector,
-        children_only: true,
-        html: document.css(selector).inner_html,
-        permanent_attribute_name: "data-reflex-permanent"
-      )
+      morph selector, document.css(selector).inner_html
     end
 
     def refresh_all!
@@ -62,19 +57,7 @@ module ViewComponentReflex
       !!name.to_proc
     end
 
-    # this is copied out of stimulus_reflex/reflex.rb and modified
-    def morph(selectors, html = "")
-      case selectors
-      when :nothing
-        @broadcaster = StimulusReflex::NothingBroadcaster.new(self)
-      else
-        @broadcaster = StimulusReflex::SelectorBroadcaster.new(self) unless broadcaster.selector?
-        broadcaster.morphs << [selectors, html]
-      end
-    end
-
     def method_missing(name, *args)
-      morph :nothing
       super unless respond_to_missing?(name)
       state.each do |k, v|
         component.instance_variable_set(k, v)
