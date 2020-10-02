@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.3.6](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.5...v2.3.6) (2020-10-02)
+
+
+### Bug Fixes
+
+* use built in morph ([75c198f](https://github.com/joshleblanc/view_component_reflex/commit/75c198f04ef4ea41a6c7df042c562ec6245e23da))
+
 ### [2.3.5](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.2...v2.3.5) (2020-09-25)
 
 
