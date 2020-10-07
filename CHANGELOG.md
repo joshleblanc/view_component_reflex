@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.3.10](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.9...v2.3.10) (2020-10-07)
+
+
+### Bug Fixes
+
+* only initialize state once per component instantiation ([d89bd71](https://github.com/joshleblanc/view_component_reflex/commit/d89bd7125d115389b4894465a565cc945b75ef57))
+
 ### [2.3.9](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.8...v2.3.9) (2020-10-02)
 
 ### [2.3.8](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.7...v2.3.8) (2020-10-02)
