@@ -139,6 +139,10 @@ module ViewComponentReflex
       []
     end
 
+    # def receive_params(old_state, params)
+    #   # no op
+    # end
+
     def key
       # initialize session state
       if !stimulus_reflex? || ViewComponentReflex::Engine.state_adapter.state(request, @key).empty?
@@ -147,8 +151,12 @@ module ViewComponentReflex
 
         ViewComponentReflex::Engine.state_adapter.store_state(request, @key, new_state)
         ViewComponentReflex::Engine.state_adapter.store_state(request, "#{@key}_initial", new_state)
-      else
+      elsif !@initialized_state
         initial_state = ViewComponentReflex::Engine.state_adapter.state(request, "#{@key}_initial")
+
+        # incoming_params = safe_instance_variables.each_with_object({}) { |var, obj| obj[var] = instance_variable_get(var) }
+        # receive_params(ViewComponentReflex::Engine.state_adapter.state(request, @key), incoming_params)
+
         ViewComponentReflex::Engine.state_adapter.state(request, @key).each do |k, v|
           instance_value = instance_variable_get(k)
           if permit_parameter?(initial_state[k], instance_value)
@@ -158,6 +166,7 @@ module ViewComponentReflex
             instance_variable_set(k, v)
           end
         end
+        @initialized_state = true
       end
       @key
     end
@@ -172,7 +181,7 @@ module ViewComponentReflex
       [
         :@view_context, :@lookup_context, :@view_renderer, :@view_flow,
         :@virtual_path, :@variant, :@current_template, :@output_buffer, :@key,
-        :@helpers, :@controller, :@request, :@tag_builder
+        :@helpers, :@controller, :@request, :@tag_builder, :@initialized_state
       ]
     end
 
