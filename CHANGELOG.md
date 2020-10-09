@@ -8,6 +8,14 @@ All notable changes to this project will be documented in this file. See [standa
 ### Bug Fixes
 
 * allow rails 5.2 ([097f4bc](https://github.com/joshleblanc/view_component_reflex/commit/097f4bca6f5226343bc22b54145cc33df373ff88))
+* load defaults was wrong ([b6f1cd3](https://github.com/joshleblanc/view_component_reflex/commit/b6f1cd32e88669510d7be4be9281af13b79a9241))
+
+### [2.3.11](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.10...v2.3.11) (2020-10-09)
+
+
+### Bug Fixes
+
+* allow rails 5.2 ([097f4bc](https://github.com/joshleblanc/view_component_reflex/commit/097f4bca6f5226343bc22b54145cc33df373ff88))
 
 ### [2.3.10](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.9...v2.3.10) (2020-10-07)
 
