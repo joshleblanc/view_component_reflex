@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.3.11](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.10...v2.3.11) (2020-10-09)
+
+
+### Bug Fixes
+
+* allow rails 5.2 ([097f4bc](https://github.com/joshleblanc/view_component_reflex/commit/097f4bca6f5226343bc22b54145cc33df373ff88))
+
 ### [2.3.10](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.9...v2.3.10) (2020-10-07)
 
 
