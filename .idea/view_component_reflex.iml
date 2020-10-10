@@ -28,16 +28,17 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="actioncable (v5.2.4.4, ruby-2.6.5-p114) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="actionmailer (v5.2.4.4, ruby-2.6.5-p114) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="actionpack (v5.2.4.4, ruby-2.6.5-p114) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="actionview (v5.2.4.4, ruby-2.6.5-p114) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="activejob (v5.2.4.4, ruby-2.6.5-p114) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="activemodel (v5.2.4.4, ruby-2.6.5-p114) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="activerecord (v5.2.4.4, ruby-2.6.5-p114) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="activestorage (v5.2.4.4, ruby-2.6.5-p114) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="activesupport (v5.2.4.4, ruby-2.6.5-p114) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="arel (v9.0.0, ruby-2.6.5-p114) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="actioncable (v6.0.3.4, ruby-2.6.5-p114) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="actionmailbox (v6.0.3.4, ruby-2.6.5-p114) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="actionmailer (v6.0.3.4, ruby-2.6.5-p114) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="actionpack (v6.0.3.4, ruby-2.6.5-p114) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="actiontext (v6.0.3.4, ruby-2.6.5-p114) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="actionview (v6.0.3.4, ruby-2.6.5-p114) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activejob (v6.0.3.4, ruby-2.6.5-p114) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activemodel (v6.0.3.4, ruby-2.6.5-p114) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activerecord (v6.0.3.4, ruby-2.6.5-p114) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activestorage (v6.0.3.4, ruby-2.6.5-p114) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activesupport (v6.0.3.4, ruby-2.6.5-p114) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.4, ruby-2.6.5-p114) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v2.1.4, ruby-2.6.5-p114) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="cable_ready (v4.3.0, ruby-2.6.5-p114) [gem]" level="application" />
@@ -58,10 +59,10 @@
     <orderEntry type="library" scope="PROVIDED" name="nokogiri (v1.10.10, ruby-2.6.5-p114) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack (v2.2.3, ruby-2.6.5-p114) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-test (v1.1.0, ruby-2.6.5-p114) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rails (v5.2.4.4, ruby-2.6.5-p114) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rails (v6.0.3.4, ruby-2.6.5-p114) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails-dom-testing (v2.0.3, ruby-2.6.5-p114) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails-html-sanitizer (v1.3.0, ruby-2.6.5-p114) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="railties (v5.2.4.4, ruby-2.6.5-p114) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="railties (v6.0.3.4, ruby-2.6.5-p114) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rake (v13.0.1, ruby-2.6.5-p114) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="redis (v4.2.2, ruby-2.6.5-p114) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets (v4.0.2, ruby-2.6.5-p114) [gem]" level="application" />
@@ -74,5 +75,6 @@
     <orderEntry type="library" scope="PROVIDED" name="view_component (v2.19.1, ruby-2.6.5-p114) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket-driver (v0.7.3, ruby-2.6.5-p114) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket-extensions (v0.1.5, ruby-2.6.5-p114) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="zeitwerk (v2.4.0, ruby-2.6.5-p114) [gem]" level="application" />
   </component>
 </module>
