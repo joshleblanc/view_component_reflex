@@ -245,8 +245,8 @@ end
 
 ## State
 
-By default, view_component_reflex stores component state in memory. You can optionally set the state adapter
-to use the session by changing `config.state_adapter` to `ViewComponentReflex::StateAdapter::Session`
+By default (since version `2.3.2`), view_component_reflex stores component state in session. You can optionally set the state adapter
+to use the memory by changing `config.state_adapter` to `ViewComponentReflex::StateAdapter::Memory`.
 
 ## Custom State Adapters
 
