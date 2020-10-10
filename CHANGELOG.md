@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.3.13](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.12...v2.3.13) (2020-10-10)
+
+
+### Bug Fixes
+
+* dependency for Rails 6 ([#21](https://github.com/joshleblanc/view_component_reflex/issues/21)) ([9565188](https://github.com/joshleblanc/view_component_reflex/commit/9565188f18860abc96c0a71fec84d6d7aa6de241))
+
 ### [2.3.11](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.10...v2.3.11) (2020-10-09)
 
 
