@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.0](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.13...v2.4.0) (2020-10-13)
+
+
+### Features
+
+* pass through connection to view component ([252f216](https://github.com/joshleblanc/view_component_reflex/commit/252f216c364e206f058575ecfb9d28513dcbbd77))
+
 ### [2.3.13](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.12...v2.3.13) (2020-10-10)
 
 
