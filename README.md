@@ -193,6 +193,19 @@ You *must* wrap your component in this for everything to work properly.
 <% end %>
 ```
 
+### after_state_initialized(parameters_changed)
+
+This is called after the state has been inserted in the component. You can use this to run conditional functions after 
+some parameter has superseeded whatever's in state
+
+```
+def after_state_initialized(parameters_changed)
+  if parameters_changed.include?(:@filter)
+    calculate_visible_rows
+  end
+end
+```
+
 ## Custom reflex base class
 Reflexes typically inherit from a base ApplicationReflex. You can define the base class for a view_component_reflex by using the `reflex_base_class` method.
 The parent class must inherit ViewComponentReflex::Reflex, and will throw an error if it does not.

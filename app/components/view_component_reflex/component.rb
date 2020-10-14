@@ -139,6 +139,10 @@ module ViewComponentReflex
       []
     end
 
+    def after_state_initialized(parameters_changed)
+      # called after state component has been hydrated
+    end
+
     # def receive_params(old_state, params)
     #   # no op
     # end
@@ -157,15 +161,18 @@ module ViewComponentReflex
         # incoming_params = safe_instance_variables.each_with_object({}) { |var, obj| obj[var] = instance_variable_get(var) }
         # receive_params(ViewComponentReflex::Engine.state_adapter.state(request, @key), incoming_params)
 
+        parameters_changed = []
         ViewComponentReflex::Engine.state_adapter.state(request, @key).each do |k, v|
           instance_value = instance_variable_get(k)
           if permit_parameter?(initial_state[k], instance_value)
+            parameters_changed << k
             ViewComponentReflex::Engine.state_adapter.set_state(request, controller, "#{@key}_initial", {k => instance_value})
             ViewComponentReflex::Engine.state_adapter.set_state(request, controller, @key, {k => instance_value})
           else
             instance_variable_set(k, v)
           end
         end
+        after_state_initialized(parameters_changed)
         @initialized_state = true
       end
       @key
