@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file. See [standa
 # [](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.14...v) (2020-10-14)
 
 
+### Features
+
+* add after_state_initialized callback ([acb05fb](https://github.com/joshleblanc/view_component_reflex/commit/acb05fb))
+
+
 
 ## [2.4.0](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.13...v2.4.0) (2020-10-13)
 
