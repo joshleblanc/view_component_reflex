@@ -161,7 +161,7 @@ By default, VCR will re-render your component after it executes your method. `pr
 ```ruby
 def my_method
   prevent_refresh!
-  @foo = Lbar
+  @foo = :bar
 end # the rendered page will not reflect this change
 ```
 
