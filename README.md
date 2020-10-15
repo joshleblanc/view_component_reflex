@@ -276,7 +276,7 @@ end
 ## Existing Fast Redis based State Adapter
 
 This adapter uses hmset and hgetall to reduce the number of operations. 
-This is also the recommended way if you using it AnyCable.
+This is the recommended adapter if you are using AnyCable.
 
 ```ruby
 ViewComponentReflex::Engine.configure do |config|

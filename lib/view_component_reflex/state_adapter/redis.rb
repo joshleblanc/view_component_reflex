@@ -14,7 +14,7 @@ module ViewComponentReflex
       attr_reader :client, :ttl
 
       def initialize(redis_opts:, ttl: 3600)
-        @client = Redis.new(redis_opts)
+        @client = ::Redis.new(redis_opts)
         @ttl = ttl
       end
 
@@ -25,7 +25,7 @@ module ViewComponentReflex
         return {} if value.nil?
 
         value.map do |k, v|
-          [k, JSON.parse(v)]
+          [k, Marshal.load(v)]
         end.to_h
       end
 
@@ -59,7 +59,7 @@ module ViewComponentReflex
 
       def save_to_redis(cache_key, new_state)
         new_state_json = new_state.map do |k, v|
-          [k, v.to_json]
+          [k, Marshal.dump(v)]
         end
 
         client.hmset(cache_key, new_state_json.flatten)
