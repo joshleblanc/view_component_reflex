@@ -39,6 +39,14 @@ module ViewComponentReflex
         optimized_store_to_redis(cache_key, new_state, request)
       end
 
+      def wrap_write_async
+        client.pipelined do
+          yield
+        end
+      end
+
+      private
+
       # Reduce number of calls coming from #store_state to save Redis
       # when it's first rendered
       def optimized_store_to_redis(cache_key, new_state, request)

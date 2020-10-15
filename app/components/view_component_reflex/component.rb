@@ -148,26 +148,32 @@ module ViewComponentReflex
     # end
 
     def key
+      adapter = ViewComponentReflex::Engine.state_adapter
+
       # initialize session state
-      if !stimulus_reflex? || ViewComponentReflex::Engine.state_adapter.state(request, @key).empty?
+      if !stimulus_reflex? || adapter.state(request, @key).empty?
 
         new_state = create_safe_state
 
-        ViewComponentReflex::Engine.state_adapter.store_state(request, @key, new_state)
-        ViewComponentReflex::Engine.state_adapter.store_state(request, "#{@key}_initial", new_state)
+        adapter.wrap_write_async do
+          adapter.store_state(request, @key, new_state)
+          adapter.store_state(request, "#{@key}_initial", new_state)
+        end
       elsif !@initialized_state
-        initial_state = ViewComponentReflex::Engine.state_adapter.state(request, "#{@key}_initial")
+        initial_state = adapter.state(request, "#{@key}_initial")
 
         # incoming_params = safe_instance_variables.each_with_object({}) { |var, obj| obj[var] = instance_variable_get(var) }
         # receive_params(ViewComponentReflex::Engine.state_adapter.state(request, @key), incoming_params)
 
         parameters_changed = []
-        ViewComponentReflex::Engine.state_adapter.state(request, @key).each do |k, v|
+        adapter.state(request, @key).each do |k, v|
           instance_value = instance_variable_get(k)
           if permit_parameter?(initial_state[k], instance_value)
             parameters_changed << k
-            ViewComponentReflex::Engine.state_adapter.set_state(request, controller, "#{@key}_initial", {k => instance_value})
-            ViewComponentReflex::Engine.state_adapter.set_state(request, controller, @key, {k => instance_value})
+            adapter.wrap_write_async do
+              adapter.set_state(request, controller, "#{@key}_initial", {k => instance_value})
+              adapter.set_state(request, controller, @key, {k => instance_value})
+            end
           else
             instance_variable_set(k, v)
           end

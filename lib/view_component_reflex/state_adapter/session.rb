@@ -19,6 +19,10 @@ module ViewComponentReflex
           request.session[key][k] = v
         end
       end
+
+      def self.wrap_write_async
+        yield
+      end
     end
   end
 end
