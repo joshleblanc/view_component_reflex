@@ -1,6 +1,13 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [2.5.1](https://github.com/joshleblanc/view_component_reflex/compare/v2.5.0...v2.5.1) (2020-10-17)
+
+
+### Bug Fixes
+
+* import redis adapter ([b6fcbe4](https://github.com/joshleblanc/view_component_reflex/commit/b6fcbe4468ce58a226216be40ef207eb70d0469a))
 
 # [2.5.0](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.14...v2.5.0) (2020-10-14)
 
