@@ -272,6 +272,22 @@ ViewComponentReflex::Engine.configure do |config|
 end
 ```
 
+
+## Existing Fast Redis based State Adapter
+
+This adapter uses hmset and hgetall to reduce the number of operations. 
+This is the recommended adapter if you are using AnyCable.
+
+```ruby
+ViewComponentReflex::Engine.configure do |config|
+  config.state_adapter = ViewComponentReflex::StateAdapter::Redis.new(
+      redis_opts: {
+          url: "redis://localhost:6379/1", driver: :hiredis
+      },
+      ttl: 3600)
+end
+```
+
 `YourAdapter` should implement 
 
 ```ruby

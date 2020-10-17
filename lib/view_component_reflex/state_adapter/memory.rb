@@ -20,6 +20,10 @@ module ViewComponentReflex
           VIEW_COMPONENT_REFLEX_MEMORY_STATE[request.session.id.to_s][key][k] = v
         end
       end
+
+      def self.wrap_write_async
+        yield
+      end
     end
   end
 end
