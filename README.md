@@ -124,7 +124,7 @@ def initialize
 end
 
 def collection_key
- @my_model.id
+  @my_model.id
 end
 ```
 
