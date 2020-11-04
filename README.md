@@ -6,7 +6,7 @@ It builds upon [stimulus_reflex](https://github.com/hopsoft/stimulus_reflex) and
 
 ## Usage
 
-You can add reflexes to your component by adding inheriting from `ViewComponentReflex::Component`.
+You can add reflexes to your component by inheriting from `ViewComponentReflex::Component`.
 
 This will act as if you created a reflex with the method `my_cool_stuff`. To call this reflex, add `data-reflex="click->MyComponentReflex#my_cool_reflex"`, just like you're
 using stimulus reflex.
