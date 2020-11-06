@@ -3,7 +3,7 @@ PATH
   specs:
     view_component_reflex (2.6.0)
       rails (>= 5.2, < 7.0)
-      stimulus_reflex (~> 3.3.0)
+      stimulus_reflex (>= 3.3.0)
       view_component
 
 GEM
