@@ -1,9 +1,9 @@
 PATH
   remote: .
   specs:
-    view_component_reflex (2.6.0)
+    view_component_reflex (2.6.1)
       rails (>= 5.2, < 7.0)
-      stimulus_reflex (>= 3.3.0)
+      stimulus_reflex (>= 3.3.0, < 3.4)
       view_component
 
 GEM
@@ -139,12 +139,12 @@ GEM
       thread_safe (~> 0.1)
     tzinfo-data (1.2020.1)
       tzinfo (>= 1.0.0)
-    view_component (2.19.1)
+    view_component (2.21.0)
       activesupport (>= 5.0.0, < 7.0)
     websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    zeitwerk (2.4.0)
+    zeitwerk (2.4.1)
 
 PLATFORMS
   x64-mingw32
