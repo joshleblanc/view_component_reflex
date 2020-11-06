@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.6.1](https://github.com/joshleblanc/view_component_reflex/compare/v2.6.0...v2.6.1) (2020-11-06)
+
+
+### Bug Fixes
+
+* render_component_to_string isn't always available ([c858a50](https://github.com/joshleblanc/view_component_reflex/commit/c858a505d86cb6dc6d4a7d343932cd2f09f6be0f)), closes [#28](https://github.com/joshleblanc/view_component_reflex/issues/28)
+* support rails 6.1 ([5b13b37](https://github.com/joshleblanc/view_component_reflex/commit/5b13b3798894cb3b17b43cebe1abc164dbe8d504)), closes [#28](https://github.com/joshleblanc/view_component_reflex/issues/28)
+
 ### [2.6.0](https://github.com/joshleblanc/view_component_reflex/compare/v2.5.0...v2.5.1) (2020-10-17)
 
 
