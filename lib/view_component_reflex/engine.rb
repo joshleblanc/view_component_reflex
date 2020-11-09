@@ -1,10 +1,8 @@
 module ViewComponentReflex
   class Engine < ::Rails::Engine
-    class << self
-      mattr_accessor :state_adapter
 
-      self.state_adapter = StateAdapter::Session
-    end
+    mattr_accessor :state_adapter
+    Engine.state_adapter = StateAdapter::Session
 
     config.to_prepare do
       StimulusReflex::Channel.class_eval do

@@ -40,7 +40,7 @@ module ViewComponentReflex
           element.dataset[:key]
         end
       end
-      document = Nokogiri::HTML(controller.render_component_to_string(component))
+      document = Nokogiri::HTML(component.render_in(controller.view_context))
       cable_ready[channel.stream_name].morph(
         selector: selector,
         children_only: true,

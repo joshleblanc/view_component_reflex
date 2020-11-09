@@ -348,6 +348,17 @@ $ gem install view_component_reflex
 ## Uninitialized constants \<component\>Reflex
 A component needs to be wrapped in `<%= component_controller do %>` in order to properly initialize, otherwise the Reflex class won't get created.
 
+## Session is an empty hash
+StimulusReflex 3.3 introduced _selector morphs_, allowing you to render arbitrary strings via `ApplicationController.render`, for example:
+
+```rb
+def test_selector
+  morph '#some-container', ApplicationController.render(MyComponent.new(some: :param))
+end
+```
+
+StimulusReflex 3.4 introduced a fix that merges the current `request.env` and provides the CSRF token to fetch the session.
+
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
