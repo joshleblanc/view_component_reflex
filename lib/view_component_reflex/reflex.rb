@@ -27,6 +27,7 @@ module ViewComponentReflex
               permanent_attribute_name: "data-reflex-permanent",
               stimulus_reflex: {
                 reflex_id: reflex_id,
+                url: url,
                 morph: :page
               }
             )
@@ -52,6 +53,7 @@ module ViewComponentReflex
         permanent_attribute_name: "data-reflex-permanent",
         stimulus_reflex: {
           reflex_id: reflex_id,
+          url: url,
           morph: :page
         }
       )
