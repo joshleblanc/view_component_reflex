@@ -24,7 +24,11 @@ module ViewComponentReflex
               selector: s,
               html: html.inner_html,
               children_only: true,
-              permanent_attribute_name: "data-reflex-permanent"
+              permanent_attribute_name: "data-reflex-permanent",
+              stimulus_reflex: {
+                reflex_id: reflex_id,
+                morph: :page
+              }
             )
           end
         end
@@ -45,7 +49,11 @@ module ViewComponentReflex
         selector: selector,
         children_only: true,
         html: document.css(selector).inner_html,
-        permanent_attribute_name: "data-reflex-permanent"
+        permanent_attribute_name: "data-reflex-permanent",
+        stimulus_reflex: {
+          reflex_id: reflex_id,
+          morph: :page
+        }
       )
     end
 
