@@ -28,7 +28,8 @@ module ViewComponentReflex
               stimulus_reflex: {
                 reflex_id: reflex_id,
                 url: url,
-                morph: :page
+                morph: :page,
+                attrs: {key: element.dataset[:key]}
               }
             )
           end
@@ -54,7 +55,8 @@ module ViewComponentReflex
         stimulus_reflex: {
           reflex_id: reflex_id,
           url: url,
-          morph: :page
+          morph: :page,
+          attrs: {key: element.dataset[:key]}
         }
       )
     end
