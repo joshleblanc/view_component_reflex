@@ -101,7 +101,12 @@ module ViewComponentReflex
         ""
       end
       key += collection_key.to_s if collection_key
+      key += global_key.to_s if global_key
       @key = key
+    end
+
+    def global_key
+      request.session.id
     end
 
     # Helper to use to create the proper reflex data attributes for an element
