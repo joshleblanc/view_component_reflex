@@ -271,6 +271,8 @@ ViewComponentReflex::Engine.configure do |config|
   config.state_adapter = YourAdapter
 end
 ```
+
+
 ## Existing Fast Redis based State Adapter
 
 This adapter uses hmset and hgetall to reduce the number of operations. 
