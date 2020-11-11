@@ -35,11 +35,20 @@ module ViewComponentReflex
     end
 
     def reflex_from_nested_component
-      if @component.module_parent.const_defined?(reflex_name)
-        @component.module_parent.const_get(reflex_name)
+      if @component.respond_to?(:module_parent)
+        if @component.module_parent.const_defined?(reflex_name)
+          @component.module_parent.const_get(reflex_name)
+        else
+          @new = true
+          @component.module_parent.const_set(reflex_name, reflex_instance)
+        end
       else
-        @new = true
-        @component.module_parent.const_set(reflex_name, reflex_instance)
+        if @component.parent.const_defined?(reflex_name)
+          @component.parent.const_get(reflex_name)
+        else
+          @new = true
+          @component.parent.const_set(reflex_name, reflex_instance)
+        end
       end
     end
 
