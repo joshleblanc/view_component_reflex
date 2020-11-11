@@ -106,7 +106,7 @@ module ViewComponentReflex
     end
 
     def global_key
-      request.session.id
+      request.session[:global_reflex_cookie_id] ||= SecureRandom.hex
     end
 
     # Helper to use to create the proper reflex data attributes for an element
