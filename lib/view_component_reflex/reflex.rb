@@ -15,7 +15,7 @@ module ViewComponentReflex
       if primary_selector
         prevent_refresh!
 
-        controller.process(url_params[:action])
+        controller.process(params[:action])
         document = Nokogiri::HTML(controller.response.body)
         [primary_selector, *rest].each do |s|
           html = document.css(s)
