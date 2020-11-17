@@ -60,7 +60,7 @@ module ViewComponentReflex
             reflex_id: reflex_id,
             xpath: xpath,
             target: target,
-            c_xpath: c_xpath,          
+            c_xpath: c_xpath,
             reflex_controller: reflex_controller,
             url: url,
             morph: :page,
