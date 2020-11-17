@@ -57,6 +57,10 @@ module ViewComponentReflex
         html: document.css(selector).inner_html,
         permanent_attribute_name: "data-reflex-permanent",
         stimulus_reflex: {
+            reflex_id: reflex_id,
+            xpath: xpath,
+            target: target,
+            c_xpath: c_xpath,          
             reflex_controller: reflex_controller,
             url: url,
             morph: :page,
