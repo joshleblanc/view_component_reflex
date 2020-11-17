@@ -26,11 +26,14 @@ module ViewComponentReflex
               children_only: true,
               permanent_attribute_name: "data-reflex-permanent",
               stimulus_reflex: {
-                reflex_id: reflex_id,
-                url: url,
-                morph: :page,
-                reflex_controller: stimulus_controller,
-                attrs: {key: element.dataset[:key]}
+                  reflex_id: reflex_id,
+                  xpath: xpath,
+                  c_xpath: c_xpath,
+                  target: target,
+                  reflex_controller: reflex_controller,
+                  url: url,
+                  morph: :page,
+                  attrs: {key: element.dataset[:key]}
               }
             )
           end
@@ -54,13 +57,20 @@ module ViewComponentReflex
         html: document.css(selector).inner_html,
         permanent_attribute_name: "data-reflex-permanent",
         stimulus_reflex: {
-          reflex_id: reflex_id,
-          url: url,
-          morph: :page,
-          reflex_controller: stimulus_controller,
-          attrs: {key: element.dataset[:key]}
+            reflex_id: reflex_id,
+            xpath: xpath,
+            target: target,
+            c_xpath: c_xpath,
+            reflex_controller: reflex_controller,
+            url: url,
+            morph: :page,
+            attrs: {key: element.dataset[:key]}
         }
       )
+    end
+
+    def target
+      "#{component_class}##{method_name}"
     end
 
     def refresh_all!
