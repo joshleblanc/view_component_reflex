@@ -3,7 +3,7 @@ PATH
   specs:
     view_component_reflex (2.6.2)
       rails (>= 5.2, < 7.0)
-      stimulus_reflex (>= 3.3.0, < 3.4)
+      stimulus_reflex (>= 3.3.0)
       view_component
 
 GEM
@@ -87,6 +87,8 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.14.2)
     nio4r (2.5.4)
+    nokogiri (1.10.10)
+      mini_portile2 (~> 2.4.0)
     nokogiri (1.10.10-x64-mingw32)
       mini_portile2 (~> 2.4.0)
     rack (2.2.3)
@@ -147,6 +149,7 @@ GEM
     zeitwerk (2.4.1)
 
 PLATFORMS
+  ruby
   x64-mingw32
 
 DEPENDENCIES
