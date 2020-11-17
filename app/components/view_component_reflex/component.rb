@@ -151,7 +151,7 @@ module ViewComponentReflex
       adapter = ViewComponentReflex::Engine.state_adapter
 
       # initialize session state
-      if !stimulus_reflex? || adapter.state(request, @key).empty?
+      if (!stimulus_reflex? || adapter.state(request, @key).empty?) && !@initialized_state
 
         new_state = create_safe_state
 
@@ -179,8 +179,9 @@ module ViewComponentReflex
           end
         end
         after_state_initialized(parameters_changed)
-        @initialized_state = true
       end
+
+      @initialized_state = true
       @key
     end
 
