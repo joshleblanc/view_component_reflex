@@ -3,7 +3,7 @@ PATH
   specs:
     view_component_reflex (2.6.2)
       rails (>= 5.2, < 7.0)
-      stimulus_reflex (>= 3.3.0)
+      stimulus_reflex (= 3.4.0.pre3)
       view_component
 
 GEM
@@ -65,11 +65,9 @@ GEM
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
     builder (3.2.4)
-    cable_ready (4.3.0)
-      rails (>= 5.2)
     concurrent-ruby (1.1.7)
     crass (1.0.6)
-    erubi (1.9.0)
+    erubi (1.10.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (1.8.5)
@@ -87,8 +85,6 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.14.2)
     nio4r (2.5.4)
-    nokogiri (1.10.10)
-      mini_portile2 (~> 2.4.0)
     nokogiri (1.10.10-x64-mingw32)
       mini_portile2 (~> 2.4.0)
     rack (2.2.3)
@@ -129,8 +125,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    stimulus_reflex (3.3.0)
-      cable_ready (>= 4.3.0)
+    stimulus_reflex (3.4.0.pre3)
       nokogiri
       rack
       rails (>= 5.2)
