@@ -186,7 +186,7 @@ module ViewComponentReflex
     end
 
     def safe_instance_variables
-      instance_variables - unsafe_instance_variables
+      instance_variables - unsafe_instance_variables - omitted_from_state
     end
 
     private
@@ -204,7 +204,7 @@ module ViewComponentReflex
 
       # this will almost certainly break
       safe_instance_variables.each do |k|
-        new_state[k] = instance_variable_get(k) unless omitted_from_state.include?(k)
+        new_state[k] = instance_variable_get(k)
       end
       new_state
     end
