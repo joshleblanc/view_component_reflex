@@ -359,6 +359,20 @@ end
 
 StimulusReflex 3.4 introduced a fix that merges the current `request.env` and provides the CSRF token to fetch the session.
 
+## Anycable
+
+@sebyx07 provided a solution to use anycable (https://github.com/joshleblanc/view_component_reflex/issues/23#issue-721786338)
+
+Leaving this, might help others:
+
+I tried this with any cable and I had to add this to development.rb
+Otherwise @instance_variables were nil after a reflex
+
+```ruby
+  config.cache_store = :redis_cache_store, { url: "redis://localhost:6379/1", driver: :hiredis }
+  config.session_store :cache_store
+```
+
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
