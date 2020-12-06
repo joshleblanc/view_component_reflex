@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/joshleblanc/view_component_reflex/compare/v2.6.2...v3.0.0) (2020-12-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* reflex_base_class is not longer a method, but an accessor
+
+### Bug Fixes
+
+* add missing data fields for SR 3.4.0 ([303494e](https://github.com/joshleblanc/view_component_reflex/commit/303494e9f4772839a5e464c2ffb36d2e76964341))
+* cable_ready definitions were conflicting ([3d84b82](https://github.com/joshleblanc/view_component_reflex/commit/3d84b824bc8d2d8c94275447cc3e5ce524094873))
+* don't save omitted state ([7e825e1](https://github.com/joshleblanc/view_component_reflex/commit/7e825e1f023e8d08b4085bcc6302a934f6caa7f8)), closes [#37](https://github.com/joshleblanc/view_component_reflex/issues/37)
+* only initialize state once ([eef65f6](https://github.com/joshleblanc/view_component_reflex/commit/eef65f680c5c181cadd19dec00aba85c8c8fa9f8))
+* pin SR to 3.4.0.pre3 ([472237e](https://github.com/joshleblanc/view_component_reflex/commit/472237e7fafa1a999fffb0e920dd0a7bfa37b121))
+* reflex_base_class should be inheritable ([a2ef4cc](https://github.com/joshleblanc/view_component_reflex/commit/a2ef4ccd478079c6a8721411c0d3ca55b85d8d2f))
+* use cable ready directly ([613059d](https://github.com/joshleblanc/view_component_reflex/commit/613059d2bff24ed5b5d6baedcfb8d92e9e64349d))
+
 ### [2.6.2](https://github.com/joshleblanc/view_component_reflex/compare/v2.6.1...v2.6.2) (2020-11-13)
 
 
