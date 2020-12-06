@@ -1,6 +1,5 @@
 module ViewComponentReflex
   class Reflex < StimulusReflex::Reflex
-    include CableReady::Broadcaster
 
     class << self
       attr_accessor :component_class
@@ -20,7 +19,7 @@ module ViewComponentReflex
         [primary_selector, *rest].each do |s|
           html = document.css(s)
           if html.present?
-            cable_ready[channel.stream_name].morph(
+            cable_ready.morph(
               selector: s,
               html: html.inner_html,
               children_only: true,
@@ -51,7 +50,7 @@ module ViewComponentReflex
         end
       end
       document = Nokogiri::HTML(component.render_in(controller.view_context))
-      cable_ready[channel.stream_name].morph(
+      cable_ready.morph(
         selector: selector,
         children_only: true,
         html: document.css(selector).inner_html,
