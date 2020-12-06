@@ -207,7 +207,7 @@ end
 ```
 
 ## Custom reflex base class
-Reflexes typically inherit from a base ApplicationReflex. You can define the base class for a view_component_reflex by using the `reflex_base_class` method.
+Reflexes typically inherit from a base ApplicationReflex. You can define the base class for a view_component_reflex by using the `reflex_base_class` accessor.
 The parent class must inherit ViewComponentReflex::Reflex, and will throw an error if it does not.
 
 ```ruby
@@ -217,7 +217,7 @@ end
 
 
 class MyComponent < ViewComponentReflex::Component
-  reflex_base_class ApplicationReflex
+  MyComponent.reflex_base_class = ApplicationReflex
 end
 ```
 
