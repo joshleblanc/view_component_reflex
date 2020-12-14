@@ -359,6 +359,21 @@ end
 
 StimulusReflex 3.4 introduced a fix that merges the current `request.env` and provides the CSRF token to fetch the session.
 
+## Help, my instance variables do not persist into the session
+
+These instance variable names are not working and unsafe:
+
+```rb
+def unsafe_instance_variables
+  [
+    :@view_context, :@lookup_context, :@view_renderer, :@view_flow,
+    :@virtual_path, :@variant, :@current_template, :@output_buffer, :@key,
+    :@helpers, :@controller, :@request, :@tag_builder, :@initialized_state
+  ]
+end
+```
+Please use a different name to be able to save them to the session.
+
 ## Anycable
 
 @sebyx07 provided a solution to use anycable (https://github.com/joshleblanc/view_component_reflex/issues/23#issue-721786338)
