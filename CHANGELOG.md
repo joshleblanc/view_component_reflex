@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.1](https://github.com/joshleblanc/view_component_reflex/compare/v3.0.0...v3.0.1) (2020-12-15)
+
+
+### Bug Fixes
+
+* don't assume component names end in "Component" ([a543bf4](https://github.com/joshleblanc/view_component_reflex/commit/a543bf4b248399aa9e7914e91954af0c98300092)), closes [#42](https://github.com/joshleblanc/view_component_reflex/issues/42)
+
 ## [3.0.0](https://github.com/joshleblanc/view_component_reflex/compare/v2.6.2...v3.0.0) (2020-12-06)
 
 
