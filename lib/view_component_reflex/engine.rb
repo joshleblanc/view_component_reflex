@@ -13,13 +13,16 @@ module ViewComponentReflex
             reflex_name, _ = target.split("#")
             reflex_name = reflex_name.camelize
             component_name = reflex_name.end_with?("Reflex") ? reflex_name[0...-6] : reflex_name
-            if component_name.end_with?("Component")
-              begin
-                component_name.constantize.init_stimulus_reflex
-              rescue
-                p "Tried to initialize view_component_reflex on #{component_name}, but it's not a view_component_reflex"
-              end
+            component = begin
+              component_name.constantize
+            rescue
+              # Since every reflex runs through this monkey patch, we're just going to ignore the ones that aren't for components
+            end
 
+            if component&.respond_to?(:init_stimulus_reflex)
+              component.init_stimulus_reflex
+            else
+              p "Tried to initialize view_component_reflex on #{component_name}, but it's not a view_component_reflex"
             end
             receive_original(data)
           end

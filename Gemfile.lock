@@ -1,9 +1,9 @@
 PATH
   remote: .
   specs:
-    view_component_reflex (3.0.0)
+    view_component_reflex (3.0.1)
       rails (>= 5.2, < 7.0)
-      stimulus_reflex (= 3.4.0.pre8)
+      stimulus_reflex (= 3.4.0.pre9)
       view_component
 
 GEM
@@ -65,7 +65,7 @@ GEM
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
     builder (3.2.4)
-    cable_ready (4.4.3)
+    cable_ready (4.4.5)
       rails (>= 5.2)
     concurrent-ruby (1.1.7)
     crass (1.0.6)
@@ -129,7 +129,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    stimulus_reflex (3.4.0.pre8)
+    stimulus_reflex (3.4.0.pre9)
       cable_ready (>= 4.4)
       nokogiri
       rack
@@ -141,7 +141,7 @@ GEM
       thread_safe (~> 0.1)
     tzinfo-data (1.2020.1)
       tzinfo (>= 1.0.0)
-    view_component (2.22.1)
+    view_component (2.23.2)
       activesupport (>= 5.0.0, < 7.0)
     websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
