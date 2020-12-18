@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.1](https://github.com/joshleblanc/view_component_reflex/compare/v3.0.0...v3.0.1) (2020-12-18)
+
+
+### Bug Fixes
+
+* don't assume component names end in "Component" ([a543bf4](https://github.com/joshleblanc/view_component_reflex/commit/a543bf4b248399aa9e7914e91954af0c98300092)), closes [#42](https://github.com/joshleblanc/view_component_reflex/issues/42)
+* test would fail for memory adapter ([67a9bee](https://github.com/joshleblanc/view_component_reflex/commit/67a9bee7e3bdd81a33dba99c774bb336f19c6756))
+
 ### [3.0.1](https://github.com/joshleblanc/view_component_reflex/compare/v3.0.0...v3.0.1) (2020-12-15)
 
 
