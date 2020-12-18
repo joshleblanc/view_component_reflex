@@ -129,6 +129,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sqlite3 (1.4.2)
     stimulus_reflex (3.4.0.pre9)
       cable_ready (>= 4.4)
       nokogiri
@@ -153,7 +154,9 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  sqlite3
   tzinfo-data
+  view_component
   view_component_reflex!
 
 BUNDLED WITH
