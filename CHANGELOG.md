@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.4](https://github.com/joshleblanc/view_component_reflex/compare/v3.0.3...v3.0.4) (2020-12-19)
+
+
+### Bug Fixes
+
+* replace slashes with double dash in stimulus controller name ([7d28810](https://github.com/joshleblanc/view_component_reflex/commit/7d288106f7311249b71e381be4623790625ee01c)), closes [#65](https://github.com/joshleblanc/view_component_reflex/issues/65)
+
 ### [3.0.3](https://github.com/joshleblanc/view_component_reflex/compare/v3.0.2...v3.0.3) (2020-12-19)
 
 ### [3.0.1](https://github.com/joshleblanc/view_component_reflex/compare/v3.0.0...v3.0.1) (2020-12-18)
