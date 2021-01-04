@@ -1,6 +1,6 @@
 module ViewComponentReflex
   module StateAdapter
-    class Session
+    class Session < Base
       def self.state(request, key)
         request.session[key] ||= {}
       end

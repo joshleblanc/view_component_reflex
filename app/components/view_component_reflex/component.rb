@@ -57,7 +57,7 @@ module ViewComponentReflex
     def component_controller(opts_or_tag = :div, opts = {}, &blk)
       init_key
 
-      tag = :div
+      tag = :di
       options = if opts_or_tag.is_a? Hash
         opts_or_tag
       else

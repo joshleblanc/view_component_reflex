@@ -1,7 +1,7 @@
 VIEW_COMPONENT_REFLEX_MEMORY_STATE = {}
 module ViewComponentReflex
   module StateAdapter
-    class Memory
+    class Memory < Base
       def self.state(request, key)
         id = extract_id(request)
 
@@ -27,17 +27,6 @@ module ViewComponentReflex
 
       def self.wrap_write_async
         yield
-      end
-
-      private
-
-      def self.extract_id(request)
-        session = request&.session
-        if session.respond_to? :id
-          session.id.to_s
-        else
-          nil
-        end
       end
     end
   end
