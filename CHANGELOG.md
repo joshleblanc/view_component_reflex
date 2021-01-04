@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.5](https://github.com/joshleblanc/view_component_reflex/compare/v3.0.4...v3.0.5) (2021-01-04)
+
+
+### Bug Fixes
+
+* tests were failing with redis adapter ([76779eb](https://github.com/joshleblanc/view_component_reflex/commit/76779eb13ba2d0c4fea86d3ae6cff236394ded76))
+
 ### [3.0.4](https://github.com/joshleblanc/view_component_reflex/compare/v3.0.3...v3.0.4) (2020-12-19)
 
 
