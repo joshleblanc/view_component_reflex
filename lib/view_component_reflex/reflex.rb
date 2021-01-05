@@ -24,16 +24,7 @@ module ViewComponentReflex
               html: html.inner_html,
               children_only: true,
               permanent_attribute_name: "data-reflex-permanent",
-              stimulus_reflex: {
-                  reflex_id: reflex_id,
-                  xpath: xpath,
-                  c_xpath: c_xpath,
-                  target: target,
-                  reflex_controller: reflex_controller,
-                  url: url,
-                  morph: :page,
-                  attrs: {key: element.dataset[:key]}
-              }
+              stimulus_reflex: stimulus_reflex_data
             )
           end
         end
@@ -55,17 +46,23 @@ module ViewComponentReflex
         children_only: true,
         html: document.css(selector).inner_html,
         permanent_attribute_name: "data-reflex-permanent",
-        stimulus_reflex: {
-            reflex_id: reflex_id,
-            xpath: xpath,
-            target: target,
-            c_xpath: c_xpath,
-            reflex_controller: reflex_controller,
-            url: url,
-            morph: :page,
-            attrs: {key: element.dataset[:key]}
-        }
+        stimulus_reflex: stimulus_reflex_data
       )
+    end
+
+    def stimulus_reflex_data
+      {
+        reflex_id: reflex_id,
+        xpath: xpath,
+        target: target,
+        c_xpath: c_xpath,
+        reflex_controller: reflex_controller,
+        url: url,
+        morph: :page,
+        attrs: {
+          key: element.dataset[:key]
+        }
+      }
     end
 
     def target
@@ -127,15 +124,20 @@ module ViewComponentReflex
     end
 
     def stimulate(target, data)
-      dataset = {}
-      data.each do |k, v|
-        dataset["data-#{k}"] = v.to_s
+      data_to_receive = {}
+
+      stimulus_reflex_data.each do |k, v|
+        data_to_receive[k.to_s.camelize(:lower)] = v
       end
-      channel.receive({
-        "target" => target,
-        "attrs" => element.attributes.to_h.symbolize_keys,
-        "dataset" => dataset
-      })
+
+      data_to_receive["dataset"] = data.each_with_object({}) do |(k, v), o|
+        o["data-#{k}"] = v
+      end
+
+      data_to_receive["attrs"] = element.attributes.to_h.symbolize_keys
+      data_to_receive["target"] = target
+
+      channel.receive data_to_receive
     end
 
     def component
