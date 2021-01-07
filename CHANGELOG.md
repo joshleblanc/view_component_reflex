@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/joshleblanc/view_component_reflex/compare/v3.0.5...v3.1.0) (2021-01-07)
+
+
+### Features
+
+* add stream_to method ([f60295c](https://github.com/joshleblanc/view_component_reflex/commit/f60295c155d1948d5230b1fa279fa1f79a1f521c))
+* expose reflex to component ([d210503](https://github.com/joshleblanc/view_component_reflex/commit/d210503a22ba5f54cac7fb3a7c8c936527754029))
+
+
+### Bug Fixes
+
+* stimulate wasn't working ([b851486](https://github.com/joshleblanc/view_component_reflex/commit/b851486ce4a7ab88b3a80f3e776a80b6ebf366cb))
+
 ### [3.0.5](https://github.com/joshleblanc/view_component_reflex/compare/v3.0.4...v3.0.5) (2021-01-04)
 
 
