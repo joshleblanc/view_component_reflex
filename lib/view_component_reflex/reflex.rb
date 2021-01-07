@@ -31,7 +31,7 @@ module ViewComponentReflex
       else
         refresh_component!
       end
-      cable_ready.broadcast
+      CableReady::Channels.instance.broadcast
     end
 
     def stream
