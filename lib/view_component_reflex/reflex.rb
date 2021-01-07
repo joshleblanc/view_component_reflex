@@ -19,7 +19,7 @@ module ViewComponentReflex
         [primary_selector, *rest].each do |s|
           html = document.css(s)
           if html.present?
-            CableReady::Channels.instance[stream_name].morph(
+            CableReady::Channels.instance[stream].morph(
               selector: s,
               html: html.inner_html,
               children_only: true,
@@ -34,6 +34,14 @@ module ViewComponentReflex
       cable_ready.broadcast
     end
 
+    def stream
+      @stream ||= stream_name
+    end
+
+    def stream_to(channel)
+      @stream = channel
+    end
+
     def refresh_component!
       component.tap do |k|
         k.define_singleton_method(:key) do
@@ -41,7 +49,7 @@ module ViewComponentReflex
         end
       end
       document = Nokogiri::HTML(component.render_in(controller.view_context))
-      CableReady::Channels.instance[stream_name].morph(
+      CableReady::Channels.instance[stream].morph(
         selector: selector,
         children_only: true,
         html: document.css(selector).inner_html,

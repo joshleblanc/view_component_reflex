@@ -176,6 +176,17 @@ def do_some_global_action
 end
 ```
 
+### stream_to(channel)
+Stream to a custom channel, rather than the default stimulus reflex one
+
+```ruby
+def do_something
+  stream_to MyChannel
+  
+  @foo = :bar
+end
+```
+
 ### key
 This is a key unique to a particular component. It's used to reconcile state between renders, and should be passed as a data attribute whenever a reflex is called
 
