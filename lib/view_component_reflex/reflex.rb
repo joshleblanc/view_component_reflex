@@ -163,7 +163,8 @@ module ViewComponentReflex
         :session,
         :prevent_refresh!,
         :selector,
-        :stimulate
+        :stimulate,
+        :stream_to
       ]
       exposed_methods.each do |meth|
         @component.define_singleton_method(meth) do |*a|
