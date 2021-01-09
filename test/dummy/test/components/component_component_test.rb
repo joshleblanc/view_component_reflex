@@ -31,7 +31,7 @@ class ComponentComponentTest < ViewComponent::TestCase
 
   def assert_component
     assert_equal(
-      %(<div data-controller="component" data-key="">\n  <span>Hello!</span>\n</div>),
+      %(<div data-controller="component" data-key="06ef6e37c7dce93cb53a33e68b7fa62b14cd655dd218e8605844fa2967ff3bf1">\n  <span>Hello!</span>\n</div>),
       render_inline(ComponentComponent.new).to_html
     )
   end

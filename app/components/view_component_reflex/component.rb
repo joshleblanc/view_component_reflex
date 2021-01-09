@@ -84,13 +84,8 @@ module ViewComponentReflex
     def init_key
       # we want the erb file that renders the component. `caller` gives the file name,
       # and line number, which should be unique. We hash it to make it a nice number
-      erb_file = caller.select { |p| p.match? /.\.html\.(haml|erb|slim)/ }[1]
-      key = if erb_file
-        Digest::SHA2.hexdigest(erb_file.split(":in")[0])
-      else
-        ""
-      end
-      key += collection_key.to_s if collection_key
+      key = Digest::SHA2.hexdigest(__FILE__)
+      key = "#{key}::#{collection_key}" if collection_key
       @key = key
     end
 
