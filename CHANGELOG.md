@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.3](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.2...v3.1.3) (2021-01-14)
+
+
+### Bug Fixes
+
+* broadcast directly on channels instance ([a09af64](https://github.com/joshleblanc/view_component_reflex/commit/a09af6414346aed6d5ee83fef3744e2e4d78034c))
+* spelling of <div> tag ([ed60d16](https://github.com/joshleblanc/view_component_reflex/commit/ed60d16dfbc9a171940e9e508feab0da295380d6))
+
 ### [3.1.2](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.1...v3.1.2) (2021-01-07)
 
 ### [3.1.1](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.0...v3.1.1) (2021-01-07)
