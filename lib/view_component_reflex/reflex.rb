@@ -107,13 +107,15 @@ module ViewComponentReflex
       end
     end
 
-    def method_missing(name, *args)
+    def method_missing(name, *args, &blk)
       morph :nothing
       super unless respond_to_missing?(name)
       state.each do |k, v|
         component.instance_variable_set(k, v)
       end
-      name.to_proc.call(component, *args)
+
+      component.send(name, *args, &blk)
+      
       refresh! unless @prevent_refresh
     end
 
