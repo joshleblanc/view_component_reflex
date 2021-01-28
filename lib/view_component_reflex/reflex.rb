@@ -61,9 +61,9 @@ module ViewComponentReflex
     def stimulus_reflex_data
       {
         reflex_id: reflex_id,
-        xpath: xpath,
+        xpath_controller: xpath_controller,
+        xpath_element: xpath_element,
         target: target,
-        c_xpath: c_xpath,
         reflex_controller: reflex_controller,
         url: url,
         morph: :page,
