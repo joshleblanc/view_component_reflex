@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.4](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.3...v3.1.4) (2021-01-28)
+
+
+### Bug Fixes
+
+* around callback wasn't working correctly ([3c76560](https://github.com/joshleblanc/view_component_reflex/commit/3c76560e9833ef6977dedaa2805048caf1c420f2))
+* update stimulus data for SR 3.4.1 ([2a41650](https://github.com/joshleblanc/view_component_reflex/commit/2a4165057ff996739bfbd01ad667fc5326c21b95))
+
 ### [3.1.3](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.2...v3.1.3) (2021-01-14)
 
 
