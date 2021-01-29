@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.5](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.4...v3.1.5) (2021-01-29)
+
+
+### Bug Fixes
+
+* correct stimulus reflex dependency ([ef85eb4](https://github.com/joshleblanc/view_component_reflex/commit/ef85eb4c3fa2090ae81e0c5433149fb504a36234))
+
 ### [3.1.4](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.3...v3.1.4) (2021-01-28)
 
 
