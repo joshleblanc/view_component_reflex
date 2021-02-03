@@ -31,7 +31,7 @@ module ViewComponentReflex
       else
         refresh_component!
       end
-      CableReady::Channels.instance.broadcast
+      CableReady::Channels.instance[stream].broadcast
     end
 
     def stream
@@ -101,6 +101,8 @@ module ViewComponentReflex
       case selectors
       when :nothing
         @broadcaster = StimulusReflex::NothingBroadcaster.new(self)
+      when :null
+        @broadcaster = NullBroadcaster.new(self)
       else
         @broadcaster = StimulusReflex::SelectorBroadcaster.new(self) unless broadcaster.selector?
         broadcaster.morphs << [selectors, html]
@@ -108,7 +110,7 @@ module ViewComponentReflex
     end
 
     def method_missing(name, *args, &blk)
-      morph :nothing
+      morph :null
       super unless respond_to_missing?(name)
       state.each do |k, v|
         component.instance_variable_set(k, v)
