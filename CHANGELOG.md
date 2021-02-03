@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.6](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.5...v3.1.6) (2021-02-03)
+
+
+### Bug Fixes
+
+* don't emit nothing morph ([e085c86](https://github.com/joshleblanc/view_component_reflex/commit/e085c86493549540000d81c3b12175245aa3d025))
+
 ### [3.1.5](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.4...v3.1.5) (2021-01-29)
 
 
