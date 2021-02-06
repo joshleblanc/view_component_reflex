@@ -98,7 +98,8 @@ module ViewComponentReflex
     def initialize_state
       return if state_initialized?
       adapter = ViewComponentReflex::Engine.state_adapter
-      # initialize session state
+      
+      # newly mounted
       if !stimulus_reflex? || adapter.state(request, @key).empty?
 
         new_state = create_safe_state
@@ -107,7 +108,9 @@ module ViewComponentReflex
           adapter.store_state(request, @key, new_state)
           adapter.store_state(request, "#{@key}_initial", new_state)
         end
-      elsif !@initialized_state
+
+      # updating a mounted component
+      else
         initial_state = adapter.state(request, "#{@key}_initial")
 
         parameters_changed = []
