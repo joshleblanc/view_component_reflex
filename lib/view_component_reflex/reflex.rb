@@ -24,7 +24,6 @@ module ViewComponentReflex
               html: html.inner_html,
               children_only: true,
               permanent_attribute_name: "data-reflex-permanent",
-              stimulus_reflex: stimulus_reflex_data
             )
           end
         end
@@ -44,17 +43,17 @@ module ViewComponentReflex
 
     def refresh_component!
       component.tap do |k|
-        k.define_singleton_method(:key) do
-          element.dataset[:key]
+        k.define_singleton_method(:initialize_component) do
+          @key = element.dataset[:key]
         end
       end
+
       document = Nokogiri::HTML(component.render_in(controller.view_context))
       CableReady::Channels.instance[stream].morph(
         selector: selector,
         children_only: true,
         html: document.css(selector).inner_html,
         permanent_attribute_name: "data-reflex-permanent",
-        stimulus_reflex: stimulus_reflex_data
       )
     end
 
@@ -96,22 +95,10 @@ module ViewComponentReflex
       !!name.to_proc
     end
 
-    # this is copied out of stimulus_reflex/reflex.rb and modified
-    def morph(selectors, html = "")
-      case selectors
-      when :nothing
-        @broadcaster = StimulusReflex::NothingBroadcaster.new(self)
-      when :null
-        @broadcaster = NullBroadcaster.new(self)
-      else
-        @broadcaster = StimulusReflex::SelectorBroadcaster.new(self) unless broadcaster.selector?
-        broadcaster.morphs << [selectors, html]
-      end
-    end
-
     def method_missing(name, *args, &blk)
-      morph :null
+      morph :nothing
       super unless respond_to_missing?(name)
+
       state.each do |k, v|
         component.instance_variable_set(k, v)
       end
@@ -184,11 +171,23 @@ module ViewComponentReflex
     end
 
     def set_state(new_state = {})
-      ViewComponentReflex::Engine.state_adapter.set_state(request, controller, element.dataset[:key], new_state)
+      state_adapter.set_state(request, controller, key, new_state)
+    end
+
+    def key
+      element.dataset[:key]
+    end
+
+    def state_adapter
+      ViewComponentReflex::Engine.state_adapter
     end
 
     def state
-      ViewComponentReflex::Engine.state_adapter.state(request, element.dataset[:key])
+      state_adapter.state(request, key)
+    end
+
+    def initial_state
+      state_adapter.state(request, "#{key}_initial")
     end
 
     def save_state
