@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.7](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.6...v3.1.7) (2021-02-06)
+
+
+### Bug Fixes
+
+* component state was inconsistent across tabs ([34ab007](https://github.com/joshleblanc/view_component_reflex/commit/34ab0078f8e28e6ecec562ef9355924d799075bc))
+
 ### [3.1.6](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.5...v3.1.6) (2021-02-03)
 
 
