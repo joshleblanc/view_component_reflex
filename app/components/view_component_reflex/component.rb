@@ -103,6 +103,7 @@ module ViewComponentReflex
       if !stimulus_reflex? || adapter.state(request, @key).empty?
 
         new_state = create_safe_state
+        p new_state
 
         adapter.wrap_write_async do
           adapter.store_state(request, @key, new_state)
@@ -198,11 +199,13 @@ module ViewComponentReflex
     private
 
     def unsafe_instance_variables
+      p content_areas.map { |ca| ":@#{ca}".to_sym }
       [
         :@view_context, :@lookup_context, :@view_renderer, :@view_flow,
         :@virtual_path, :@variant, :@current_template, :@output_buffer, :@key,
-        :@helpers, :@controller, :@request, :@tag_builder, :@state_initialized
-      ]
+        :@helpers, :@controller, :@request, :@tag_builder, :@state_initialized,
+        :@content
+      ].push *content_areas.map { |ca| "@#{ca}".to_sym}
     end
 
     def create_safe_state
