@@ -199,7 +199,6 @@ module ViewComponentReflex
     private
 
     def unsafe_instance_variables
-      p content_areas.map { |ca| ":@#{ca}".to_sym }
       [
         :@view_context, :@lookup_context, :@view_renderer, :@view_flow,
         :@virtual_path, :@variant, :@current_template, :@output_buffer, :@key,
