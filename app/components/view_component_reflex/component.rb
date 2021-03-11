@@ -201,7 +201,8 @@ module ViewComponentReflex
       [
         :@view_context, :@lookup_context, :@view_renderer, :@view_flow,
         :@virtual_path, :@variant, :@current_template, :@output_buffer, :@key,
-        :@helpers, :@controller, :@request, :@tag_builder, :@state_initialized
+        :@helpers, :@controller, :@request, :@tag_builder, :@state_initialized,
+        :@_content_evaluated, :@_render_in_block
       ]
     end
 

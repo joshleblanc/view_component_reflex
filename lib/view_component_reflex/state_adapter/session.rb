@@ -9,6 +9,7 @@ module ViewComponentReflex
         new_state.each do |k, v|
           state(request, key)[k] = v
         end
+        p new_state
         store = request.session.instance_variable_get("@by")
         store.commit_session request, controller.response
       end
@@ -18,6 +19,7 @@ module ViewComponentReflex
         new_state.each do |k, v|
           request.session[key][k] = v
         end
+        p new_state
       end
 
       def self.wrap_write_async

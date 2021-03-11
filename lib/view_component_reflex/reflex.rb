@@ -5,6 +5,13 @@ module ViewComponentReflex
       attr_accessor :component_class
     end
 
+    # pretty sure I can't memoize this because we need
+    # to re-render every time
+    def controller_document
+      controller.process(params[:action])
+      Nokogiri::HTML(controller.response.body)
+    end
+
     def refresh!(primary_selector = nil, *rest)
       save_state
 
@@ -14,10 +21,8 @@ module ViewComponentReflex
       if primary_selector
         prevent_refresh!
 
-        controller.process(params[:action])
-        document = Nokogiri::HTML(controller.response.body)
         [primary_selector, *rest].each do |s|
-          html = document.css(s)
+          html = controller_document.css(s)
           if html.present?
             CableReady::Channels.instance[stream].morph(
               selector: s,
@@ -41,7 +46,7 @@ module ViewComponentReflex
       @stream = channel
     end
 
-    def refresh_component!
+    def component_document
       component.tap do |k|
         k.define_singleton_method(:initialize_component) do
           @key = element.dataset[:key]
@@ -49,12 +54,25 @@ module ViewComponentReflex
       end
 
       document = Nokogiri::HTML(component.render_in(controller.view_context))
+    end
+
+    def refresh_component!
       CableReady::Channels.instance[stream].morph(
         selector: selector,
         children_only: true,
-        html: document.css(selector).inner_html,
+        html: component_document.css(selector).inner_html,
         permanent_attribute_name: "data-reflex-permanent",
       )
+    end
+
+    def default_morph
+      save_state
+      html = if component.can_render_to_string?
+        component_document.css(selector).to_html
+      else
+        controller_document.css(selector).to_html
+      end
+      morph selector, html
     end
 
     def stimulus_reflex_data
@@ -96,7 +114,6 @@ module ViewComponentReflex
     end
 
     def method_missing(name, *args, &blk)
-      morph :nothing
       super unless respond_to_missing?(name)
 
       state.each do |k, v|
@@ -105,7 +122,11 @@ module ViewComponentReflex
 
       component.send(name, *args, &blk)
       
-      refresh! unless @prevent_refresh
+      if @prevent_refresh
+        morph :nothing
+      else
+        default_morph      
+      end
     end
 
     def prevent_refresh!
