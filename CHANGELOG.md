@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.8](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.7...v3.1.8) (2021-03-11)
+
+
+### Bug Fixes
+
+* only run morph: nothing if nothing if preventing refresh ([64ad5e9](https://github.com/joshleblanc/view_component_reflex/commit/64ad5e95cc0108fe847d6c9eb6680557e4d082f8))
+
 ### [3.1.7](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.6...v3.1.7) (2021-02-06)
 
 
