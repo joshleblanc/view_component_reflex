@@ -79,10 +79,10 @@ module ViewComponentReflex
     end
 
     # We can't truly initialize the component without the view_context,
-    # which isn't available in the `initialize` method. We require the 
+    # which isn't available in the `initialize` method. We require the
     # developer to wrap components in `component_controller`, so this is where
     # we truly initialize the component.
-    # This method is overridden in reflex.rb when the component is re-rendered. The 
+    # This method is overridden in reflex.rb when the component is re-rendered. The
     # override simply sets @key to element.dataset[:key]
     # We don't want it to initialize the state again, and since we're rendering the component
     # outside of the view, we need to skip the initialize_key method as well
@@ -98,7 +98,7 @@ module ViewComponentReflex
     def initialize_state
       return if state_initialized?
       adapter = ViewComponentReflex::Engine.state_adapter
-      
+
       # newly mounted
       if !stimulus_reflex? || adapter.state(request, @key).empty?
 
@@ -136,16 +136,7 @@ module ViewComponentReflex
     end
 
     def initialize_key
-      # we want the erb file that renders the component. `caller` gives the file name,
-      # and line number, which should be unique. We hash it to make it a nice number
-      erb_file = caller.select { |p| p.match? /.\.html\.(haml|erb|slim)/ }[1]
-      key = if erb_file
-        Digest::SHA2.hexdigest(erb_file.split(":in")[0])
-      else
-        ""
-      end
-      key += collection_key.to_s if collection_key
-      @key = key
+      @key = object_id
     end
 
     # Helper to use to create the proper reflex data attributes for an element
