@@ -46,21 +46,24 @@ module ViewComponentReflex
       @stream = channel
     end
 
-    def component_document
+    def inject_key_into_component
       component.tap do |k|
         k.define_singleton_method(:initialize_component) do
           @key = element.dataset[:key]
         end
       end
+    end
 
-      document = Nokogiri::HTML(component.render_in(controller.view_context))
+    def component_document
+      inject_key_into_component
+      Nokogiri::HTML(component.render_in(controller.view_context))
     end
 
     def refresh_component!
       CableReady::Channels.instance[stream].morph(
         selector: selector,
         children_only: true,
-        html: component_document.css(selector).inner_html,
+        html: component_document.css(selector).outer_html,
         permanent_attribute_name: "data-reflex-permanent",
       )
     end
@@ -121,11 +124,11 @@ module ViewComponentReflex
       end
 
       component.send(name, *args, &blk)
-      
+
       if @prevent_refresh
         morph :nothing
       else
-        default_morph      
+        default_morph
       end
     end
 

@@ -97,30 +97,29 @@ module ViewComponentReflex
     # so we can't rely on the component created by the reflex
     def initialize_state
       return if state_initialized?
-      adapter = ViewComponentReflex::Engine.state_adapter
 
       # newly mounted
-      if !stimulus_reflex? || adapter.state(request, @key).empty?
+      if !stimulus_reflex? || state(@key).empty?
 
         new_state = create_safe_state
 
-        adapter.wrap_write_async do
-          adapter.store_state(request, @key, new_state)
-          adapter.store_state(request, "#{@key}_initial", new_state)
+        wrap_write_async do
+          store_state(@key, new_state)
+          store_state("#{@key}_initial", new_state)
         end
 
       # updating a mounted component
       else
-        initial_state = adapter.state(request, "#{@key}_initial")
+        initial_state = state("#{@key}_initial")
 
         parameters_changed = []
-        adapter.state(request, @key).each do |k, v|
+        state(@key).each do |k, v|
           instance_value = instance_variable_get(k)
           if permit_parameter?(initial_state[k], instance_value)
             parameters_changed << k
-            adapter.wrap_write_async do
-              adapter.set_state(request, controller, "#{@key}_initial", {k => instance_value})
-              adapter.set_state(request, controller, @key, {k => instance_value})
+            wrap_write_async do
+              set_state("#{@key}_initial", { k => instance_value })
+              set_state(@key, { k => instance_value })
             end
           else
             instance_variable_set(k, v)
@@ -129,6 +128,26 @@ module ViewComponentReflex
         after_state_initialized(parameters_changed)
       end
       @state_initialized = true
+    end
+
+    def adapter
+      ViewComponentReflex::Engine.state_adapter
+    end
+
+    def wrap_write_async(&blk)
+      adapter.wrap_write_async(&blk)
+    end
+
+    def set_state(key, new_state)
+      adapter.set_state(request, controller, key, new_state)
+    end
+
+    def state(key)
+      adapter.state(request, key)
+    end
+
+    def store_state(key, new_state = {})
+      adapter.store_state(request, key, new_state)
     end
 
     def state_initialized?
