@@ -1,6 +1,6 @@
 module ViewComponentReflex
   module Dom
-    class Reflex < ViewComponentReflex::Reflex
+    module Reflex
       def state
         @state ||= if element.dataset[:state]
           Verifier.verify(element.dataset[:state])

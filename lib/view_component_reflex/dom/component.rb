@@ -1,6 +1,6 @@
 module ViewComponentReflex
   module Dom
-    class Component < ViewComponentReflex::Component
+    module Component
 
       def component_controller(opts_or_tag = :div, opts = {}, &blk)
         initialize_component

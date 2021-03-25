@@ -30,6 +30,13 @@ module ViewComponentReflex
       end
     end
 
+    config.after_initialize do
+      if Engine.state_adapter == StateAdapter::Dom
+        ViewComponentReflex::Component.prepend Dom::Component
+        ViewComponentReflex::Reflex.prepend Dom::Reflex
+      end
+    end
+
     def self.configure
       yield self if block_given?
     end

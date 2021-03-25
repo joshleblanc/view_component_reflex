@@ -1,6 +1,5 @@
 module ViewComponentReflex
   class Reflex < StimulusReflex::Reflex
-
     class << self
       attr_accessor :component_class
     end
