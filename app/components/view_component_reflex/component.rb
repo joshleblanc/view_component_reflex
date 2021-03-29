@@ -206,6 +206,18 @@ module ViewComponentReflex
       ]
     end
 
+    def content
+      if cached_content && !@_render_in_block
+        cached_content
+      else
+        super
+      end
+    end
+
+    def cached_content
+      @__cached_content__
+    end
+
     def create_safe_state
       new_state = {}
 
@@ -213,6 +225,8 @@ module ViewComponentReflex
       safe_instance_variables.each do |k|
         new_state[k] = instance_variable_get(k)
       end
+
+      new_state[:@__cached_content__] = content
 
       new_state
     end
