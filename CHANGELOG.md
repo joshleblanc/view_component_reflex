@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.9](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.8...v3.1.9) (2021-03-29)
+
+
+### Bug Fixes
+
+* display cached content if available ([553a7a1](https://github.com/joshleblanc/view_component_reflex/commit/553a7a1f7f42921cc3b6ae5611468841488598dc))
+
 ### [3.1.8](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.7...v3.1.8) (2021-03-11)
 
 
