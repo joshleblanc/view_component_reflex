@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.10](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.9...v3.1.10) (2021-03-29)
+
+
+### Bug Fixes
+
+* don't re-render the page x-times for x selectors ([bb86d4f](https://github.com/joshleblanc/view_component_reflex/commit/bb86d4fb77bbd811633fd66a77b4efd25617a5bf))
+
 ### [3.1.9](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.8...v3.1.9) (2021-03-29)
 
 
