@@ -20,9 +20,10 @@ module ViewComponentReflex
       end
       if primary_selector
         prevent_refresh!
-
+        
+        document = controller_document
         [primary_selector, *rest].each do |s|
-          html = controller_document.css(s)
+          html = document.css(s)
           if html.present?
             CableReady::Channels.instance[stream].morph(
               selector: s,
