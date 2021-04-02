@@ -2,8 +2,8 @@ module ViewComponentReflex
   module Dom
     module Reflex
       def state
-        @state ||= if element.dataset[:state]
-          Verifier.verify(element.dataset[:state])
+        @state ||= if element.dataset[:"#{key}_state"]
+          Verifier.verify(element.dataset[:"#{key}_state"])
         else
           {}
         end
@@ -11,11 +11,14 @@ module ViewComponentReflex
 
       def inject_key_into_component
         super
+        states = element.dataset.to_h.inject({}) do |memo, (k, v)|
+          if k.to_s.end_with?("-state") || k.to_s.end_with?("-initial")
+            memo[k] = v
+          end
+          memo
+        end
         component.tap do |k|
-          k.instance_variable_set(:@states, {
-            element.dataset[:key] => state,
-            "#{element.dataset[:key]}_initial" => initial_state
-          })
+          k.instance_variable_set(:@states, states)
         end
       end
 

@@ -20,19 +20,19 @@ module ViewComponentReflex
         }
 
         data = {
-          state: Verifier.generate(state(key)),
-          initial_state: Verifier.generate(state("#{key}_initial")),
+          "#{key}_state" => Verifier.generate(state(key)),
+          "#{key}_initial" => Verifier.generate(state("#{key}_initial")),
         }
 
         content_tag tag, options do
-          concat(content_tag(:span, nil,{ data: data, style: "display: block;" }))
+          concat(content_tag(:span, nil, { data: data, style: "display: none;" }))
           concat(capture(&blk))
         end
       end
 
       def reflex_data_attributes(reflex)
         super(reflex).tap do |attr|
-          attr["reflex-dataset"] = "combined"
+          attr["reflex-dataset"] = "*"
         end
       end
 
@@ -49,6 +49,8 @@ module ViewComponentReflex
       end
 
       def state(key)
+        @states ||= {}
+        @states[key] ||= {}
         @states[key]
       end
 

@@ -54,7 +54,6 @@ module ViewComponentReflex
     end
 
     def component_document
-      inject_key_into_component
       Nokogiri::HTML(component.render_in(controller.view_context))
     end
 
@@ -62,7 +61,7 @@ module ViewComponentReflex
       CableReady::Channels.instance[stream].morph(
         selector: selector,
         children_only: true,
-        html: component_document.css(selector).outer_html,
+        html: component_document.css(selector).to_html,
         permanent_attribute_name: "data-reflex-permanent",
       )
     end
@@ -189,6 +188,8 @@ module ViewComponentReflex
       @component.define_singleton_method(:reflex) do
         reflex
       end
+
+      inject_key_into_component
 
       @component
     end
