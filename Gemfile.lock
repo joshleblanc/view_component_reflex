@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    view_component_reflex (3.1.10)
+    view_component_reflex (3.1.11)
       rails (>= 5.2, < 7.0)
       stimulus_reflex (>= 3.4.1)
       view_component (>= 2.28.0)
@@ -84,15 +84,11 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
-    marcel (1.0.0)
+    marcel (1.0.1)
     method_source (1.0.0)
     mini_mime (1.0.3)
-    mini_portile2 (2.5.0)
     minitest (5.14.4)
     nio4r (2.5.7)
-    nokogiri (1.11.2)
-      mini_portile2 (~> 2.5.0)
-      racc (~> 1.4)
     nokogiri (1.11.2-x64-mingw32)
       racc (~> 1.4)
     racc (1.5.2)
