@@ -55,6 +55,22 @@ end
 <%= render(TodoComponent.with_collection(Todo.all)) %>
 ```
 
+In case you're rendering a collection of empty models, use a UUID of some sort to address the correct component instance on your page:
+
+```ruby
+class TodoComponent < ViewComponentReflex::Component
+  def initialize(todo:)
+    @todo = todo
+  end
+
+  def collection_key
+    @todo.id || SecureRandom.hex(16)
+  end
+end
+#
+<%= render(TodoComponent.with_collection((0..5).map { Todo.new })) %>
+```
+
 ## API
 
 ### permit_parameter?(initial_param, new_params)
