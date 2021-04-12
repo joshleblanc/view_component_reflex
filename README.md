@@ -55,6 +55,22 @@ end
 <%= render(TodoComponent.with_collection(Todo.all)) %>
 ```
 
+In case you're rendering a collection of empty models, use a UUID of some sort to address the correct component instance on your page:
+
+```ruby
+class TodoComponent < ViewComponentReflex::Component
+  def initialize(todo:)
+    @todo = todo
+  end
+
+  def collection_key
+    @todo.id || SecureRandom.hex(16)
+  end
+end
+#
+<%= render(TodoComponent.with_collection((0..5).map { Todo.new })) %>
+```
+
 ## API
 
 ### permit_parameter?(initial_param, new_params)
@@ -176,6 +192,17 @@ def do_some_global_action
 end
 ```
 
+### stream_to(channel)
+Stream to a custom channel, rather than the default stimulus reflex one
+
+```ruby
+def do_something
+  stream_to MyChannel
+  
+  @foo = :bar
+end
+```
+
 ### key
 This is a key unique to a particular component. It's used to reconcile state between renders, and should be passed as a data attribute whenever a reflex is called
 
@@ -207,7 +234,7 @@ end
 ```
 
 ## Custom reflex base class
-Reflexes typically inherit from a base ApplicationReflex. You can define the base class for a view_component_reflex by using the `reflex_base_class` method.
+Reflexes typically inherit from a base ApplicationReflex. You can define the base class for a view_component_reflex by using the `reflex_base_class` accessor.
 The parent class must inherit ViewComponentReflex::Reflex, and will throw an error if it does not.
 
 ```ruby
@@ -217,7 +244,7 @@ end
 
 
 class MyComponent < ViewComponentReflex::Component
-  reflex_base_class ApplicationReflex
+  MyComponent.reflex_base_class = ApplicationReflex
 end
 ```
 
@@ -358,6 +385,35 @@ end
 ```
 
 StimulusReflex 3.4 introduced a fix that merges the current `request.env` and provides the CSRF token to fetch the session.
+
+## Help, my instance variables do not persist into the session
+
+These instance variable names are not working and unsafe:
+
+```rb
+def unsafe_instance_variables
+  [
+    :@view_context, :@lookup_context, :@view_renderer, :@view_flow,
+    :@virtual_path, :@variant, :@current_template, :@output_buffer, :@key,
+    :@helpers, :@controller, :@request, :@tag_builder, :@initialized_state
+  ]
+end
+```
+Please use a different name to be able to save them to the session.
+
+## Anycable
+
+@sebyx07 provided a solution to use anycable (https://github.com/joshleblanc/view_component_reflex/issues/23#issue-721786338)
+
+Leaving this, might help others:
+
+I tried this with any cable and I had to add this to development.rb
+Otherwise @instance_variables were nil after a reflex
+
+```ruby
+  config.cache_store = :redis_cache_store, { url: "redis://localhost:6379/1", driver: :hiredis }
+  config.session_store :cache_store
+```
 
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).

@@ -15,3 +15,8 @@ gemspec
 # gem 'byebug', group: [:development, :test]
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+group :test do
+  gem 'view_component', require: "view_component/engine"
+  gem "redis"
+end

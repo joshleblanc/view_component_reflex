@@ -2,6 +2,141 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.10](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.9...v3.1.10) (2021-03-29)
+
+
+### Bug Fixes
+
+* don't re-render the page x-times for x selectors ([bb86d4f](https://github.com/joshleblanc/view_component_reflex/commit/bb86d4fb77bbd811633fd66a77b4efd25617a5bf))
+
+### [3.1.9](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.8...v3.1.9) (2021-03-29)
+
+
+### Bug Fixes
+
+* display cached content if available ([553a7a1](https://github.com/joshleblanc/view_component_reflex/commit/553a7a1f7f42921cc3b6ae5611468841488598dc))
+
+### [3.1.8](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.7...v3.1.8) (2021-03-11)
+
+
+### Bug Fixes
+
+* only run morph: nothing if nothing if preventing refresh ([64ad5e9](https://github.com/joshleblanc/view_component_reflex/commit/64ad5e95cc0108fe847d6c9eb6680557e4d082f8))
+
+### [3.1.7](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.6...v3.1.7) (2021-02-06)
+
+
+### Bug Fixes
+
+* component state was inconsistent across tabs ([34ab007](https://github.com/joshleblanc/view_component_reflex/commit/34ab0078f8e28e6ecec562ef9355924d799075bc))
+
+### [3.1.6](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.5...v3.1.6) (2021-02-03)
+
+
+### Bug Fixes
+
+* don't emit nothing morph ([e085c86](https://github.com/joshleblanc/view_component_reflex/commit/e085c86493549540000d81c3b12175245aa3d025))
+
+### [3.1.5](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.4...v3.1.5) (2021-01-29)
+
+
+### Bug Fixes
+
+* correct stimulus reflex dependency ([ef85eb4](https://github.com/joshleblanc/view_component_reflex/commit/ef85eb4c3fa2090ae81e0c5433149fb504a36234))
+
+### [3.1.4](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.3...v3.1.4) (2021-01-28)
+
+
+### Bug Fixes
+
+* around callback wasn't working correctly ([3c76560](https://github.com/joshleblanc/view_component_reflex/commit/3c76560e9833ef6977dedaa2805048caf1c420f2))
+* update stimulus data for SR 3.4.1 ([2a41650](https://github.com/joshleblanc/view_component_reflex/commit/2a4165057ff996739bfbd01ad667fc5326c21b95))
+
+### [3.1.3](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.2...v3.1.3) (2021-01-14)
+
+
+### Bug Fixes
+
+* broadcast directly on channels instance ([a09af64](https://github.com/joshleblanc/view_component_reflex/commit/a09af6414346aed6d5ee83fef3744e2e4d78034c))
+* spelling of <div> tag ([ed60d16](https://github.com/joshleblanc/view_component_reflex/commit/ed60d16dfbc9a171940e9e508feab0da295380d6))
+
+### [3.1.2](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.1...v3.1.2) (2021-01-07)
+
+### [3.1.1](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.0...v3.1.1) (2021-01-07)
+
+
+### Bug Fixes
+
+* expose new stream_to method ([dc63d49](https://github.com/joshleblanc/view_component_reflex/commit/dc63d49f94441cb841280fa98a8cb1dd7948dc8d))
+
+## [3.1.0](https://github.com/joshleblanc/view_component_reflex/compare/v3.0.5...v3.1.0) (2021-01-07)
+
+
+### Features
+
+* add stream_to method ([f60295c](https://github.com/joshleblanc/view_component_reflex/commit/f60295c155d1948d5230b1fa279fa1f79a1f521c))
+* expose reflex to component ([d210503](https://github.com/joshleblanc/view_component_reflex/commit/d210503a22ba5f54cac7fb3a7c8c936527754029))
+
+
+### Bug Fixes
+
+* stimulate wasn't working ([b851486](https://github.com/joshleblanc/view_component_reflex/commit/b851486ce4a7ab88b3a80f3e776a80b6ebf366cb))
+
+### [3.0.5](https://github.com/joshleblanc/view_component_reflex/compare/v3.0.4...v3.0.5) (2021-01-04)
+
+
+### Bug Fixes
+
+* tests were failing with redis adapter ([76779eb](https://github.com/joshleblanc/view_component_reflex/commit/76779eb13ba2d0c4fea86d3ae6cff236394ded76))
+
+### [3.0.4](https://github.com/joshleblanc/view_component_reflex/compare/v3.0.3...v3.0.4) (2020-12-19)
+
+
+### Bug Fixes
+
+* replace slashes with double dash in stimulus controller name ([7d28810](https://github.com/joshleblanc/view_component_reflex/commit/7d288106f7311249b71e381be4623790625ee01c)), closes [#65](https://github.com/joshleblanc/view_component_reflex/issues/65)
+
+### [3.0.3](https://github.com/joshleblanc/view_component_reflex/compare/v3.0.2...v3.0.3) (2020-12-19)
+
+### [3.0.1](https://github.com/joshleblanc/view_component_reflex/compare/v3.0.0...v3.0.1) (2020-12-18)
+
+
+### Bug Fixes
+
+* don't assume component names end in "Component" ([a543bf4](https://github.com/joshleblanc/view_component_reflex/commit/a543bf4b248399aa9e7914e91954af0c98300092)), closes [#42](https://github.com/joshleblanc/view_component_reflex/issues/42)
+* test would fail for memory adapter ([67a9bee](https://github.com/joshleblanc/view_component_reflex/commit/67a9bee7e3bdd81a33dba99c774bb336f19c6756))
+
+### [3.0.1](https://github.com/joshleblanc/view_component_reflex/compare/v3.0.0...v3.0.1) (2020-12-15)
+
+
+### Bug Fixes
+
+* don't assume component names end in "Component" ([a543bf4](https://github.com/joshleblanc/view_component_reflex/commit/a543bf4b248399aa9e7914e91954af0c98300092)), closes [#42](https://github.com/joshleblanc/view_component_reflex/issues/42)
+
+## [3.0.0](https://github.com/joshleblanc/view_component_reflex/compare/v2.6.2...v3.0.0) (2020-12-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* reflex_base_class is not longer a method, but an accessor
+
+### Bug Fixes
+
+* add missing data fields for SR 3.4.0 ([303494e](https://github.com/joshleblanc/view_component_reflex/commit/303494e9f4772839a5e464c2ffb36d2e76964341))
+* cable_ready definitions were conflicting ([3d84b82](https://github.com/joshleblanc/view_component_reflex/commit/3d84b824bc8d2d8c94275447cc3e5ce524094873))
+* don't save omitted state ([7e825e1](https://github.com/joshleblanc/view_component_reflex/commit/7e825e1f023e8d08b4085bcc6302a934f6caa7f8)), closes [#37](https://github.com/joshleblanc/view_component_reflex/issues/37)
+* only initialize state once ([eef65f6](https://github.com/joshleblanc/view_component_reflex/commit/eef65f680c5c181cadd19dec00aba85c8c8fa9f8))
+* pin SR to 3.4.0.pre3 ([472237e](https://github.com/joshleblanc/view_component_reflex/commit/472237e7fafa1a999fffb0e920dd0a7bfa37b121))
+* reflex_base_class should be inheritable ([a2ef4cc](https://github.com/joshleblanc/view_component_reflex/commit/a2ef4ccd478079c6a8721411c0d3ca55b85d8d2f))
+* use cable ready directly ([613059d](https://github.com/joshleblanc/view_component_reflex/commit/613059d2bff24ed5b5d6baedcfb8d92e9e64349d))
+
+### [2.6.2](https://github.com/joshleblanc/view_component_reflex/compare/v2.6.1...v2.6.2) (2020-11-13)
+
+
+### Bug Fixes
+
+* Allow reflex classes to be generated in Rails 5
+
 ### [2.6.1](https://github.com/joshleblanc/view_component_reflex/compare/v2.6.0...v2.6.1) (2020-11-06)
 
 

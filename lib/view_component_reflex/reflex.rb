@@ -1,9 +1,15 @@
 module ViewComponentReflex
   class Reflex < StimulusReflex::Reflex
-    include CableReady::Broadcaster
 
     class << self
       attr_accessor :component_class
+    end
+
+    # pretty sure I can't memoize this because we need
+    # to re-render every time
+    def controller_document
+      controller.process(params[:action])
+      Nokogiri::HTML(controller.response.body)
     end
 
     def refresh!(primary_selector = nil, *rest)
@@ -14,39 +20,79 @@ module ViewComponentReflex
       end
       if primary_selector
         prevent_refresh!
-
-        controller.process(url_params[:action])
-        document = Nokogiri::HTML(controller.response.body)
+        
+        document = controller_document
         [primary_selector, *rest].each do |s|
           html = document.css(s)
           if html.present?
-            cable_ready[channel.stream_name].morph(
+            CableReady::Channels.instance[stream].morph(
               selector: s,
               html: html.inner_html,
               children_only: true,
-              permanent_attribute_name: "data-reflex-permanent"
+              permanent_attribute_name: "data-reflex-permanent",
             )
           end
         end
       else
         refresh_component!
       end
-      cable_ready.broadcast
+      CableReady::Channels.instance[stream].broadcast
+    end
+
+    def stream
+      @stream ||= stream_name
+    end
+
+    def stream_to(channel)
+      @stream = channel
+    end
+
+    def component_document
+      component.tap do |k|
+        k.define_singleton_method(:initialize_component) do
+          @key = element.dataset[:key]
+        end
+      end
+
+      document = Nokogiri::HTML(component.render_in(controller.view_context))
     end
 
     def refresh_component!
-      component.tap do |k|
-        k.define_singleton_method(:key) do
-          element.dataset[:key]
-        end
-      end
-      document = Nokogiri::HTML(component.render_in(controller.view_context))
-      cable_ready[channel.stream_name].morph(
+      CableReady::Channels.instance[stream].morph(
         selector: selector,
         children_only: true,
-        html: document.css(selector).inner_html,
-        permanent_attribute_name: "data-reflex-permanent"
+        html: component_document.css(selector).inner_html,
+        permanent_attribute_name: "data-reflex-permanent",
       )
+    end
+
+    def default_morph
+      save_state
+      html = if component.can_render_to_string?
+        component_document.css(selector).to_html
+      else
+        controller_document.css(selector).to_html
+      end
+      morph selector, html
+    end
+
+    def stimulus_reflex_data
+      {
+        reflex_id: reflex_id,
+        xpath_controller: xpath_controller,
+        xpath_element: xpath_element,
+        target: target,
+        reflex_controller: reflex_controller,
+        url: url,
+        morph: :page,
+        attrs: {
+          key: element.dataset[:key]
+        }
+      }
+    end
+
+    def target
+      "#{component_class}##{method_name}"
     end
 
     def refresh_all!
@@ -68,25 +114,20 @@ module ViewComponentReflex
       !!name.to_proc
     end
 
-    # this is copied out of stimulus_reflex/reflex.rb and modified
-    def morph(selectors, html = "")
-      case selectors
-      when :nothing
-        @broadcaster = StimulusReflex::NothingBroadcaster.new(self)
-      else
-        @broadcaster = StimulusReflex::SelectorBroadcaster.new(self) unless broadcaster.selector?
-        broadcaster.morphs << [selectors, html]
-      end
-    end
-
-    def method_missing(name, *args)
-      morph :nothing
+    def method_missing(name, *args, &blk)
       super unless respond_to_missing?(name)
+
       state.each do |k, v|
         component.instance_variable_set(k, v)
       end
-      name.to_proc.call(component, *args)
-      refresh! unless @prevent_refresh
+
+      component.send(name, *args, &blk)
+      
+      if @prevent_refresh
+        morph :nothing
+      else
+        default_morph      
+      end
     end
 
     def prevent_refresh!
@@ -104,36 +145,71 @@ module ViewComponentReflex
     end
 
     def stimulate(target, data)
-      dataset = {}
-      data.each do |k, v|
-        dataset["data-#{k}"] = v.to_s
+      data_to_receive = {}
+
+      stimulus_reflex_data.each do |k, v|
+        data_to_receive[k.to_s.camelize(:lower)] = v
       end
-      channel.receive({
-        "target" => target,
-        "attrs" => element.attributes.to_h.symbolize_keys,
-        "dataset" => dataset
-      })
+
+      data_to_receive["dataset"] = data.each_with_object({}) do |(k, v), o|
+        o["data-#{k}"] = v
+      end
+
+      data_to_receive["attrs"] = element.attributes.to_h.symbolize_keys
+      data_to_receive["target"] = target
+
+      channel.receive data_to_receive
     end
 
     def component
       return @component if @component
       @component = component_class.allocate
       reflex = self
-      exposed_methods = [:params, :request, :connection, :element, :refresh!, :refresh_all!, :stimulus_controller, :session, :prevent_refresh!, :selector, :stimulate]
+      exposed_methods = [
+        :params,
+        :request,
+        :connection,
+        :element,
+        :refresh!,
+        :refresh_all!,
+        :stimulus_controller,
+        :session,
+        :prevent_refresh!,
+        :selector,
+        :stimulate,
+        :stream_to
+      ]
       exposed_methods.each do |meth|
         @component.define_singleton_method(meth) do |*a|
           reflex.send(meth, *a)
         end
       end
+
+      @component.define_singleton_method(:reflex) do
+        reflex
+      end
+
       @component
     end
 
     def set_state(new_state = {})
-      ViewComponentReflex::Engine.state_adapter.set_state(request, controller, element.dataset[:key], new_state)
+      state_adapter.set_state(request, controller, key, new_state)
+    end
+
+    def key
+      element.dataset[:key]
+    end
+
+    def state_adapter
+      ViewComponentReflex::Engine.state_adapter
     end
 
     def state
-      ViewComponentReflex::Engine.state_adapter.state(request, element.dataset[:key])
+      state_adapter.state(request, key)
+    end
+
+    def initial_state
+      state_adapter.state(request, "#{key}_initial")
     end
 
     def save_state

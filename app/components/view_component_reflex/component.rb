@@ -1,22 +1,13 @@
 module ViewComponentReflex
   class Component < ViewComponent::Base
+    class_attribute :reflex_base_class, default: ViewComponentReflex::Reflex
+    attr_reader :key
+
     class << self
       def init_stimulus_reflex
         factory = ViewComponentReflex::ReflexFactory.new(self)
         @stimulus_reflex ||= factory.reflex
         wire_up_callbacks if factory.new?
-      end
-
-      def reflex_base_class(new_base_class = nil)
-        if new_base_class.nil?
-          @reflex_base_class ||= ViewComponentReflex::Reflex
-        else
-          if new_base_class <= ViewComponentReflex::Reflex
-            @reflex_base_class = new_base_class
-          else
-            raise StandardError.new("The reflex base class must inherit from ViewComponentReflex::Reflex")
-          end
-        end
       end
 
       def queue_callback(key, args, blk)
@@ -57,7 +48,7 @@ module ViewComponentReflex
     end
 
     def self.stimulus_controller
-      name.chomp("Component").underscore.dasherize
+      name.chomp("Component").underscore.dasherize.gsub("/", "--")
     end
 
     def stimulus_reflex?
@@ -65,7 +56,7 @@ module ViewComponentReflex
     end
 
     def component_controller(opts_or_tag = :div, opts = {}, &blk)
-      init_key
+      initialize_component
 
       tag = :div
       options = if opts_or_tag.is_a? Hash
@@ -87,11 +78,64 @@ module ViewComponentReflex
       omitted_from_state.empty?
     end
 
-    # key is required if you're using state
-    # We can't initialize the session state in the initial method
-    # because it doesn't have a view_context yet
-    # This is the next best place to do it
-    def init_key
+    # We can't truly initialize the component without the view_context,
+    # which isn't available in the `initialize` method. We require the 
+    # developer to wrap components in `component_controller`, so this is where
+    # we truly initialize the component.
+    # This method is overridden in reflex.rb when the component is re-rendered. The 
+    # override simply sets @key to element.dataset[:key]
+    # We don't want it to initialize the state again, and since we're rendering the component
+    # outside of the view, we need to skip the initialize_key method as well
+    def initialize_component
+      initialize_key
+      initialize_state
+    end
+
+    # Note to self:
+    # This has to be in the Component class because there are situations
+    # where the controller is the one rendering the component
+    # so we can't rely on the component created by the reflex
+    def initialize_state
+      return if state_initialized?
+      adapter = ViewComponentReflex::Engine.state_adapter
+      
+      # newly mounted
+      if !stimulus_reflex? || adapter.state(request, @key).empty?
+
+        new_state = create_safe_state
+
+        adapter.wrap_write_async do
+          adapter.store_state(request, @key, new_state)
+          adapter.store_state(request, "#{@key}_initial", new_state)
+        end
+
+      # updating a mounted component
+      else
+        initial_state = adapter.state(request, "#{@key}_initial")
+
+        parameters_changed = []
+        adapter.state(request, @key).each do |k, v|
+          instance_value = instance_variable_get(k)
+          if permit_parameter?(initial_state[k], instance_value)
+            parameters_changed << k
+            adapter.wrap_write_async do
+              adapter.set_state(request, controller, "#{@key}_initial", {k => instance_value})
+              adapter.set_state(request, controller, @key, {k => instance_value})
+            end
+          else
+            instance_variable_set(k, v)
+          end
+        end
+        after_state_initialized(parameters_changed)
+      end
+      @state_initialized = true
+    end
+
+    def state_initialized?
+      @state_initialized
+    end
+
+    def initialize_key
       # we want the erb file that renders the component. `caller` gives the file name,
       # and line number, which should be unique. We hash it to make it a nice number
       erb_file = caller.select { |p| p.match? /.\.html\.(haml|erb|slim)/ }[1]
@@ -147,45 +191,8 @@ module ViewComponentReflex
     #   # no op
     # end
 
-    def key
-      adapter = ViewComponentReflex::Engine.state_adapter
-
-      # initialize session state
-      if !stimulus_reflex? || adapter.state(request, @key).empty?
-
-        new_state = create_safe_state
-
-        adapter.wrap_write_async do
-          adapter.store_state(request, @key, new_state)
-          adapter.store_state(request, "#{@key}_initial", new_state)
-        end
-      elsif !@initialized_state
-        initial_state = adapter.state(request, "#{@key}_initial")
-
-        # incoming_params = safe_instance_variables.each_with_object({}) { |var, obj| obj[var] = instance_variable_get(var) }
-        # receive_params(ViewComponentReflex::Engine.state_adapter.state(request, @key), incoming_params)
-
-        parameters_changed = []
-        adapter.state(request, @key).each do |k, v|
-          instance_value = instance_variable_get(k)
-          if permit_parameter?(initial_state[k], instance_value)
-            parameters_changed << k
-            adapter.wrap_write_async do
-              adapter.set_state(request, controller, "#{@key}_initial", {k => instance_value})
-              adapter.set_state(request, controller, @key, {k => instance_value})
-            end
-          else
-            instance_variable_set(k, v)
-          end
-        end
-        after_state_initialized(parameters_changed)
-        @initialized_state = true
-      end
-      @key
-    end
-
     def safe_instance_variables
-      instance_variables - unsafe_instance_variables
+      instance_variables - unsafe_instance_variables - omitted_from_state
     end
 
     private
@@ -194,8 +201,21 @@ module ViewComponentReflex
       [
         :@view_context, :@lookup_context, :@view_renderer, :@view_flow,
         :@virtual_path, :@variant, :@current_template, :@output_buffer, :@key,
-        :@helpers, :@controller, :@request, :@tag_builder, :@initialized_state
+        :@helpers, :@controller, :@request, :@tag_builder, :@state_initialized,
+        :@_content_evaluated, :@_render_in_block
       ]
+    end
+
+    def content
+      if cached_content && !@_render_in_block
+        cached_content
+      else
+        super
+      end
+    end
+
+    def cached_content
+      @__cached_content__
     end
 
     def create_safe_state
@@ -203,8 +223,11 @@ module ViewComponentReflex
 
       # this will almost certainly break
       safe_instance_variables.each do |k|
-        new_state[k] = instance_variable_get(k) unless omitted_from_state.include?(k)
+        new_state[k] = instance_variable_get(k)
       end
+
+      new_state[:@__cached_content__] = content
+
       new_state
     end
 

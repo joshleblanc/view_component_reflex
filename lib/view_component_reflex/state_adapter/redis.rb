@@ -10,7 +10,7 @@
 
 module ViewComponentReflex
   module StateAdapter
-    class Redis
+    class Redis < Base
       attr_reader :client, :ttl
 
       def initialize(redis_opts:, ttl: 3600)
@@ -67,7 +67,8 @@ module ViewComponentReflex
       end
 
       def get_key(request, key)
-        "#{request.session.id.to_s}_#{key}_session_reflex_redis"
+        id = Redis.extract_id(request)
+        "#{id}_#{key}_session_reflex_redis"
       end
     end
   end
