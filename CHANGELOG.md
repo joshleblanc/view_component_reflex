@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.13-pre.0](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.12...v3.1.13-pre.0) (2021-06-10)
+
+
+### Bug Fixes
+
+* include reflex_id in cableready morphs ([7f6befe](https://github.com/joshleblanc/view_component_reflex/commit/7f6befe66fd31dd00e95aa1bc57bb612be044e4f))
+
 ### [3.1.12](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.11...v3.1.12) (2021-05-14)
 
 ### [3.1.10](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.9...v3.1.10) (2021-03-29)
