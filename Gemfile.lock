@@ -1,9 +1,9 @@
 PATH
   remote: .
   specs:
-    view_component_reflex (3.1.12)
+    view_component_reflex (3.1.13.pre0)
       rails (>= 5.2, < 7.0)
-      stimulus_reflex (>= 3.4.1)
+      stimulus_reflex (>= 3.5.0.pre1)
       view_component (>= 2.28.0)
 
 GEM
@@ -69,7 +69,7 @@ GEM
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
     builder (3.2.4)
-    cable_ready (4.5.0)
+    cable_ready (5.0.0.pre1)
       rails (>= 5.2)
       thread-local (>= 1.1.0)
     concurrent-ruby (1.1.8)
@@ -79,7 +79,7 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
-    loofah (2.9.1)
+    loofah (2.10.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -87,13 +87,9 @@ GEM
     marcel (1.0.1)
     method_source (1.0.0)
     mini_mime (1.0.3)
-    mini_portile2 (2.5.1)
     minitest (5.14.4)
     nio4r (2.5.7)
-    nokogiri (1.11.5)
-      mini_portile2 (~> 2.5.0)
-      racc (~> 1.4)
-    nokogiri (1.11.5-x64-mingw32)
+    nokogiri (1.11.7-x64-mingw32)
       racc (~> 1.4)
     racc (1.5.2)
     rack (2.2.3)
@@ -135,8 +131,8 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     sqlite3 (1.4.2)
-    stimulus_reflex (3.4.1)
-      cable_ready (>= 4.5)
+    stimulus_reflex (3.5.0.pre1)
+      cable_ready (= 5.0.0.pre1)
       nokogiri
       rack
       rails (>= 5.2)
@@ -149,7 +145,7 @@ GEM
       tzinfo (>= 1.0.0)
     view_component (2.31.1)
       activesupport (>= 5.0.0, < 7.0)
-    websocket-driver (0.7.3)
+    websocket-driver (0.7.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
     zeitwerk (2.4.2)
