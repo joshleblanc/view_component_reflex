@@ -22,7 +22,7 @@ module ViewComponentReflex
             if component&.respond_to?(:init_stimulus_reflex)
               component.init_stimulus_reflex
             else
-              p "Tried to initialize view_component_reflex on #{component_name}, but it's not a view_component_reflex"
+              Rails.logger.info "Tried to initialize view_component_reflex on #{component_name}, but it's not a view_component_reflex"
             end
             receive_original(data)
           end
