@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    view_component_reflex (3.1.13.pre0)
+    view_component_reflex (3.1.13.pre1)
       rails (>= 5.2, < 7.0)
       stimulus_reflex (>= 3.5.0.pre1)
       view_component (>= 2.28.0)
@@ -87,8 +87,12 @@ GEM
     marcel (1.0.1)
     method_source (1.0.0)
     mini_mime (1.0.3)
+    mini_portile2 (2.5.3)
     minitest (5.14.4)
     nio4r (2.5.7)
+    nokogiri (1.11.7)
+      mini_portile2 (~> 2.5.0)
+      racc (~> 1.4)
     nokogiri (1.11.7-x64-mingw32)
       racc (~> 1.4)
     racc (1.5.2)
@@ -145,7 +149,7 @@ GEM
       tzinfo (>= 1.0.0)
     view_component (2.31.1)
       activesupport (>= 5.0.0, < 7.0)
-    websocket-driver (0.7.4)
+    websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
     zeitwerk (2.4.2)
@@ -162,4 +166,4 @@ DEPENDENCIES
   view_component_reflex!
 
 BUNDLED WITH
-   2.1.4
+   2.2.3
