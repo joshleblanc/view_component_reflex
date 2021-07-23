@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    view_component_reflex (3.1.13.pre1)
+    view_component_reflex (3.1.14.pre2)
       rails (>= 5.2, < 7.0)
       stimulus_reflex (>= 3.5.0.pre1)
       view_component (>= 2.28.0)
@@ -69,7 +69,7 @@ GEM
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
     builder (3.2.4)
-    cable_ready (5.0.0.pre1)
+    cable_ready (5.0.0.pre2)
       rails (>= 5.2)
       thread-local (>= 1.1.0)
     concurrent-ruby (1.1.8)
@@ -125,7 +125,7 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (~> 1.0)
-    rake (13.0.3)
+    rake (13.0.6)
     redis (4.2.5)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -135,8 +135,8 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     sqlite3 (1.4.2)
-    stimulus_reflex (3.5.0.pre1)
-      cable_ready (= 5.0.0.pre1)
+    stimulus_reflex (3.5.0.pre2)
+      cable_ready (= 5.0.0.pre2)
       nokogiri
       rack
       rails (>= 5.2)
@@ -166,4 +166,4 @@ DEPENDENCIES
   view_component_reflex!
 
 BUNDLED WITH
-   2.2.3
+   2.2.16
