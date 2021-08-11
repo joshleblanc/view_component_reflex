@@ -147,13 +147,18 @@ module ViewComponentReflex
     end
 
     def stimulate(target, data)
-      data_to_receive = {}
+      data_to_receive = {
+        "dataset" => {
+          "datasetAll" => {},
+          "dataset" => {}
+        }
+      }
 
       stimulus_reflex_data.each do |k, v|
         data_to_receive[k.to_s.camelize(:lower)] = v
       end
 
-      data_to_receive["dataset"] = data.each_with_object({}) do |(k, v), o|
+      data_to_receive["dataset"]["dataset"] = data.each_with_object({}) do |(k, v), o|
         o["data-#{k}"] = v
       end
 
