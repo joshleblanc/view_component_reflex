@@ -19,11 +19,14 @@ module ViewComponentReflex
               # Since every reflex runs through this monkey patch, we're just going to ignore the ones that aren't for components
             end
 
-            if component&.respond_to?(:init_stimulus_reflex)
-              component.init_stimulus_reflex
-            else
-              Rails.logger.info "Tried to initialize view_component_reflex on #{component_name}, but it's not a view_component_reflex"
+            if component 
+              if component.respond_to?(:init_stimulus_reflex)
+                component.init_stimulus_reflex
+              else
+                Rails.logger.info "Tried to initialize view_component_reflex on #{component_name}, but it's not a view_component_reflex"
+              end
             end
+            
             receive_original(data)
           end
         end
