@@ -440,6 +440,31 @@ Otherwise @instance_variables were nil after a reflex
   config.session_store :cache_store
 ```
 
+## Sidecar assets
+
+When using ViewComponent generated sidecar assets, the stimulus controller won't resolve properly.
+To resolve this, override the `self.stimulus_controller` method in your component to the correct method. 
+
+For example, if you have a structure of 
+
+```
+components/
+  example_component/
+    example_component_controller.js
+    example_component.html.erb
+  example_component.rb
+```
+
+You would update your `self.stimulus_controller` method to 
+
+```ruby
+def self.stimulus_controller
+  "example-component--example-component"
+end
+```
+
+Thanks @omairrazam for this solution
+
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
