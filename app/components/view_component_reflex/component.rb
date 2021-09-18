@@ -7,7 +7,14 @@ module ViewComponentReflex
       def init_stimulus_reflex
         factory = ViewComponentReflex::ReflexFactory.new(self)
         @stimulus_reflex ||= factory.reflex
-        wire_up_callbacks if factory.new?
+
+        # Always wire up new callbacks in development
+        if Rails.env.development?
+          reset_callbacks
+          wire_up_callbacks
+        elsif factory.new? # only wire up callbacks in production if they haven't been wired up yet
+          wire_up_callbacks
+        end
       end
 
       def queue_callback(key, args, blk)
@@ -38,6 +45,11 @@ module ViewComponentReflex
 
       def around_reflex(*args, &blk)
         queue_callback(:around, args, blk)
+      end
+
+      def reset_callbacks
+        # SR uses :process as the underlying callback key
+        @stimulus_reflex.reset_callbacks(:process)
       end
 
       def wire_up_callbacks
