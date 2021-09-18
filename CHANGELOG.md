@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.13-pre.0](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.12...v3.1.13-pre.0) (2021-09-18)
+
+
+### Bug Fixes
+
+* always re-wire callbacks in development ([1b13d02](https://github.com/joshleblanc/view_component_reflex/commit/1b13d0286878cd08f3c2d4f79401079b327844ba))
+* include reflex_id in cableready morphs ([7f6befe](https://github.com/joshleblanc/view_component_reflex/commit/7f6befe66fd31dd00e95aa1bc57bb612be044e4f))
+* only display warning message if component exists ([a18c883](https://github.com/joshleblanc/view_component_reflex/commit/a18c883af15641edb2945164ef3f9c525f26820d))
+* server-side stimulate wouldn't properly maintain state ([68545e0](https://github.com/joshleblanc/view_component_reflex/commit/68545e047411bedd1e645fada83f084e444eda7e))
+* update unsafe instance variables ([0ce3d5c](https://github.com/joshleblanc/view_component_reflex/commit/0ce3d5cfd507ce29636cd91dd7d987fe1a6037ae))
+
 ### [3.1.13](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.12...v3.1.13) (2021-09-11)
 
 
