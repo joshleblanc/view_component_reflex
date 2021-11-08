@@ -216,6 +216,7 @@ module ViewComponentReflex
         :@helpers, :@controller, :@request, :@tag_builder, :@state_initialized,
         :@_content_evaluated, :@_render_in_block, :@__vc_controller, :@__vc_helpers,
         :@__cached_content, :@__vc_variant, :@__vc_content_evaluated, :@__vc_render_in_block,
+        :@original_view_context,
       ]
     end
 
