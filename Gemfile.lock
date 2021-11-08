@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    view_component_reflex (3.1.14.pre5)
+    view_component_reflex (3.1.14.pre6)
       rails (>= 5.2, < 7.0)
       stimulus_reflex (>= 3.5.0.pre2)
       view_component (>= 2.28.0)
@@ -69,7 +69,7 @@ GEM
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
     builder (3.2.4)
-    cable_ready (5.0.0.pre2)
+    cable_ready (5.0.0.pre7)
       rails (>= 5.2)
       thread-local (>= 1.1.0)
     concurrent-ruby (1.1.9)
@@ -84,18 +84,18 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
-    marcel (1.0.1)
+    marcel (1.0.2)
     method_source (1.0.0)
-    mini_mime (1.1.1)
+    mini_mime (1.1.2)
     mini_portile2 (2.6.1)
     minitest (5.14.4)
     nio4r (2.5.8)
-    nokogiri (1.12.4)
+    nokogiri (1.12.5)
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
-    nokogiri (1.12.4-x64-mingw32)
+    nokogiri (1.12.5-x64-mingw32)
       racc (~> 1.4)
-    racc (1.5.2)
+    racc (1.6.0)
     rack (2.2.3)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -135,8 +135,8 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     sqlite3 (1.4.2)
-    stimulus_reflex (3.5.0.pre2)
-      cable_ready (= 5.0.0.pre2)
+    stimulus_reflex (3.5.0.pre7)
+      cable_ready (= 5.0.0.pre7)
       nokogiri
       rack
       rails (>= 5.2)
@@ -166,4 +166,4 @@ DEPENDENCIES
   view_component_reflex!
 
 BUNDLED WITH
-   2.2.16
+   2.2.26
