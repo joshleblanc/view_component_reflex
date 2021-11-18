@@ -204,7 +204,7 @@ module ViewComponentReflex
     # end
 
     def safe_instance_variables
-      instance_variables - unsafe_instance_variables - omitted_from_state
+      instance_variables.reject { |ivar| ivar.start_with?("@__vc") } - unsafe_instance_variables - omitted_from_state
     end
 
     private
@@ -214,8 +214,7 @@ module ViewComponentReflex
         :@view_context, :@lookup_context, :@view_renderer, :@view_flow,
         :@virtual_path, :@variant, :@current_template, :@output_buffer, :@key,
         :@helpers, :@controller, :@request, :@tag_builder, :@state_initialized,
-        :@_content_evaluated, :@_render_in_block, :@__vc_controller, :@__vc_helpers,
-        :@__cached_content, :@__vc_variant, :@__vc_content_evaluated, :@__vc_render_in_block,
+        :@_content_evaluated, :@_render_in_block, :@__cached_content,
         :@original_view_context,
       ]
     end
