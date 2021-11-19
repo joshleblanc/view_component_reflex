@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    view_component_reflex (3.1.14.pre6)
+    view_component_reflex (3.1.14.pre7)
       rails (>= 5.2, < 7.0)
       stimulus_reflex (>= 3.5.0.pre2)
       view_component (>= 2.28.0)
@@ -93,8 +93,6 @@ GEM
     nokogiri (1.12.5)
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
-    nokogiri (1.12.5-x64-mingw32)
-      racc (~> 1.4)
     racc (1.6.0)
     rack (2.2.3)
     rack-test (1.1.0)
@@ -145,8 +143,6 @@ GEM
     thread-local (1.1.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
-    tzinfo-data (1.2021.1)
-      tzinfo (>= 1.0.0)
     view_component (2.31.1)
       activesupport (>= 5.0.0, < 7.0)
     websocket-driver (0.7.5)
