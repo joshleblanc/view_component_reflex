@@ -148,9 +148,6 @@ module ViewComponentReflex
     end
 
     def initialize_key
-      # we want the erb file that renders the component. `caller` gives the file name,
-      # and line number, which should be unique. We hash it to make it a nice number
-      erb_file = caller.select { |p| p.match? /.\.html\.(haml|erb|slim)/ }[1]
       key = if erb_file
         Digest::SHA2.hexdigest(erb_file.split(":in")[0])
       else
@@ -158,6 +155,17 @@ module ViewComponentReflex
       end
       key += collection_key.to_s if collection_key
       @key = key
+    end
+
+    def erb_file
+      # we want the erb file that renders the component. `caller` gives the file name,
+      # and line number, which should be unique. We hash it to make it a nice number
+
+      # we confidently try to find a component template that matches the class name
+      erb_file = caller.select { |p| p.match? /#{self.class.name.underscore}\.html\.(haml|erb|slim)/ }[0]
+
+      # else take the second one of the call stack
+      erb_file || caller.select { |p| p.match? /.\.html\.(haml|erb|slim)/ }[1]
     end
 
     # Helper to use to create the proper reflex data attributes for an element
