@@ -55,6 +55,22 @@ end
 <%= render(TodoComponent.with_collection(Todo.all)) %>
 ```
 
+In case you're rendering a collection of empty models, use a UUID of some sort to address the correct component instance on your page:
+
+```ruby
+class TodoComponent < ViewComponentReflex::Component
+  def initialize(todo:)
+    @todo = todo
+  end
+
+  def collection_key
+    @todo.id || SecureRandom.hex(16)
+  end
+end
+#
+<%= render(TodoComponent.with_collection((0..5).map { Todo.new })) %>
+```
+
 ## API
 
 ### permit_parameter?(initial_param, new_params)
@@ -385,6 +401,31 @@ end
 ```
 Please use a different name to be able to save them to the session.
 
+## Foo Can't Be Dumped
+
+If you are getting errors that e.g. MatchData, Singleton etc. can't be dumped, ensure that you do not set any instance variables in your components (or any class you inject into them, for that matter) that cannot be marshaled.
+
+This can be easily remedied though, by providing a list of unmarshalable instance variables and overwriting `marshal_dump` and `marshal_load` (from [https://stackoverflow.com/a/32877159/4341756](https://stackoverflow.com/a/32877159/4341756)):
+
+```rb
+class MarshalTest
+  UNMARSHALED_VARIABLES = [:@foo, :@bar]
+
+  def marshal_dump
+    instance_variables.reject{|m| UNMARSHALED_VARIABLES.include? m}.inject({}) do |vars, attr|
+      vars[attr] = instance_variable_get(attr)
+      vars
+    end
+  end
+
+  def marshal_load(vars)
+    vars.each do |attr, value|
+      instance_variable_set(attr, value) unless UNMARSHALED_VARIABLES.include?(attr)
+    end
+  end
+end
+```
+
 ## Anycable
 
 @sebyx07 provided a solution to use anycable (https://github.com/joshleblanc/view_component_reflex/issues/23#issue-721786338)
@@ -398,6 +439,31 @@ Otherwise @instance_variables were nil after a reflex
   config.cache_store = :redis_cache_store, { url: "redis://localhost:6379/1", driver: :hiredis }
   config.session_store :cache_store
 ```
+
+## Sidecar assets
+
+When using ViewComponent generated sidecar assets, the stimulus controller won't resolve properly.
+To resolve this, override the `self.stimulus_controller` method in your component to the correct method. 
+
+For example, if you have a structure of 
+
+```
+components/
+  example_component/
+    example_component_controller.js
+    example_component.html.erb
+  example_component.rb
+```
+
+You would update your `self.stimulus_controller` method to 
+
+```ruby
+def self.stimulus_controller
+  "example-component--example-component"
+end
+```
+
+Thanks @omairrazam for this solution
 
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).

@@ -1,520 +1,542 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+## [v3.1.14.pre9](https://github.com/joshleblanc/view_component_reflex/tree/v3.1.14.pre9) (2022-03-10)
 
-### [3.1.8](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.7...v3.1.8) (2021-03-11)
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.14.pre8...v3.1.14.pre9)
 
+**Closed issues:**
 
-### Bug Fixes
+- Rails 7 support [\#70](https://github.com/joshleblanc/view_component_reflex/issues/70)
 
-* only run morph: nothing if nothing if preventing refresh ([64ad5e9](https://github.com/joshleblanc/view_component_reflex/commit/64ad5e95cc0108fe847d6c9eb6680557e4d082f8))
+**Merged pull requests:**
 
-### [3.1.7](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.6...v3.1.7) (2021-02-06)
+- chore\(deps\): bump activestorage from 7.0.0 to 7.0.2.3 [\#74](https://github.com/joshleblanc/view_component_reflex/pull/74) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump view\_component from 2.47.0 to 2.49.1 [\#73](https://github.com/joshleblanc/view_component_reflex/pull/73) ([dependabot[bot]](https://github.com/apps/dependabot))
+- chore\(deps\): bump nokogiri from 1.12.5 to 1.13.3 [\#72](https://github.com/joshleblanc/view_component_reflex/pull/72) ([dependabot[bot]](https://github.com/apps/dependabot))
 
+## [v3.1.14.pre8](https://github.com/joshleblanc/view_component_reflex/tree/v3.1.14.pre8) (2021-12-31)
 
-### Bug Fixes
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.14.pre7...v3.1.14.pre8)
 
-* component state was inconsistent across tabs ([34ab007](https://github.com/joshleblanc/view_component_reflex/commit/34ab0078f8e28e6ecec562ef9355924d799075bc))
+**Merged pull requests:**
 
-### [3.1.6](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.5...v3.1.6) (2021-02-03)
+- chore\(deps\): bump actionpack from 6.1.4.1 to 6.1.4.4 [\#71](https://github.com/joshleblanc/view_component_reflex/pull/71) ([dependabot[bot]](https://github.com/apps/dependabot))
 
+## [v3.1.14.pre7](https://github.com/joshleblanc/view_component_reflex/tree/v3.1.14.pre7) (2021-11-19)
 
-### Bug Fixes
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.14.pre6...v3.1.14.pre7)
 
-* don't emit nothing morph ([e085c86](https://github.com/joshleblanc/view_component_reflex/commit/e085c86493549540000d81c3b12175245aa3d025))
+## [v3.1.14.pre6](https://github.com/joshleblanc/view_component_reflex/tree/v3.1.14.pre6) (2021-11-08)
 
-### [3.1.5](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.4...v3.1.5) (2021-01-29)
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.14.pre5...v3.1.14.pre6)
 
+**Closed issues:**
 
-### Bug Fixes
+- How to use Stimulus Reflex Lifecycle Methods as per links in description using view\_component\_reflex? [\#65](https://github.com/joshleblanc/view_component_reflex/issues/65)
 
-* correct stimulus reflex dependency ([ef85eb4](https://github.com/joshleblanc/view_component_reflex/commit/ef85eb4c3fa2090ae81e0c5433149fb504a36234))
+**Merged pull requests:**
 
-### [3.1.4](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.3...v3.1.4) (2021-01-28)
+- fix: added @original\_view\_context to the unsafe instance variables [\#67](https://github.com/joshleblanc/view_component_reflex/pull/67) ([acarpe](https://github.com/acarpe))
 
+## [v3.1.14.pre5](https://github.com/joshleblanc/view_component_reflex/tree/v3.1.14.pre5) (2021-09-18)
 
-### Bug Fixes
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.14.pre4...v3.1.14.pre5)
 
-* around callback wasn't working correctly ([3c76560](https://github.com/joshleblanc/view_component_reflex/commit/3c76560e9833ef6977dedaa2805048caf1c420f2))
-* update stimulus data for SR 3.4.1 ([2a41650](https://github.com/joshleblanc/view_component_reflex/commit/2a4165057ff996739bfbd01ad667fc5326c21b95))
+## [v3.1.14.pre4](https://github.com/joshleblanc/view_component_reflex/tree/v3.1.14.pre4) (2021-09-11)
 
-### [3.1.3](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.2...v3.1.3) (2021-01-14)
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.14.pre3...v3.1.14.pre4)
 
+**Closed issues:**
 
-### Bug Fixes
+- Not working with View Component version 2.38.0 [\#64](https://github.com/joshleblanc/view_component_reflex/issues/64)
 
-* broadcast directly on channels instance ([a09af64](https://github.com/joshleblanc/view_component_reflex/commit/a09af6414346aed6d5ee83fef3744e2e4d78034c))
-* spelling of <div> tag ([ed60d16](https://github.com/joshleblanc/view_component_reflex/commit/ed60d16dfbc9a171940e9e508feab0da295380d6))
+**Merged pull requests:**
 
-### [3.1.2](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.1...v3.1.2) (2021-01-07)
+- chore\(deps\): bump actionpack from 6.1.3.2 to 6.1.4.1 [\#63](https://github.com/joshleblanc/view_component_reflex/pull/63) ([dependabot[bot]](https://github.com/apps/dependabot))
 
-### [3.1.1](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.0...v3.1.1) (2021-01-07)
+## [v3.1.14.pre3](https://github.com/joshleblanc/view_component_reflex/tree/v3.1.14.pre3) (2021-08-11)
 
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.14.pre2...v3.1.14.pre3)
 
-### Bug Fixes
+## [v3.1.14.pre2](https://github.com/joshleblanc/view_component_reflex/tree/v3.1.14.pre2) (2021-07-23)
 
-* expose new stream_to method ([dc63d49](https://github.com/joshleblanc/view_component_reflex/commit/dc63d49f94441cb841280fa98a8cb1dd7948dc8d))
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.13.pre1...v3.1.14.pre2)
 
-## [3.1.0](https://github.com/joshleblanc/view_component_reflex/compare/v3.0.5...v3.1.0) (2021-01-07)
+## [v3.1.13.pre1](https://github.com/joshleblanc/view_component_reflex/tree/v3.1.13.pre1) (2021-06-23)
 
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.13.pre0...v3.1.13.pre1)
 
-### Features
+**Merged pull requests:**
 
-* add stream_to method ([f60295c](https://github.com/joshleblanc/view_component_reflex/commit/f60295c155d1948d5230b1fa279fa1f79a1f521c))
-* expose reflex to component ([d210503](https://github.com/joshleblanc/view_component_reflex/commit/d210503a22ba5f54cac7fb3a7c8c936527754029))
+- Use Rails.logger.info instead of puts [\#62](https://github.com/joshleblanc/view_component_reflex/pull/62) ([bricesanchez](https://github.com/bricesanchez))
 
+## [v3.1.13.pre0](https://github.com/joshleblanc/view_component_reflex/tree/v3.1.13.pre0) (2021-06-10)
 
-### Bug Fixes
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.12...v3.1.13.pre0)
 
-* stimulate wasn't working ([b851486](https://github.com/joshleblanc/view_component_reflex/commit/b851486ce4a7ab88b3a80f3e776a80b6ebf366cb))
+**Merged pull requests:**
 
-### [3.0.5](https://github.com/joshleblanc/view_component_reflex/compare/v3.0.4...v3.0.5) (2021-01-04)
+- chore\(deps\): bump nokogiri from 1.11.3 to 1.11.5 [\#61](https://github.com/joshleblanc/view_component_reflex/pull/61) ([dependabot[bot]](https://github.com/apps/dependabot))
 
+## [v3.1.12](https://github.com/joshleblanc/view_component_reflex/tree/v3.1.12) (2021-05-14)
 
-### Bug Fixes
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.11...v3.1.12)
 
-* tests were failing with redis adapter ([76779eb](https://github.com/joshleblanc/view_component_reflex/commit/76779eb13ba2d0c4fea86d3ae6cff236394ded76))
+**Merged pull requests:**
 
-### [3.0.4](https://github.com/joshleblanc/view_component_reflex/compare/v3.0.3...v3.0.4) (2020-12-19)
+- Provide example to exclude instance variables from marshaling [\#58](https://github.com/joshleblanc/view_component_reflex/pull/58) ([julianrubisch](https://github.com/julianrubisch))
+- Document how to render a collection of new\_records [\#57](https://github.com/joshleblanc/view_component_reflex/pull/57) ([julianrubisch](https://github.com/julianrubisch))
 
+## [v3.1.11](https://github.com/joshleblanc/view_component_reflex/tree/v3.1.11) (2021-04-06)
 
-### Bug Fixes
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.10...v3.1.11)
 
-* replace slashes with double dash in stimulus controller name ([7d28810](https://github.com/joshleblanc/view_component_reflex/commit/7d288106f7311249b71e381be4623790625ee01c)), closes [#65](https://github.com/joshleblanc/view_component_reflex/issues/65)
+**Merged pull requests:**
 
-### [3.0.3](https://github.com/joshleblanc/view_component_reflex/compare/v3.0.2...v3.0.3) (2020-12-19)
+- Remove debugger `p`s in session state adapter [\#56](https://github.com/joshleblanc/view_component_reflex/pull/56) ([julianrubisch](https://github.com/julianrubisch))
 
-### [3.0.1](https://github.com/joshleblanc/view_component_reflex/compare/v3.0.0...v3.0.1) (2020-12-18)
+## [v3.1.10](https://github.com/joshleblanc/view_component_reflex/tree/v3.1.10) (2021-03-29)
 
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.9...v3.1.10)
 
-### Bug Fixes
+## [v3.1.9](https://github.com/joshleblanc/view_component_reflex/tree/v3.1.9) (2021-03-29)
 
-* don't assume component names end in "Component" ([a543bf4](https://github.com/joshleblanc/view_component_reflex/commit/a543bf4b248399aa9e7914e91954af0c98300092)), closes [#42](https://github.com/joshleblanc/view_component_reflex/issues/42)
-* test would fail for memory adapter ([67a9bee](https://github.com/joshleblanc/view_component_reflex/commit/67a9bee7e3bdd81a33dba99c774bb336f19c6756))
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.8...v3.1.9)
 
-### [3.0.1](https://github.com/joshleblanc/view_component_reflex/compare/v3.0.0...v3.0.1) (2020-12-15)
+## [v3.1.8](https://github.com/joshleblanc/view_component_reflex/tree/v3.1.8) (2021-03-11)
 
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.7...v3.1.8)
 
-### Bug Fixes
+**Closed issues:**
 
-* don't assume component names end in "Component" ([a543bf4](https://github.com/joshleblanc/view_component_reflex/commit/a543bf4b248399aa9e7914e91954af0c98300092)), closes [#42](https://github.com/joshleblanc/view_component_reflex/issues/42)
+- viewcomponent 2.26 looks to break VCR [\#52](https://github.com/joshleblanc/view_component_reflex/issues/52)
 
-## [3.0.0](https://github.com/joshleblanc/view_component_reflex/compare/v2.6.2...v3.0.0) (2020-12-06)
+## [v3.1.7](https://github.com/joshleblanc/view_component_reflex/tree/v3.1.7) (2021-02-06)
 
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.6...v3.1.7)
 
-### ⚠ BREAKING CHANGES
+**Closed issues:**
 
-* reflex_base_class is not longer a method, but an accessor
+- Sometimes reflexes do not update the ViewComponent [\#51](https://github.com/joshleblanc/view_component_reflex/issues/51)
 
-### Bug Fixes
+## [v3.1.6](https://github.com/joshleblanc/view_component_reflex/tree/v3.1.6) (2021-02-03)
 
-* add missing data fields for SR 3.4.0 ([303494e](https://github.com/joshleblanc/view_component_reflex/commit/303494e9f4772839a5e464c2ffb36d2e76964341))
-* cable_ready definitions were conflicting ([3d84b82](https://github.com/joshleblanc/view_component_reflex/commit/3d84b824bc8d2d8c94275447cc3e5ce524094873))
-* don't save omitted state ([7e825e1](https://github.com/joshleblanc/view_component_reflex/commit/7e825e1f023e8d08b4085bcc6302a934f6caa7f8)), closes [#37](https://github.com/joshleblanc/view_component_reflex/issues/37)
-* only initialize state once ([eef65f6](https://github.com/joshleblanc/view_component_reflex/commit/eef65f680c5c181cadd19dec00aba85c8c8fa9f8))
-* pin SR to 3.4.0.pre3 ([472237e](https://github.com/joshleblanc/view_component_reflex/commit/472237e7fafa1a999fffb0e920dd0a7bfa37b121))
-* reflex_base_class should be inheritable ([a2ef4cc](https://github.com/joshleblanc/view_component_reflex/commit/a2ef4ccd478079c6a8721411c0d3ca55b85d8d2f))
-* use cable ready directly ([613059d](https://github.com/joshleblanc/view_component_reflex/commit/613059d2bff24ed5b5d6baedcfb8d92e9e64349d))
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.5...v3.1.6)
 
-### [2.6.2](https://github.com/joshleblanc/view_component_reflex/compare/v2.6.1...v2.6.2) (2020-11-13)
+## [v3.1.5](https://github.com/joshleblanc/view_component_reflex/tree/v3.1.5) (2021-01-29)
 
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.4...v3.1.5)
 
-### Bug Fixes
+**Closed issues:**
 
-* Allow reflex classes to be generated in Rails 5
+- around\_reflex callback does not work [\#50](https://github.com/joshleblanc/view_component_reflex/issues/50)
 
-### [2.6.1](https://github.com/joshleblanc/view_component_reflex/compare/v2.6.0...v2.6.1) (2020-11-06)
+## [v3.1.4](https://github.com/joshleblanc/view_component_reflex/tree/v3.1.4) (2021-01-28)
 
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.3...v3.1.4)
 
-### Bug Fixes
+## [v3.1.3](https://github.com/joshleblanc/view_component_reflex/tree/v3.1.3) (2021-01-14)
 
-* render_component_to_string isn't always available ([c858a50](https://github.com/joshleblanc/view_component_reflex/commit/c858a505d86cb6dc6d4a7d343932cd2f09f6be0f)), closes [#28](https://github.com/joshleblanc/view_component_reflex/issues/28)
-* support rails 6.1 ([5b13b37](https://github.com/joshleblanc/view_component_reflex/commit/5b13b3798894cb3b17b43cebe1abc164dbe8d504)), closes [#28](https://github.com/joshleblanc/view_component_reflex/issues/28)
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.2...v3.1.3)
 
-### [2.6.0](https://github.com/joshleblanc/view_component_reflex/compare/v2.5.0...v2.5.1) (2020-10-17)
+**Merged pull requests:**
 
+- fix spelling of \<div\> tag [\#49](https://github.com/joshleblanc/view_component_reflex/pull/49) ([drnic](https://github.com/drnic))
 
-### Bug Fixes
+## [v3.1.2](https://github.com/joshleblanc/view_component_reflex/tree/v3.1.2) (2021-01-07)
 
-* redis adapter
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.1...v3.1.2)
 
-# [2.5.0](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.14...v2.5.0) (2020-10-14)
+## [v3.1.1](https://github.com/joshleblanc/view_component_reflex/tree/v3.1.1) (2021-01-07)
 
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.0...v3.1.1)
 
-### Features
+## [v3.1.0](https://github.com/joshleblanc/view_component_reflex/tree/v3.1.0) (2021-01-07)
 
-* add after_state_initialized callback ([acb05fb](https://github.com/joshleblanc/view_component_reflex/commit/acb05fb))
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.0.6.pre.1...v3.1.0)
 
+## [v3.0.6.pre.1](https://github.com/joshleblanc/view_component_reflex/tree/v3.0.6.pre.1) (2021-01-06)
 
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.0.6.pre...v3.0.6.pre.1)
 
-## [2.4.0](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.13...v2.4.0) (2020-10-13)
+## [v3.0.6.pre](https://github.com/joshleblanc/view_component_reflex/tree/v3.0.6.pre) (2021-01-05)
 
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.0.5...v3.0.6.pre)
 
-### Features
+**Closed issues:**
 
-* pass through connection to view component ([252f216](https://github.com/joshleblanc/view_component_reflex/commit/252f216c364e206f058575ecfb9d28513dcbbd77))
+- My component tests fail with redis adapter [\#45](https://github.com/joshleblanc/view_component_reflex/issues/45)
 
-### [2.3.13](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.12...v2.3.13) (2020-10-10)
+## [v3.0.5](https://github.com/joshleblanc/view_component_reflex/tree/v3.0.5) (2021-01-04)
 
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.0.4...v3.0.5)
 
-### Bug Fixes
+**Closed issues:**
 
-* dependency for Rails 6 ([#21](https://github.com/joshleblanc/view_component_reflex/issues/21)) ([9565188](https://github.com/joshleblanc/view_component_reflex/commit/9565188f18860abc96c0a71fec84d6d7aa6de241))
+- Nested controller in folders: separator different from stimulus reflex original lib [\#26](https://github.com/joshleblanc/view_component_reflex/issues/26)
 
-### [2.3.11](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.10...v2.3.11) (2020-10-09)
+## [v3.0.4](https://github.com/joshleblanc/view_component_reflex/tree/v3.0.4) (2020-12-19)
 
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.0.3...v3.0.4)
 
-### Bug Fixes
+## [v3.0.3](https://github.com/joshleblanc/view_component_reflex/tree/v3.0.3) (2020-12-19)
 
-* allow rails 5.2 ([097f4bc](https://github.com/joshleblanc/view_component_reflex/commit/097f4bca6f5226343bc22b54145cc33df373ff88))
-* load defaults was wrong ([b6f1cd3](https://github.com/joshleblanc/view_component_reflex/commit/b6f1cd32e88669510d7be4be9281af13b79a9241))
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.0.2...v3.0.3)
 
-### [2.3.11](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.10...v2.3.11) (2020-10-09)
+**Closed issues:**
 
+- Testing fails for View Components due to component\_controller [\#44](https://github.com/joshleblanc/view_component_reflex/issues/44)
 
-### Bug Fixes
+## [v3.0.2](https://github.com/joshleblanc/view_component_reflex/tree/v3.0.2) (2020-12-18)
 
-* allow rails 5.2 ([097f4bc](https://github.com/joshleblanc/view_component_reflex/commit/097f4bca6f5226343bc22b54145cc33df373ff88))
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.0.1...v3.0.2)
 
-### [2.3.10](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.9...v2.3.10) (2020-10-07)
+## [v3.0.1](https://github.com/joshleblanc/view_component_reflex/tree/v3.0.1) (2020-12-18)
 
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/delete...v3.0.1)
 
-### Bug Fixes
+**Closed issues:**
 
-* only initialize state once per component instantiation ([d89bd71](https://github.com/joshleblanc/view_component_reflex/commit/d89bd7125d115389b4894465a565cc945b75ef57))
+- Components are not keeping state [\#43](https://github.com/joshleblanc/view_component_reflex/issues/43)
 
-### [2.3.9](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.8...v2.3.9) (2020-10-02)
+## [delete](https://github.com/joshleblanc/view_component_reflex/tree/delete) (2020-12-15)
 
-### [2.3.8](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.7...v2.3.8) (2020-10-02)
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.0.0...delete)
 
+**Closed issues:**
 
-### Bug Fixes
+- Reflex FormComponent::Base\#handle\_click failed: uninitialized constant FormComponent::BaseReflex [\#42](https://github.com/joshleblanc/view_component_reflex/issues/42)
+- no \_dump\_data is defined for class Proc [\#41](https://github.com/joshleblanc/view_component_reflex/issues/41)
+- Auto-loading reflex base class in development [\#38](https://github.com/joshleblanc/view_component_reflex/issues/38)
 
-* morphing a selector was duplicating the content ([daf2eef](https://github.com/joshleblanc/view_component_reflex/commit/daf2eefeebbd6675a05b742bb062e38ca76a166b))
+**Merged pull requests:**
 
-### [2.3.7](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.6...v2.3.7) (2020-10-02)
+- Improve readme and add unsafe instance variables [\#40](https://github.com/joshleblanc/view_component_reflex/pull/40) ([kieranklaassen](https://github.com/kieranklaassen))
+- Update to stimulus\_reflex \(~\> 3.4.0.pre9\) [\#39](https://github.com/joshleblanc/view_component_reflex/pull/39) ([kieranklaassen](https://github.com/kieranklaassen))
 
+## [v3.0.0](https://github.com/joshleblanc/view_component_reflex/tree/v3.0.0) (2020-12-06)
 
-### Bug Fixes
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v2.6.2...v3.0.0)
 
-* replace manual cableready calls with morphs ([6924321](https://github.com/joshleblanc/view_component_reflex/commit/69243218d4b30d5ce872db28b94911cbefb0dade))
+**Closed issues:**
 
-### [2.3.6](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.5...v2.3.6) (2020-10-02)
+- Saving state on refresh includes omitted state [\#37](https://github.com/joshleblanc/view_component_reflex/issues/37)
+- Error generating Reflex classes in Rails 5.2 [\#30](https://github.com/joshleblanc/view_component_reflex/issues/30)
+- Anycable problem solved [\#23](https://github.com/joshleblanc/view_component_reflex/issues/23)
+- Update a model in an easy way? [\#20](https://github.com/joshleblanc/view_component_reflex/issues/20)
+- Default key generation algorithm is very brittle [\#16](https://github.com/joshleblanc/view_component_reflex/issues/16)
 
+**Merged pull requests:**
 
-### Bug Fixes
+- Fix removed url params [\#35](https://github.com/joshleblanc/view_component_reflex/pull/35) ([julianrubisch](https://github.com/julianrubisch))
+- inlude reflex id with morphs [\#33](https://github.com/joshleblanc/view_component_reflex/pull/33) ([julianrubisch](https://github.com/julianrubisch))
 
-* use built in morph ([75c198f](https://github.com/joshleblanc/view_component_reflex/commit/75c198f04ef4ea41a6c7df042c562ec6245e23da))
+## [v2.6.2](https://github.com/joshleblanc/view_component_reflex/tree/v2.6.2) (2020-11-13)
 
-### [2.3.5](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.2...v2.3.5) (2020-09-25)
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v2.6.1...v2.6.2)
 
+**Merged pull requests:**
 
-### Bug Fixes
+- Allow reflex classes to be generated in Rails 5 [\#34](https://github.com/joshleblanc/view_component_reflex/pull/34) ([emilkarl](https://github.com/emilkarl))
 
-* re-add commented code ([f1fa16a](https://github.com/joshleblanc/view_component_reflex/commit/f1fa16a1ae0d146c9c366f4dba48522073e66e21))
+## [v2.6.1](https://github.com/joshleblanc/view_component_reflex/tree/v2.6.1) (2020-11-06)
 
-# [2.3.4](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.3...v) (2020-09-23)
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v2.6.0...v2.6.1)
 
+**Closed issues:**
 
-### Bug Fixes
+- Error: can't dump anonymous class \#\<Class:0x00007fc750838028\> [\#29](https://github.com/joshleblanc/view_component_reflex/issues/29)
+- Error when booting rails server in Rails 6.1.0.alpha [\#28](https://github.com/joshleblanc/view_component_reflex/issues/28)
+- CableReady detected an error in morph! [\#17](https://github.com/joshleblanc/view_component_reflex/issues/17)
 
-* convert hash to string ([d843944](https://github.com/joshleblanc/view_component_reflex/commit/d843944))
-* omit nonsense from template file location ([31cc91b](https://github.com/joshleblanc/view_component_reflex/commit/31cc91b))
-* remove bad require ([2fb49ec](https://github.com/joshleblanc/view_component_reflex/commit/2fb49ec))
-* remove discrete updates? ([478433d](https://github.com/joshleblanc/view_component_reflex/commit/478433d))
-* remove xxhash ([ad112ab](https://github.com/joshleblanc/view_component_reflex/commit/ad112ab))
-* use xxhash ([f8d03be](https://github.com/joshleblanc/view_component_reflex/commit/f8d03be))
+**Merged pull requests:**
 
+- Selector morph gotcha [\#32](https://github.com/joshleblanc/view_component_reflex/pull/32) ([julianrubisch](https://github.com/julianrubisch))
+- docs: tiny grammar fix [\#31](https://github.com/joshleblanc/view_component_reflex/pull/31) ([julianrubisch](https://github.com/julianrubisch))
+- docs: tiny code formatting fix [\#27](https://github.com/joshleblanc/view_component_reflex/pull/27) ([palkan](https://github.com/palkan))
 
+## [v2.6.0](https://github.com/joshleblanc/view_component_reflex/tree/v2.6.0) (2020-10-17)
 
-# [2.3.3](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.2...v) (2020-09-23)
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v2.5.0...v2.6.0)
 
+**Merged pull requests:**
 
-### Bug Fixes
+- Add redis based adapter [\#25](https://github.com/joshleblanc/view_component_reflex/pull/25) ([sebyx07](https://github.com/sebyx07))
 
-* #hash isn't consistent across processes, use SHA2 ([d1bdf18](https://github.com/joshleblanc/view_component_reflex/commit/d1bdf18))
+## [v2.5.0](https://github.com/joshleblanc/view_component_reflex/tree/v2.5.0) (2020-10-14)
 
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.14...v2.5.0)
 
+## [v2.3.14](https://github.com/joshleblanc/view_component_reflex/tree/v2.3.14) (2020-10-13)
 
-## [2.3.1](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.0...v) (2020-09-22)
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.13...v2.3.14)
 
+**Merged pull requests:**
 
-### Bug Fixes
+- docs: update defaul state adapter [\#22](https://github.com/joshleblanc/view_component_reflex/pull/22) ([CiTroNaK](https://github.com/CiTroNaK))
 
-* initialize reflex when receiving data ([a69373c](https://github.com/joshleblanc/view_component_reflex/commit/a69373c))
+## [v2.3.13](https://github.com/joshleblanc/view_component_reflex/tree/v2.3.13) (2020-10-10)
 
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.12...v2.3.13)
 
+**Merged pull requests:**
 
-## [2.3.0](https://github.com/joshleblanc/view_component_reflex/compare/v2.2.2...v2.3.0) (2020-09-22)
+- fix: dependency for Rails 6 [\#21](https://github.com/joshleblanc/view_component_reflex/pull/21) ([CiTroNaK](https://github.com/CiTroNaK))
 
+## [v2.3.12](https://github.com/joshleblanc/view_component_reflex/tree/v2.3.12) (2020-10-09)
 
-### Features
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.10...v2.3.12)
 
-* allow specifying the base reflex class ([7147d6c](https://github.com/joshleblanc/view_component_reflex/commit/7147d6c))
-* allow using callbacks ([f1a8224](https://github.com/joshleblanc/view_component_reflex/commit/f1a8224))
+**Merged pull requests:**
 
+- Require only Rails 5.2 [\#19](https://github.com/joshleblanc/view_component_reflex/pull/19) ([oskarer](https://github.com/oskarer))
 
+## [v2.3.10](https://github.com/joshleblanc/view_component_reflex/tree/v2.3.10) (2020-10-07)
 
-## [2.2.2](https://github.com/joshleblanc/view_component_reflex/compare/v2.2.1...v2.2.2) (2020-09-16)
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.9...v2.3.10)
 
-* data-key blank in views due to html file detection ([97b63f2f](https://github.com/joshleblanc/view_component_reflex/commit/97b63f2f6db3c3cf54cadc527cd1979304391399))
+## [v2.3.9](https://github.com/joshleblanc/view_component_reflex/tree/v2.3.9) (2020-10-02)
 
-### [2.2.1](https://github.com/joshleblanc/view_component_reflex/compare/v2.2.0...v2.2.1) (2020-08-26)
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.8...v2.3.9)
 
+## [v2.3.8](https://github.com/joshleblanc/view_component_reflex/tree/v2.3.8) (2020-10-02)
 
-### Bug Fixes
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.7...v2.3.8)
 
-* explicitly use ViewComponentReflex::Reflex ([3ddd2e3](https://github.com/joshleblanc/view_component_reflex/commit/3ddd2e39e9eb18db0f1341dc6cb5bd1abc0f0da4))
+**Merged pull requests:**
 
-## [2.2.0](https://github.com/joshleblanc/view_component_reflex/compare/v2.1.5...v2.2.0) (2020-08-24)
+- Update README.md to reflect support for haml and slim [\#15](https://github.com/joshleblanc/view_component_reflex/pull/15) ([thorpj](https://github.com/thorpj))
 
+## [v2.3.7](https://github.com/joshleblanc/view_component_reflex/tree/v2.3.7) (2020-10-02)
 
-### Features
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.6...v2.3.7)
 
-* add reflex_data_attributes ([#8](https://github.com/joshleblanc/view_component_reflex/issues/8)) ([51119e3](https://github.com/joshleblanc/view_component_reflex/commit/51119e39827dc43b24b85439aab98a0a20e3846b))
+## [v2.3.6](https://github.com/joshleblanc/view_component_reflex/tree/v2.3.6) (2020-10-02)
 
-### [2.1.5](https://github.com/joshleblanc/view_component_reflex/compare/v2.1.4...v2.1.5) (2020-08-16)
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.5...v2.3.6)
 
+**Closed issues:**
 
-### Bug Fixes
+- Session state adapter is very slow [\#14](https://github.com/joshleblanc/view_component_reflex/issues/14)
 
-* pin stimulus_reflex to 3.3.0.pre2 ([52e935b](https://github.com/joshleblanc/view_component_reflex/commit/52e935b0da2379d68acdab2754bb8547656ebc8a))
+## [v2.3.5](https://github.com/joshleblanc/view_component_reflex/tree/v2.3.5) (2020-09-25)
 
-### [2.1.4](https://github.com/joshleblanc/view_component_reflex/compare/v2.1.3...v2.1.4) (2020-08-16)
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.4...v2.3.5)
 
+## [v2.3.4](https://github.com/joshleblanc/view_component_reflex/tree/v2.3.4) (2020-09-23)
 
-### Bug Fixes
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.3...v2.3.4)
 
-* possibly modifying frozen object ([7d50b60](https://github.com/joshleblanc/view_component_reflex/commit/7d50b60286feae6c804b94389928258f1f8fb923))
+## [v2.3.3](https://github.com/joshleblanc/view_component_reflex/tree/v2.3.3) (2020-09-23)
 
-### [2.1.3](https://github.com/joshleblanc/view_component_reflex/compare/v2.1.2...v2.1.3) (2020-08-06)
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.2...v2.3.3)
 
+**Closed issues:**
 
-### Bug Fixes
+- Lifecycle Callbacks? [\#13](https://github.com/joshleblanc/view_component_reflex/issues/13)
+- Broadcasting Error in production [\#9](https://github.com/joshleblanc/view_component_reflex/issues/9)
 
-* replace state in memory's store_state ([8ba916d](https://github.com/joshleblanc/view_component_reflex/commit/8ba916dea7b78e593dce18f7b1e883d17e1d7ca6))
-* view component reflexes wouldn't accept arguments ([6086ecc](https://github.com/joshleblanc/view_component_reflex/commit/6086ecc44dc22c83a56e5e96ee5438231679b6fa))
+## [v2.3.2](https://github.com/joshleblanc/view_component_reflex/tree/v2.3.2) (2020-09-22)
 
-### [2.1.1](https://github.com/joshleblanc/view_component_reflex/compare/v2.1.0...v2.1.1) (2020-07-15)
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.1...v2.3.2)
 
+## [v2.3.1](https://github.com/joshleblanc/view_component_reflex/tree/v2.3.1) (2020-09-22)
 
-### Bug Fixes
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v2.3.0...v2.3.1)
 
-* support namespaced components ([2a326cb](https://github.com/joshleblanc/view_component_reflex/commit/2a326cb81c2205a0fa0cea2ebbd76140cccd7f86))
+## [v2.3.0](https://github.com/joshleblanc/view_component_reflex/tree/v2.3.0) (2020-09-22)
 
-## [2.1.0](https://github.com/joshleblanc/view_component_reflex/compare/v2.0.2...v2.1.0) (2020-07-10)
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v2.2.2...v2.3.0)
 
+## [v2.2.2](https://github.com/joshleblanc/view_component_reflex/tree/v2.2.2) (2020-09-16)
 
-### Features
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v2.2.1...v2.2.2)
 
-* add stimulate method to stimulate other reflex from a reflex ([a110330](https://github.com/joshleblanc/view_component_reflex/commit/a110330b4faf2424f09bb1e7df74c9a9e9f6f3e1))
+**Merged pull requests:**
 
+- Update README.md [\#11](https://github.com/joshleblanc/view_component_reflex/pull/11) ([andruu](https://github.com/andruu))
+- data-key blank in views due to html file detection [\#10](https://github.com/joshleblanc/view_component_reflex/pull/10) ([thorpj](https://github.com/thorpj))
 
-### Bug Fixes
+## [v2.2.1](https://github.com/joshleblanc/view_component_reflex/tree/v2.2.1) (2020-08-26)
 
-* save state if reset by parem ([9f759b4](https://github.com/joshleblanc/view_component_reflex/commit/9f759b4a46cd34b10aa69b222369b7ef0de48263))
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v2.2.0...v2.2.1)
 
-### [2.0.2](https://github.com/joshleblanc/view_component_reflex/compare/v2.0.1...v2.0.2) (2020-07-07)
+## [v2.2.0](https://github.com/joshleblanc/view_component_reflex/tree/v2.2.0) (2020-08-24)
 
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v2.1.5...v2.2.0)
 
-### Bug Fixes
+**Closed issues:**
 
-* inputs were losing focus on morph ([e5c08b2](https://github.com/joshleblanc/view_component_reflex/commit/e5c08b2b802e9729388bb7ef0c8449219604d4c3))
+- StimulusReflex::Channel Failed to invoke CounterComponent\#increment [\#7](https://github.com/joshleblanc/view_component_reflex/issues/7)
 
-### [2.0.1](https://github.com/joshleblanc/view_component_reflex/compare/v2.0.0...v2.0.1) (2020-07-07)
+**Merged pull requests:**
 
+- feat: add reflex\_data\_attributes [\#8](https://github.com/joshleblanc/view_component_reflex/pull/8) ([kieranklaassen](https://github.com/kieranklaassen))
 
-### Bug Fixes
+## [v2.1.5](https://github.com/joshleblanc/view_component_reflex/tree/v2.1.5) (2020-08-16)
 
-* broadcast morphs ([803651b](https://github.com/joshleblanc/view_component_reflex/commit/803651be0727f8212fc5de82e032a03314801aac))
-* morph instead of x_html ([1dde351](https://github.com/joshleblanc/view_component_reflex/commit/1dde351df62b1388411cb3da4942b6be7c736eb4))
-* save content to state ([1d62395](https://github.com/joshleblanc/view_component_reflex/commit/1d62395fe24d304c936de632cf6d4485a1bf347a))
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v2.1.4...v2.1.5)
 
-## [2.0.0](https://github.com/joshleblanc/view_component_reflex/compare/v1.7.2...v2.0.0) (2020-07-07)
+## [v2.1.4](https://github.com/joshleblanc/view_component_reflex/tree/v2.1.4) (2020-08-16)
 
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v2.1.3...v2.1.4)
 
-### ⚠ BREAKING CHANGES
+**Closed issues:**
 
-* prevent_refresh! default was a breaking change
+- Parameters sent via stimulate aren't reaching the reflex method [\#5](https://github.com/joshleblanc/view_component_reflex/issues/5)
 
-### Features
+**Merged pull requests:**
 
-* manually replace only the component html, without rendering page ([106f643](https://github.com/joshleblanc/view_component_reflex/commit/106f643943df34a46f3e24155c336ffef93b1e17))
+- Readme fix [\#6](https://github.com/joshleblanc/view_component_reflex/pull/6) ([guilherme-andrade](https://github.com/guilherme-andrade))
 
+## [v2.1.3](https://github.com/joshleblanc/view_component_reflex/tree/v2.1.3) (2020-08-06)
 
-### Bug Fixes
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v2.1.2...v2.1.3)
 
-* check if a selector is passed before replacing it ([6201b4f](https://github.com/joshleblanc/view_component_reflex/commit/6201b4f4c22bbbb12722d45b37b597024c7735f9))
-* only render component directly if nothing omitted_from_state ([239a2bb](https://github.com/joshleblanc/view_component_reflex/commit/239a2bbce8bf01d61614f1ad61ea13bc025122ea))
-* render entire page if custom selector provided ([fc37c6c](https://github.com/joshleblanc/view_component_reflex/commit/fc37c6c9eed98850de7cca865387dc55c90651a7))
-* share selector with component ([0405565](https://github.com/joshleblanc/view_component_reflex/commit/0405565c77fcd72e78944d9e0da6c8f41e3d8ef4))
+**Closed issues:**
 
+- uninitialized constant Reflex when using component\_controller [\#4](https://github.com/joshleblanc/view_component_reflex/issues/4)
 
-* prevent_refresh! default was a breaking change ([b043ea2](https://github.com/joshleblanc/view_component_reflex/commit/b043ea215d58ee565eb99e8a66036d867d229715))
+## [v2.1.2](https://github.com/joshleblanc/view_component_reflex/tree/v2.1.2) (2020-08-03)
 
-### [1.7.2](https://github.com/joshleblanc/view_component_reflex/compare/v1.7.1...v1.7.2) (2020-07-06)
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v2.1.1...v2.1.2)
 
-### [1.7.1](https://github.com/joshleblanc/view_component_reflex/compare/v1.7.0...v1.7.1) (2020-07-05)
+## [v2.1.1](https://github.com/joshleblanc/view_component_reflex/tree/v2.1.1) (2020-07-15)
 
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v2.1.0...v2.1.1)
 
-### Bug Fixes
+**Merged pull requests:**
 
-* set correct versions in gemspec ([8b4916c](https://github.com/joshleblanc/view_component_reflex/commit/8b4916c6b82dd271d65358835a143b5de1193b69))
+- Support namespaced components [\#3](https://github.com/joshleblanc/view_component_reflex/pull/3) ([ni3t](https://github.com/ni3t))
 
-## [1.7.0](https://github.com/joshleblanc/view_component_reflex/compare/v1.6.1...v1.7.0) (2020-07-05)
+## [v2.1.0](https://github.com/joshleblanc/view_component_reflex/tree/v2.1.0) (2020-07-10)
 
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v2.0.2...v2.1.0)
 
-### Features
+## [v2.0.2](https://github.com/joshleblanc/view_component_reflex/tree/v2.0.2) (2020-07-07)
 
-* add memory state adapter ([83403d2](https://github.com/joshleblanc/view_component_reflex/commit/83403d2a2a6a41a7bfe425d1253a57bf38def4d8))
-* make memory adapter the default ([68079b7](https://github.com/joshleblanc/view_component_reflex/commit/68079b77d5db22f2e639239a8f90560b917fd3e9))
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v2.0.1...v2.0.2)
 
+## [v2.0.1](https://github.com/joshleblanc/view_component_reflex/tree/v2.0.1) (2020-07-07)
 
-### Bug Fixes
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v2.0.0...v2.0.1)
 
-* decouple key from session ([bdd41b5](https://github.com/joshleblanc/view_component_reflex/commit/bdd41b5261673d57f51d9e3abc76fe3883f56b07))
+## [v2.0.0](https://github.com/joshleblanc/view_component_reflex/tree/v2.0.0) (2020-07-07)
 
-### [1.6.1](https://github.com/joshleblanc/view_component_reflex/compare/v1.6.0...v1.6.1) (2020-06-26)
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v1.7.2...v2.0.0)
 
+## [v1.7.2](https://github.com/joshleblanc/view_component_reflex/tree/v1.7.2) (2020-07-06)
 
-### Bug Fixes
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v1.7.1...v1.7.2)
 
-* default options to hashes ([d56a732](https://github.com/joshleblanc/view_component_reflex/commit/d56a732e390ad7d05686f42c987c0d7ff399c5e2))
+## [v1.7.1](https://github.com/joshleblanc/view_component_reflex/tree/v1.7.1) (2020-07-05)
 
-## [1.6.0](https://github.com/joshleblanc/view_component_reflex/compare/v1.5.0...v1.6.0) (2020-06-25)
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v1.7.0...v1.7.1)
 
+## [v1.7.0](https://github.com/joshleblanc/view_component_reflex/tree/v1.7.0) (2020-07-05)
 
-### Features
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v1.6.1...v1.7.0)
 
-* allow passing element to component_controller ([3ddbd28](https://github.com/joshleblanc/view_component_reflex/commit/3ddbd288a8f8175c0bfbf1b0ab5a5fe8e01d16e6))
+## [v1.6.1](https://github.com/joshleblanc/view_component_reflex/tree/v1.6.1) (2020-06-26)
 
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v1.6.0...v1.6.1)
 
-### Bug Fixes
+## [v1.6.0](https://github.com/joshleblanc/view_component_reflex/tree/v1.6.0) (2020-06-25)
 
-* ensure reflex is a string ([55cec0a](https://github.com/joshleblanc/view_component_reflex/commit/55cec0a0b43aa5653421ee10b86e1eb227c0e2f9))
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v1.5.0...v1.6.0)
 
-## [1.5.0](https://github.com/joshleblanc/view_component_reflex/compare/v1.4.0...v1.5.0) (2020-06-22)
+## [v1.5.0](https://github.com/joshleblanc/view_component_reflex/tree/v1.5.0) (2020-06-22)
 
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v1.4.0...v1.5.0)
 
-### Features
+## [v1.4.0](https://github.com/joshleblanc/view_component_reflex/tree/v1.4.0) (2020-06-21)
 
-* add reflex tag helper ([c2395f4](https://github.com/joshleblanc/view_component_reflex/commit/c2395f4b8d75b1db56dc84c6dd13f4976e813d39))
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v1.3.0...v1.4.0)
 
-## [1.4.0](https://github.com/joshleblanc/view_component_reflex/compare/v1.3.0...v1.4.0) (2020-06-21)
+## [v1.3.0](https://github.com/joshleblanc/view_component_reflex/tree/v1.3.0) (2020-06-21)
 
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v1.2.0...v1.3.0)
 
-### Features
+## [v1.2.0](https://github.com/joshleblanc/view_component_reflex/tree/v1.2.0) (2020-06-20)
 
-* add flag to prevent default re-render ([acb84ca](https://github.com/joshleblanc/view_component_reflex/commit/acb84caeb4fb8c8518c332cd7befd210b2d03ee1))
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v1.1.1...v1.2.0)
 
-## [1.3.0](https://github.com/joshleblanc/view_component_reflex/compare/v1.2.0...v1.3.0) (2020-06-21)
+## [v1.1.1](https://github.com/joshleblanc/view_component_reflex/tree/v1.1.1) (2020-06-20)
 
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v1.1.0...v1.1.1)
 
-### Features
+## [v1.1.0](https://github.com/joshleblanc/view_component_reflex/tree/v1.1.0) (2020-06-19)
 
-* add ability to not save vars to state ([c11f611](https://github.com/joshleblanc/view_component_reflex/commit/c11f611f089962e6fd3bcd74dfc803dfe6fc6c70))
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v1.0.1...v1.1.0)
 
+## [v1.0.1](https://github.com/joshleblanc/view_component_reflex/tree/v1.0.1) (2020-06-19)
 
-### Bug Fixes
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v1.0.0...v1.0.1)
 
-* forward session ([3dbb98e](https://github.com/joshleblanc/view_component_reflex/commit/3dbb98e27fe835e75362a51e2a11b22bd600b98f))
+## [v1.0.0](https://github.com/joshleblanc/view_component_reflex/tree/v1.0.0) (2020-06-18)
 
-## [1.2.0](https://github.com/joshleblanc/view_component_reflex/compare/v1.1.1...v1.2.0) (2020-06-20)
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v0.6.3...v1.0.0)
 
+## [v0.6.3](https://github.com/joshleblanc/view_component_reflex/tree/v0.6.3) (2020-06-15)
 
-### Features
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v0.6.2...v0.6.3)
 
-* allow instance variables to be overridden by props ([c9e3a9e](https://github.com/joshleblanc/view_component_reflex/commit/c9e3a9e01170069b0bd56df5994738b1b349f7d2))
+## [v0.6.2](https://github.com/joshleblanc/view_component_reflex/tree/v0.6.2) (2020-06-13)
 
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v0.6.1...v0.6.2)
 
-### Bug Fixes
+## [v0.6.1](https://github.com/joshleblanc/view_component_reflex/tree/v0.6.1) (2020-06-11)
 
-* pass request and controller instead of reflex ([6d8c295](https://github.com/joshleblanc/view_component_reflex/commit/6d8c295836d1fb38c09a88cf8516102ea40071bb))
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v0.6.0...v0.6.1)
 
-### [1.1.1](https://github.com/joshleblanc/view_component_reflex/compare/v1.1.0...v1.1.1) (2020-06-20)
+## [v0.6.0](https://github.com/joshleblanc/view_component_reflex/tree/v0.6.0) (2020-06-11)
 
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v0.5.1...v0.6.0)
 
-### Bug Fixes
+## [v0.5.1](https://github.com/joshleblanc/view_component_reflex/tree/v0.5.1) (2020-06-11)
 
-* initialize key in component_controller ([26da2f4](https://github.com/joshleblanc/view_component_reflex/commit/26da2f494f275331d94262410e9334cf0f5001b0))
-* nested components wouldn't maintain state ([e27e0dc](https://github.com/joshleblanc/view_component_reflex/commit/e27e0dc1d9ddb3fc4ecaf8875465ce0af72bba1e))
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v0.5.0...v0.5.1)
 
-## [1.1.0](https://github.com/joshleblanc/view_component_reflex/compare/v1.0.1...v1.1.0) (2020-06-19)
+## [v0.5.0](https://github.com/joshleblanc/view_component_reflex/tree/v0.5.0) (2020-06-10)
 
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v0.4.0...v0.5.0)
 
-### Features
+## [v0.4.0](https://github.com/joshleblanc/view_component_reflex/tree/v0.4.0) (2020-06-10)
 
-* add collection_key functionality for collection rendering ([4410987](https://github.com/joshleblanc/view_component_reflex/commit/44109878b72842253a83d0a5ca457c2970932b02))
-* all passing options to component_controller ([606c03b](https://github.com/joshleblanc/view_component_reflex/commit/606c03bde5b2d433ee231ec138af219c3cb2371d))
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v0.3.0...v0.4.0)
 
+## [v0.3.0](https://github.com/joshleblanc/view_component_reflex/tree/v0.3.0) (2020-06-05)
 
-### Bug Fixes
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v0.2.5...v0.3.0)
 
-* add default ([b1c1526](https://github.com/joshleblanc/view_component_reflex/commit/b1c15266323e8822807d2b9de6f38cd844ebe47d))
-* include any passed data attributes ([ab04569](https://github.com/joshleblanc/view_component_reflex/commit/ab0456983cea3460ddd6249d6cb7592db021a93c))
-* initialize stimulus in component_controller ([cd6e9da](https://github.com/joshleblanc/view_component_reflex/commit/cd6e9dac725df28779fdcfbb4319b78ec34e222c))
-* loosen selector requirement ([3454a44](https://github.com/joshleblanc/view_component_reflex/commit/3454a44b8a5a6c711ed60402ab53326a6edb6616))
+## [v0.2.5](https://github.com/joshleblanc/view_component_reflex/tree/v0.2.5) (2020-06-05)
 
-### [1.0.1](https://github.com/joshleblanc/view_component_reflex/compare/v1.0.0...v1.0.1) (2020-06-19)
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v0.2.4...v0.2.5)
 
+## [v0.2.4](https://github.com/joshleblanc/view_component_reflex/tree/v0.2.4) (2020-06-04)
 
-### Bug Fixes
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v0.2.3...v0.2.4)
 
-* forward request to reflex component ([43fc585](https://github.com/joshleblanc/view_component_reflex/commit/43fc5854d82672ebe64ae73277f8d65837565854))
-* foward params ([0fa1ae1](https://github.com/joshleblanc/view_component_reflex/commit/0fa1ae1cefa6af8bbc4ba6f0f5cb4400eaa5a731))
-* permanent attribute name wasn't being detected ([fce1e3c](https://github.com/joshleblanc/view_component_reflex/commit/fce1e3cf47a455cb1c3412ba5970b196a49609c4))
+## [v0.2.3](https://github.com/joshleblanc/view_component_reflex/tree/v0.2.3) (2020-06-04)
 
-## [1.0.0](https://github.com/joshleblanc/view_component_reflex/compare/v0.6.3...v1.0.0) (2020-06-18)
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v0.2.2...v0.2.3)
 
+## [v0.2.2](https://github.com/joshleblanc/view_component_reflex/tree/v0.2.2) (2020-06-04)
 
-### Features
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v0.2.1...v0.2.2)
 
-* add helper for controller ([07a4ff3](https://github.com/joshleblanc/view_component_reflex/commit/07a4ff326cf237b3fdff48e8ee36cf396c4e97d9))
-* refactor state into instance variables ([388b44c](https://github.com/joshleblanc/view_component_reflex/commit/388b44c2938b5534eac880ea62cc0baa3501df37))
+## [v0.2.1](https://github.com/joshleblanc/view_component_reflex/tree/v0.2.1) (2020-06-04)
 
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v0.2.0...v0.2.1)
 
-### Bug Fixes
+## [v0.2.0](https://github.com/joshleblanc/view_component_reflex/tree/v0.2.0) (2020-06-04)
 
-* expose the element method to the component ([a0e012b](https://github.com/joshleblanc/view_component_reflex/commit/a0e012b53170680876306c468fe89d046e58bee5))
-* fallback to super ([bd1179f](https://github.com/joshleblanc/view_component_reflex/commit/bd1179f32ab32691435facdc7d713a9b8cf67ace))
-* forward refresh! and refresh_all! ([45396a0](https://github.com/joshleblanc/view_component_reflex/commit/45396a048dc9f5a4664f664f1f6ee86734335305))
-* implement respond_to_missing? ([880fde1](https://github.com/joshleblanc/view_component_reflex/commit/880fde1447a86fb1e8515467ebecd55887a1e3c2))
-* include data-key in component selector ([7d467a8](https://github.com/joshleblanc/view_component_reflex/commit/7d467a8e446e7bcfba1eb002657ae7e53a0007eb))
-* instantiate component without props ([a976f79](https://github.com/joshleblanc/view_component_reflex/commit/a976f79e0069f25451316a7d1c872889c9e84632))
-* make set_state private ([fcabeb4](https://github.com/joshleblanc/view_component_reflex/commit/fcabeb40c036e19db133492f83f2163a2cff317b))
-* make state method private ([792850e](https://github.com/joshleblanc/view_component_reflex/commit/792850eaf6ce6d85dd4bdc93cf62e10151be1268))
-* make stimulus_controller private ([d0ac468](https://github.com/joshleblanc/view_component_reflex/commit/d0ac46893fd6aa7d72e755d4ffa8f4b1ca785f68))
-* minor performance improvement in key generation ([fff713b](https://github.com/joshleblanc/view_component_reflex/commit/fff713b61a039546f47443aeae2dbec8fba37c29))
-* move method injection to target assignment ([11dcb8b](https://github.com/joshleblanc/view_component_reflex/commit/11dcb8b72ccb4a72ec08c59142db948e0a89365c))
-* only re-render component ([660c69a](https://github.com/joshleblanc/view_component_reflex/commit/660c69aa9a69d5772c2ebd8e54fd5ef4de6b8bef))
-* pretend the reflex method exists ([367e4c0](https://github.com/joshleblanc/view_component_reflex/commit/367e4c06931b6389535640176b95cc07abcbddab))
-* remove refresh from set_state ([4f4774c](https://github.com/joshleblanc/view_component_reflex/commit/4f4774cb6dc98e9bfc5d796d46f0e65d2932316a))
-* save state before re-rendering ([3858fed](https://github.com/joshleblanc/view_component_reflex/commit/3858fed0f4135a84e1feff852f173fa58447f5e0))
-* select correct file to generate key ([8479088](https://github.com/joshleblanc/view_component_reflex/commit/84790887f96786f38a2a36c4825ea913c8760b3c))
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v0.1.0...v0.2.0)
 
-### [0.6.3](https://github.com/joshleblanc/view_component_reflex/compare/v0.6.2...v0.6.3) (2020-06-15)
+## [v0.1.0](https://github.com/joshleblanc/view_component_reflex/tree/v0.1.0) (2020-06-02)
 
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/9be72189d8ea7152859d0f850e945cba2718cb6d...v0.1.0)
 
-### Bug Fixes
 
-* remove reconcile state from session state adapter ([653cb54](https://github.com/joshleblanc/view_component_reflex/commit/653cb546719dda141f0cdcdad36d21c035c705f9))
-* remove unneccessary initial state ([8ce3fba](https://github.com/joshleblanc/view_component_reflex/commit/8ce3fba17c6f5b2af96a64653b96bf17247c4b4b))
 
-### [0.6.2](https://github.com/joshleblanc/view_component_reflex/compare/v0.6.1...v0.6.2) (2020-06-13)
-
-
-### Features
-
-* allow passing a selector to set_state ([e036f7f](https://github.com/joshleblanc/view_component_reflex/commit/e036f7f66e82daf1d0724e89eab837361a65f42d))
-
-
-### Bug Fixes
-
-* pass correct params to refresh ([514ed4c](https://github.com/joshleblanc/view_component_reflex/commit/514ed4c980343399702614b1cee0760947cb2e46))
-
-### [0.6.1](https://github.com/joshleblanc/view_component_reflex/compare/v0.6.0...v0.6.1) (2020-06-11)
-
-
-### Bug Fixes
-
-* use splat for selectors ([551fd8f](https://github.com/joshleblanc/view_component_reflex/commit/551fd8fb338e376ae79ad634e5cb66591ff6582d))
+\* *This Changelog was automatically generated by [github_changelog_generator](https://github.com/github-changelog-generator/github-changelog-generator)*

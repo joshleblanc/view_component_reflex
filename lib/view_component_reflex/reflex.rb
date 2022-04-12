@@ -19,15 +19,17 @@ module ViewComponentReflex
       end
       if primary_selector
         prevent_refresh!
-
+        
+        document = controller_document
         [primary_selector, *rest].each do |s|
-          html = controller_document.css(s)
+          html = document.css(s)
           if html.present?
             CableReady::Channels.instance[stream].morph(
               selector: s,
               html: html.inner_html,
               children_only: true,
               permanent_attribute_name: "data-reflex-permanent",
+              reflex_id: reflex_id
             )
           end
         end
@@ -63,6 +65,7 @@ module ViewComponentReflex
         children_only: true,
         html: component_document.css(selector).to_html,
         permanent_attribute_name: "data-reflex-permanent",
+        reflex_id: reflex_id
       )
     end
 
@@ -145,13 +148,18 @@ module ViewComponentReflex
     end
 
     def stimulate(target, data)
-      data_to_receive = {}
+      data_to_receive = {
+        "dataset" => {
+          "datasetAll" => {},
+          "dataset" => {}
+        }
+      }
 
       stimulus_reflex_data.each do |k, v|
         data_to_receive[k.to_s.camelize(:lower)] = v
       end
 
-      data_to_receive["dataset"] = data.each_with_object({}) do |(k, v), o|
+      data_to_receive["dataset"]["dataset"] = data.each_with_object({}) do |(k, v), o|
         o["data-#{k}"] = v
       end
 
