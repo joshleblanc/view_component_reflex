@@ -13,15 +13,15 @@ module ViewComponentReflex
           opts
         end
 
+        data = {
+          "#{key}_state" => Verifier.generate(state(key)),
+          "#{key}_initial" => Verifier.generate(state("#{key}_initial")),
+        }
+
         options[:data] = {
           controller: self.class.stimulus_controller,
           key: key,
           **(options[:data] || {})
-        }
-
-        data = {
-          "#{key}_state" => Verifier.generate(state(key)),
-          "#{key}_initial" => Verifier.generate(state("#{key}_initial")),
         }
 
         content_tag tag, options do
@@ -34,29 +34,6 @@ module ViewComponentReflex
         super(reflex).tap do |attr|
           attr["reflex-dataset"] = "*"
         end
-      end
-
-      def set_state(key, new_state = {})
-        @states ||= {}
-        @states[key] ||= {}
-        new_state.each do |k, v|
-          @states[key][k] = v
-        end
-      end
-
-      def wrap_write_async(&blk)
-        blk.call
-      end
-
-      def state(key)
-        @states ||= {}
-        @states[key] ||= {}
-        @states[key]
-      end
-
-      def store_state(key, new_state = {})
-        @states ||= {}
-        @states[key] = new_state
       end
     end
   end
