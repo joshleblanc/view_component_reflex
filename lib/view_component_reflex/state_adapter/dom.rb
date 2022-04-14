@@ -40,6 +40,14 @@ module ViewComponentReflex
         end
       end
 
+      def self.extend_component(component)
+        component.extend ViewComponentReflex::Dom::Component
+      end
+
+      def self.extend_reflex(reflex)
+        reflex.extend ViewComponentReflex::Dom::Reflex
+      end
+
       def self.wrap_write_async
         yield
       end

@@ -4,6 +4,8 @@ module ViewComponentReflex
     attr_reader :key
 
     class << self
+      attr_reader :_state_adapter
+
       def init_stimulus_reflex
         factory = ViewComponentReflex::ReflexFactory.new(self)
         @stimulus_reflex ||= factory.reflex
@@ -57,6 +59,15 @@ module ViewComponentReflex
         register_callbacks(:after)
         register_callbacks(:around)
       end
+
+      def state_adapter(what)
+        if what.is_a?(Symbol) || what.is_a?(String)
+          class_name = what.to_s.camelize
+          @_state_adapter = StateAdapter.const_get class_name
+        else
+          @_state_adapter = what
+        end
+      end
     end
 
     def self.stimulus_controller
@@ -65,6 +76,10 @@ module ViewComponentReflex
 
     def stimulus_reflex?
       helpers.controller.instance_variable_get(:@stimulus_reflex)
+    end
+
+    def before_render
+      adapter.extend_component(self)
     end
 
     def component_controller(opts_or_tag = :div, opts = {}, &blk)
@@ -110,6 +125,8 @@ module ViewComponentReflex
     def initialize_state
       return if state_initialized?
 
+      adapter.extend_component(self)
+
       # newly mounted
       if !stimulus_reflex? || state(@key).empty?
 
@@ -143,7 +160,7 @@ module ViewComponentReflex
     end
 
     def adapter
-      ViewComponentReflex::Engine.state_adapter
+      self.class._state_adapter || ViewComponentReflex::Engine.state_adapter
     end
 
     def wrap_write_async(&blk)

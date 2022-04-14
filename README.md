@@ -248,6 +248,27 @@ class MyComponent < ViewComponentReflex::Component
 end
 ```
 
+## Per-component state adapters
+You can override the default state adapter for a component by using the `state_adapter` helper.
+
+```ruby
+class MyComponent < ViewComponentReflex::Component
+  state_adapter :dom # or :session, or :memory
+end
+```
+
+This will also accept a fully qualified constant 
+
+```ruby
+class MyComponent < ViewComponentReflex::Component
+  state_adapter ViewComponentReflex::StateAdapter::Redis.new(
+    redis_opts: {
+      url: "redis://localhost:6379/1", driver: :hiredis
+    },
+    ttl: 3600)
+end
+```
+
 ## Common patterns
 A lot of the time, you only need to update specific components when changing instance variables. For example, changing `@loading` might only need
 to display a spinner somewhere on the page. You can define setters to implicitly render the appropriate pieces of dom whenever that variable is set

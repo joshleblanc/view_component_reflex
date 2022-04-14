@@ -18,6 +18,14 @@ module ViewComponentReflex
         yield
       end
 
+      def self.extend_component(component)
+        # stub
+      end
+
+      def self.extend_reflex(component)
+        # stub
+      end
+
       private
 
       def self.extract_id(request)

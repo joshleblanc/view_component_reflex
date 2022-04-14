@@ -110,6 +110,7 @@ module ViewComponentReflex
     # uses method to gather the method parameters, but since we're abusing
     # method_missing here, that'll always fail
     def method(name)
+      component.adapter.extend_reflex(self)
       component.method(name.to_sym)
     end
 
@@ -211,7 +212,7 @@ module ViewComponentReflex
     end
 
     def state_adapter
-      ViewComponentReflex::Engine.state_adapter
+      component.adapter
     end
 
     def state

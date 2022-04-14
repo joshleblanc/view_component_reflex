@@ -45,6 +45,14 @@ module ViewComponentReflex
         end
       end
 
+      def extend_component(_)
+        #stub
+      end
+
+      def extend_reflex(_)
+        #stub
+      end
+
       private
 
       # Reduce number of calls coming from #store_state to save Redis
