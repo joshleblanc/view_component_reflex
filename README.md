@@ -309,6 +309,9 @@ end
 By default (since version `2.3.2`), view_component_reflex stores component state in session. You can optionally set the state adapter
 to use the memory by changing `config.state_adapter` to `ViewComponentReflex::StateAdapter::Memory`.
 
+Optionally, you can also store state right in the dom with `ViewComponentReflex::StateAdapter::Dom`. Not that the DOM
+adapter requires the `data-reflex-dataset="*"` property to be set on anything firing the reflex. 
+
 ## Custom State Adapters
 
 ViewComponentReflex uses session for its state by default. To change this, add
@@ -319,7 +322,6 @@ ViewComponentReflex::Engine.configure do |config|
   config.state_adapter = YourAdapter
 end
 ```
-
 
 ## Existing Fast Redis based State Adapter
 
