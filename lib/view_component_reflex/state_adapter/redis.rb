@@ -11,7 +11,8 @@
 module ViewComponentReflex
   module StateAdapter
     class Redis < Base
-      attr_reader :client, :ttl
+      attr_reader :ttl
+      attr_accessor :client
 
       def initialize(redis_opts:, ttl: 3600)
         @client = ::Redis.new(redis_opts)
@@ -40,8 +41,11 @@ module ViewComponentReflex
       end
 
       def wrap_write_async
-        client.pipelined do
+        client.pipelined  do |pipeline|
+          original_client = client
+          @client = pipeline
           yield
+          @client = original_client
         end
       end
 
