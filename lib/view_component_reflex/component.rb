@@ -4,6 +4,8 @@ module ViewComponentReflex
     attr_reader :key
 
     class << self
+      attr_reader :_state_adapter
+
       def init_stimulus_reflex
         factory = ViewComponentReflex::ReflexFactory.new(self)
         @stimulus_reflex ||= factory.reflex
@@ -57,6 +59,15 @@ module ViewComponentReflex
         register_callbacks(:after)
         register_callbacks(:around)
       end
+
+      def state_adapter(what)
+        if what.is_a?(Symbol) || what.is_a?(String)
+          class_name = what.to_s.camelize
+          @_state_adapter = StateAdapter.const_get class_name
+        else
+          @_state_adapter = what
+        end
+      end
     end
 
     def self.stimulus_controller
@@ -65,6 +76,10 @@ module ViewComponentReflex
 
     def stimulus_reflex?
       helpers.controller.instance_variable_get(:@stimulus_reflex)
+    end
+
+    def before_render
+      adapter.extend_component(self)
     end
 
     def component_controller(opts_or_tag = :div, opts = {}, &blk)
@@ -91,10 +106,10 @@ module ViewComponentReflex
     end
 
     # We can't truly initialize the component without the view_context,
-    # which isn't available in the `initialize` method. We require the 
+    # which isn't available in the `initialize` method. We require the
     # developer to wrap components in `component_controller`, so this is where
     # we truly initialize the component.
-    # This method is overridden in reflex.rb when the component is re-rendered. The 
+    # This method is overridden in reflex.rb when the component is re-rendered. The
     # override simply sets @key to element.dataset[:key]
     # We don't want it to initialize the state again, and since we're rendering the component
     # outside of the view, we need to skip the initialize_key method as well
@@ -109,30 +124,31 @@ module ViewComponentReflex
     # so we can't rely on the component created by the reflex
     def initialize_state
       return if state_initialized?
-      adapter = ViewComponentReflex::Engine.state_adapter
-      
+
+      adapter.extend_component(self)
+
       # newly mounted
-      if !stimulus_reflex? || adapter.state(request, @key).empty?
+      if !stimulus_reflex? || state(@key).empty?
 
         new_state = create_safe_state
 
-        adapter.wrap_write_async do
-          adapter.store_state(request, @key, new_state)
-          adapter.store_state(request, "#{@key}_initial", new_state)
+        wrap_write_async do
+          store_state(@key, new_state)
+          store_state("#{@key}_initial", new_state)
         end
 
       # updating a mounted component
       else
-        initial_state = adapter.state(request, "#{@key}_initial")
+        initial_state = state("#{@key}_initial")
 
         parameters_changed = []
-        adapter.state(request, @key).each do |k, v|
+        state(@key).each do |k, v|
           instance_value = instance_variable_get(k)
           if permit_parameter?(initial_state[k], instance_value)
             parameters_changed << k
-            adapter.wrap_write_async do
-              adapter.set_state(request, controller, "#{@key}_initial", {k => instance_value})
-              adapter.set_state(request, controller, @key, {k => instance_value})
+            wrap_write_async do
+              set_state("#{@key}_initial", { k => instance_value })
+              set_state(@key, { k => instance_value })
             end
           else
             instance_variable_set(k, v)
@@ -141,6 +157,26 @@ module ViewComponentReflex
         after_state_initialized(parameters_changed)
       end
       @state_initialized = true
+    end
+
+    def adapter
+      self.class._state_adapter || ViewComponentReflex::Engine.state_adapter
+    end
+
+    def wrap_write_async(&blk)
+      adapter.wrap_write_async(&blk)
+    end
+
+    def set_state(key, new_state)
+      adapter.set_state(request, controller, key, new_state)
+    end
+
+    def state(key)
+      adapter.state(request, key)
+    end
+
+    def store_state(key, new_state = {})
+      adapter.store_state(request, key, new_state)
     end
 
     def state_initialized?
@@ -152,10 +188,10 @@ module ViewComponentReflex
       # and line number, which should be unique. We hash it to make it a nice number
       erb_file = caller.select { |p| p.match? /.\.html\.(haml|erb|slim)/ }[1]
       key = if erb_file
-        Digest::SHA2.hexdigest(erb_file.split(":in")[0])
-      else
-        ""
-      end
+              Digest::SHA2.hexdigest(erb_file.split(":in")[0])
+            else
+              ""
+            end
       key += collection_key.to_s if collection_key
       @key = key
     end

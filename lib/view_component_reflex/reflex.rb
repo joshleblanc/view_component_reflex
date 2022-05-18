@@ -1,6 +1,5 @@
 module ViewComponentReflex
   class Reflex < StimulusReflex::Reflex
-
     class << self
       attr_accessor :component_class
     end
@@ -48,21 +47,23 @@ module ViewComponentReflex
       @stream = channel
     end
 
-    def component_document
+    def inject_key_into_component
       component.tap do |k|
         k.define_singleton_method(:initialize_component) do
           @key = element.dataset[:key]
         end
       end
+    end
 
-      document = Nokogiri::HTML(component.render_in(controller.view_context))
+    def component_document
+      Nokogiri::HTML(component.render_in(controller.view_context))
     end
 
     def refresh_component!
       CableReady::Channels.instance[stream].morph(
         selector: selector,
         children_only: true,
-        html: component_document.css(selector).inner_html,
+        html: component_document.css(selector).to_html,
         permanent_attribute_name: "data-reflex-permanent",
         reflex_id: reflex_id
       )
@@ -109,6 +110,7 @@ module ViewComponentReflex
     # uses method to gather the method parameters, but since we're abusing
     # method_missing here, that'll always fail
     def method(name)
+      component.adapter.extend_reflex(self)
       component.method(name.to_sym)
     end
 
@@ -124,11 +126,11 @@ module ViewComponentReflex
       end
 
       component.send(name, *args, &blk)
-      
+
       if @prevent_refresh
         morph :nothing
       else
-        default_morph      
+        default_morph
       end
     end
 
@@ -196,6 +198,8 @@ module ViewComponentReflex
         reflex
       end
 
+      inject_key_into_component
+
       @component
     end
 
@@ -208,7 +212,7 @@ module ViewComponentReflex
     end
 
     def state_adapter
-      ViewComponentReflex::Engine.state_adapter
+      component.adapter
     end
 
     def state

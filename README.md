@@ -248,6 +248,27 @@ class MyComponent < ViewComponentReflex::Component
 end
 ```
 
+## Per-component state adapters
+You can override the default state adapter for a component by using the `state_adapter` helper.
+
+```ruby
+class MyComponent < ViewComponentReflex::Component
+  state_adapter :dom # or :session, or :memory
+end
+```
+
+This will also accept a fully qualified constant 
+
+```ruby
+class MyComponent < ViewComponentReflex::Component
+  state_adapter ViewComponentReflex::StateAdapter::Redis.new(
+    redis_opts: {
+      url: "redis://localhost:6379/1", driver: :hiredis
+    },
+    ttl: 3600)
+end
+```
+
 ## Common patterns
 A lot of the time, you only need to update specific components when changing instance variables. For example, changing `@loading` might only need
 to display a spinner somewhere on the page. You can define setters to implicitly render the appropriate pieces of dom whenever that variable is set
@@ -288,6 +309,9 @@ end
 By default (since version `2.3.2`), view_component_reflex stores component state in session. You can optionally set the state adapter
 to use the memory by changing `config.state_adapter` to `ViewComponentReflex::StateAdapter::Memory`.
 
+Optionally, you can also store state right in the dom with `ViewComponentReflex::StateAdapter::Dom`. Not that the DOM
+adapter requires the `data-reflex-dataset="*"` property to be set on anything firing the reflex. 
+
 ## Custom State Adapters
 
 ViewComponentReflex uses session for its state by default. To change this, add
@@ -298,7 +322,6 @@ ViewComponentReflex::Engine.configure do |config|
   config.state_adapter = YourAdapter
 end
 ```
-
 
 ## Existing Fast Redis based State Adapter
 
