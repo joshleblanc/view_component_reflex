@@ -1,3 +1,3 @@
 module ViewComponentReflex
-  VERSION = '3.1.14.pre9'
+  VERSION = '3.2.0.pre'
 end
