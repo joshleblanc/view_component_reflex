@@ -1,5 +1,17 @@
 # Changelog
 
+## [Unreleased](https://github.com/joshleblanc/view_component_reflex/tree/HEAD)
+
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.14.pre9...HEAD)
+
+**Closed issues:**
+
+- Error: can't dump IO [\#75](https://github.com/joshleblanc/view_component_reflex/issues/75)
+
+**Merged pull requests:**
+
+- fix: resolved redis client warning about pipelined [\#79](https://github.com/joshleblanc/view_component_reflex/pull/79) ([acarpe](https://github.com/acarpe))
+
 ## [v3.1.14.pre9](https://github.com/joshleblanc/view_component_reflex/tree/v3.1.14.pre9) (2022-03-10)
 
 [Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.14.pre8...v3.1.14.pre9)
