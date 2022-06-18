@@ -309,8 +309,11 @@ end
 By default (since version `2.3.2`), view_component_reflex stores component state in session. You can optionally set the state adapter
 to use the memory by changing `config.state_adapter` to `ViewComponentReflex::StateAdapter::Memory`.
 
-Optionally, you can also store state right in the dom with `ViewComponentReflex::StateAdapter::Dom`. Not that the DOM
-adapter requires the `data-reflex-dataset="*"` property to be set on anything firing the reflex. 
+Optionally, you can also store state right in the dom with `ViewComponentReflex::StateAdapter::Dom`.
+Note that the DOM adapter requires the `data-reflex-dataset="children"` property to be set on anything firing the reflex. You can mix it with other options like `data-reflex-dataset="ancestors children"`.
+Optionally you can include all datasets in the reflex `data-reflex-dataset="*"` but in large applications you may want to limit the amount of data being transferred only to what is necessary.
+
+When using the `ViewComponentReflex::StateAdapter::Dom` make sure your key does not contain underscores and is limited to max. 80 characters. That's important when you'd be using customized [collection_key](#collections) which increases the length of the key.
 
 ## Custom State Adapters
 
