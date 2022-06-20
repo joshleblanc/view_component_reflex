@@ -1,8 +1,12 @@
 # Changelog
 
-## [Unreleased](https://github.com/joshleblanc/view_component_reflex/tree/HEAD)
+## [v3.2.0.pre1](https://github.com/joshleblanc/view_component_reflex/tree/v3.2.0.pre1) (2022-06-20)
 
-[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.14.pre9...HEAD)
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.2.0.pre...v3.2.0.pre1)
+
+## [v3.2.0.pre](https://github.com/joshleblanc/view_component_reflex/tree/v3.2.0.pre) (2022-05-18)
+
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.1.14.pre9...v3.2.0.pre)
 
 **Closed issues:**
 
