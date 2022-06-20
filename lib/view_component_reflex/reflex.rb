@@ -86,6 +86,7 @@ module ViewComponentReflex
         xpath_element: xpath_element,
         target: target,
         reflex_controller: reflex_controller,
+        version: version,
         url: url,
         morph: :page,
         attrs: {
