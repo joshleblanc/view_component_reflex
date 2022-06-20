@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    view_component_reflex (3.2.0.pre)
+    view_component_reflex (3.2.0.pre1)
       rails (>= 5.2, < 8.0)
       stimulus_reflex (>= 3.5.0.pre2)
       view_component (>= 2.28.0)
@@ -122,7 +122,7 @@ GEM
     nokogiri (1.13.6-x64-mingw32)
       racc (~> 1.4)
     racc (1.6.0)
-    rack (2.2.3)
+    rack (2.2.3.1)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (7.0.2.3)
@@ -142,7 +142,7 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.4.2)
+    rails-html-sanitizer (1.4.3)
       loofah (~> 2.3)
     railties (7.0.2.3)
       actionpack (= 7.0.2.3)
@@ -167,7 +167,7 @@ GEM
     strscan (3.0.3)
     thor (1.2.1)
     thread-local (1.1.0)
-    timeout (0.2.0)
+    timeout (0.3.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     tzinfo-data (1.2021.5)
@@ -178,7 +178,7 @@ GEM
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    zeitwerk (2.5.4)
+    zeitwerk (2.6.0)
 
 PLATFORMS
   ruby
