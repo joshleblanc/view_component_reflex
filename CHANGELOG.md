@@ -1,5 +1,9 @@
 # Changelog
 
+## [v3.2.0.pre2](https://github.com/joshleblanc/view_component_reflex/tree/v3.2.0.pre2) (2022-06-20)
+
+[Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.2.0.pre1...v3.2.0.pre2)
+
 ## [v3.2.0.pre1](https://github.com/joshleblanc/view_component_reflex/tree/v3.2.0.pre1) (2022-06-20)
 
 [Full Changelog](https://github.com/joshleblanc/view_component_reflex/compare/v3.2.0.pre...v3.2.0.pre1)
