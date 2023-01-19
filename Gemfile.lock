@@ -88,7 +88,7 @@ GEM
     crass (1.0.6)
     date (3.3.3)
     erubi (1.11.0)
-    globalid (1.0.0)
+    globalid (1.0.1)
       activesupport (>= 5.0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
@@ -104,7 +104,7 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.2)
     mini_portile2 (2.8.0)
-    minitest (5.16.3)
+    minitest (5.17.0)
     net-imap (0.3.3)
       date
       net-protocol
@@ -117,6 +117,8 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.10)
       mini_portile2 (~> 2.8.0)
+      racc (~> 1.4)
+    nokogiri (1.13.10-x64-mingw32)
       racc (~> 1.4)
     racc (1.6.1)
     rack (2.2.4)
@@ -155,6 +157,7 @@ GEM
       connection_pool
     sqlite3 (1.5.4)
       mini_portile2 (~> 2.8.0)
+    sqlite3 (1.5.4-x64-mingw32)
     stimulus_reflex (3.5.0.pre9)
       actioncable (>= 5.2)
       actionpack (>= 5.2)
@@ -170,6 +173,8 @@ GEM
     timeout (0.3.1)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2022.7)
+      tzinfo (>= 1.0.0)
     view_component (2.79.0)
       activesupport (>= 5.0.0, < 8.0)
       concurrent-ruby (~> 1.0)
