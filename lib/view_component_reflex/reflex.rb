@@ -11,6 +11,10 @@ module ViewComponentReflex
       Nokogiri::HTML(controller.response.body)
     end
 
+    def cable_ready
+      CableReady::Channels.instance[stream]
+    end
+
     def refresh!(primary_selector = nil, *rest)
       save_state
 
@@ -187,7 +191,8 @@ module ViewComponentReflex
         :prevent_refresh!,
         :selector,
         :stimulate,
-        :stream_to
+        :stream_to,
+        :cable_ready
       ]
       exposed_methods.each do |meth|
         @component.define_singleton_method(meth) do |*a|
