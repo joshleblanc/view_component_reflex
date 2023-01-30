@@ -11,6 +11,10 @@ module ViewComponentReflex
       Nokogiri::HTML(controller.response.body)
     end
 
+    def cable_ready
+      CableReady::Channels.instance[stream]
+    end
+
     def refresh!(primary_selector = nil, *rest)
       save_state
 
@@ -24,7 +28,7 @@ module ViewComponentReflex
         [primary_selector, *rest].each do |s|
           html = document.css(s)
           if html.present?
-            CableReady::Channels.instance[stream].morph(
+            cable_ready.morph(
               selector: s,
               html: html.inner_html,
               children_only: true,
@@ -36,7 +40,7 @@ module ViewComponentReflex
       else
         refresh_component!
       end
-      CableReady::Channels.instance[stream].broadcast
+      cable_ready.broadcast
     end
 
     def stream
@@ -60,7 +64,7 @@ module ViewComponentReflex
     end
 
     def refresh_component!
-      CableReady::Channels.instance[stream].morph(
+      cable_ready.morph(
         selector: selector,
         children_only: true,
         html: component_document.css(selector).to_html,
@@ -187,7 +191,8 @@ module ViewComponentReflex
         :prevent_refresh!,
         :selector,
         :stimulate,
-        :stream_to
+        :stream_to,
+        :cable_ready
       ]
       exposed_methods.each do |meth|
         @component.define_singleton_method(meth) do |*a|
