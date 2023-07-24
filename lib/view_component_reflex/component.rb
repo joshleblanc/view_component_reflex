@@ -27,8 +27,8 @@ module ViewComponentReflex
       end
 
       def callbacks(key)
-        @callbacks ||= {}
-        @callbacks[key] ||= []
+        @@callbacks ||= {}
+        @@callbacks[key] ||= []
       end
 
       def register_callbacks(key)
