@@ -252,7 +252,7 @@ module ViewComponentReflex
         :@virtual_path, :@variant, :@current_template, :@output_buffer, :@key,
         :@helpers, :@controller, :@request, :@tag_builder, :@state_initialized,
         :@_content_evaluated, :@_render_in_block, :@__cached_content,
-        :@original_view_context,
+        :@original_view_context, :@compiler, 
       ]
     end
 
@@ -275,6 +275,8 @@ module ViewComponentReflex
       safe_instance_variables.each do |k|
         new_state[k] = instance_variable_get(k)
       end
+
+      p new_state
 
       new_state[:@__cached_content__] = content
 
