@@ -31,7 +31,23 @@ module ViewComponentReflex
     end
 
     def reflex_instance
-      @reflex_instance ||= Class.new(@component.reflex_base_class)
+      @reflex_instance ||= build_reflex_instance
+    end
+
+    ##
+    # Beyond just creating the <Component>Reflex class, we need to define all the component methods on the reflex
+    # class.
+    # This replaces the old method_missing implementation, and passes more strict validation of recent SR versions
+    def build_reflex_instance
+      reflex_methods = @component.instance_methods - @component.superclass.instance_methods - [:call, :"_call_#{@component.name.underscore}"]
+
+      Class.new(@component.reflex_base_class).tap do |klass|
+        reflex_methods.each do |m|
+          klass.define_method(m) do |*args, &blk|
+            delegate_call_to_reflex(method_name, *args, &blk)
+          end
+        end
+      end
     end
 
     def reflex_from_nested_component

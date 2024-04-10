@@ -111,21 +111,7 @@ module ViewComponentReflex
       "[data-controller~=\"#{stimulus_controller}\"][data-key=\"#{element.dataset[:key]}\"]"
     end
 
-    # SR's delegate_call_to_reflex in channel.rb
-    # uses method to gather the method parameters, but since we're abusing
-    # method_missing here, that'll always fail
-    def method(name)
-      component.adapter.extend_reflex(self)
-      component.method(name.to_sym)
-    end
-
-    def respond_to_missing?(name, _ = false)
-      !!name.to_proc
-    end
-
-    def method_missing(name, *args, &blk)
-      super unless respond_to_missing?(name)
-
+    def delegate_call_to_reflex(name, *args, &blk)
       state.each do |k, v|
         component.instance_variable_set(k, v)
       end
