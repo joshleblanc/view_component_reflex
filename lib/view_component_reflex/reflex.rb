@@ -112,6 +112,8 @@ module ViewComponentReflex
     end
 
     def delegate_call_to_reflex(name, *args, &blk)
+      component.adapter.extend_reflex(self)
+
       state.each do |k, v|
         component.instance_variable_set(k, v)
       end

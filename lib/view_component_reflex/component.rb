@@ -276,8 +276,6 @@ module ViewComponentReflex
         new_state[k] = instance_variable_get(k)
       end
 
-      p new_state
-
       new_state[:@__cached_content__] = content
 
       new_state

@@ -20,7 +20,6 @@ module ViewComponentReflex
       def inject_key_into_component
         super
 
-        p initial_state[:@count]
         state_adapter.store_state(request, key, state)
         state_adapter.store_state(request, "#{key}_initial", initial_state)
       end
