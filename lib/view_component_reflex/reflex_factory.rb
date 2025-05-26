@@ -44,7 +44,7 @@ module ViewComponentReflex
       Class.new(@component.reflex_base_class).tap do |klass|
         reflex_methods.each do |m|
           klass.define_method(m) do |*args, &blk|
-            delegate_call_to_reflex(method_name, *args, &blk)
+            delegate_call_to_reflex(m, *args, &blk)
           end
         end
       end
