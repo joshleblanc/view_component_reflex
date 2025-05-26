@@ -33,7 +33,7 @@ module ViewComponentReflex
               html: html.inner_html,
               children_only: true,
               permanent_attribute_name: "data-reflex-permanent",
-              id: respond_to?(:id) ? id : reflex_id
+              reflex_id: respond_to?(:id) ? id : reflex_id
             )
           end
         end
@@ -69,7 +69,7 @@ module ViewComponentReflex
         children_only: true,
         html: component_document.css(selector).to_html,
         permanent_attribute_name: "data-reflex-permanent",
-        id: respond_to?(:id) ? id : reflex_id
+        reflex_id: respond_to?(:id) ? id : reflex_id
       )
     end
 

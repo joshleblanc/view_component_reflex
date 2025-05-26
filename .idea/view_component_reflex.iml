@@ -26,61 +26,38 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/cache" />
     </content>
-    <orderEntry type="jdk" jdkName="asdf: 2.7.2" jdkType="RUBY_SDK" />
+    <orderEntry type="jdk" jdkName="ruby-3.4.1-p0" jdkType="RUBY_SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="actioncable (v7.0.2.3, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="actionmailbox (v7.0.2.3, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="actionmailer (v7.0.2.3, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="actionpack (v7.0.2.3, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="actiontext (v7.0.2.3, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="actionview (v7.0.2.3, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="activejob (v7.0.2.3, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="activemodel (v7.0.2.3, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="activerecord (v7.0.2.3, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="activestorage (v7.0.2.3, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="activesupport (v7.0.2.3, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.4, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="bundler (v2.2.26, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="cable_ready (v5.0.0.pre9, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.1.9, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="crass (v1.0.6, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="digest (v3.1.0, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="erubi (v1.10.0, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="globalid (v1.0.0, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="i18n (v1.10.0, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="loofah (v2.18.0, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="mail (v2.7.1, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="marcel (v1.0.2, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="method_source (v1.0.0, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="mini_mime (v1.1.2, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="mini_portile2 (v2.8.0, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="minitest (v5.15.0, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="net-imap (v0.2.3, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="net-pop (v0.1.1, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="net-protocol (v0.1.3, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="net-smtp (v0.3.1, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="nio4r (v2.5.8, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="nokogiri (v1.13.6, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="racc (v1.6.0, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rack (v2.2.3, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rack-test (v1.1.0, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rails (v7.0.2.3, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rails-dom-testing (v2.0.3, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rails-html-sanitizer (v1.4.2, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="railties (v7.0.2.3, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rake (v13.0.6, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="redis (v4.5.1, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="sqlite3 (v1.4.2, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="stimulus_reflex (v3.5.0.pre9, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="strscan (v3.0.3, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="thor (v1.2.1, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="thread-local (v1.1.0, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="timeout (v0.2.0, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="tzinfo (v2.0.4, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="view_component (v2.49.1, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="websocket-driver (v0.7.5, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="websocket-extensions (v0.1.5, asdf: 2.7.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="zeitwerk (v2.5.4, asdf: 2.7.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="builder (v3.3.0, ruby-3.4.1-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="cable_ready (v5.0.6, ruby-3.4.1-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="crass (v1.0.6, ruby-3.4.1-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="date (v3.4.1, ruby-3.4.1-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="erubi (v1.13.1, ruby-3.4.1-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="globalid (v1.2.1, ruby-3.4.1-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="mail (v2.8.1, ruby-3.4.1-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="marcel (v1.0.4, ruby-3.4.1-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="method_source (v1.0.0, ruby-3.4.1-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="mini_mime (v1.1.5, ruby-3.4.1-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="net-imap (v0.5.4, ruby-3.4.1-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="net-pop (v0.1.2, ruby-3.4.1-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="net-protocol (v0.2.2, ruby-3.4.1-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="net-smtp (v0.5.0, ruby-3.4.1-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="nio4r (v2.7.4, ruby-3.4.1-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="nokogiri-html5-inference (v0.3.0, ruby-3.4.1-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="observer (v0.1.2, ruby-3.4.1-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="racc (v1.8.1, ruby-3.4.1-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack (v2.2.10, ruby-3.4.1-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack-test (v2.2.0, ruby-3.4.1-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rails-dom-testing (v2.2.0, ruby-3.4.1-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rails-html-sanitizer (v1.6.0, ruby-3.4.1-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rake (v13.2.1, ruby-3.4.1-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="stimulus_reflex (v3.5.3, ruby-3.4.1-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="thor (v1.3.2, ruby-3.4.1-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="thread-local (v1.1.0, ruby-3.4.1-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="timeout (v0.4.3, ruby-3.4.1-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="websocket-driver (v0.7.6, ruby-3.4.1-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="websocket-extensions (v0.1.5, ruby-3.4.1-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="zeitwerk (v2.7.1, ruby-3.4.1-p0) [gem]" level="application" />
   </component>
   <component name="RailsGeneratorsCache">
     <option name="generators">
