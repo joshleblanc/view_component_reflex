@@ -40,12 +40,30 @@ module ViewComponentReflex
     # This replaces the old method_missing implementation, and passes more strict validation of recent SR versions
     def build_reflex_instance
       reflex_methods = @component.instance_methods - @component.superclass.instance_methods - [:call, :"_call_#{@component.name.underscore}"]
-
+      component_allocate = @component.allocate
       Class.new(@component.reflex_base_class).tap do |klass|
+        klass.instance_variable_set(:@__method_parameters, {})
+
         reflex_methods.each do |m|
+          klass.instance_variable_get(:@__method_parameters)[m.to_s] = component_allocate.method(m).parameters
           klass.define_method(m) do |*args, &blk|
             delegate_call_to_reflex(m, *args, &blk)
           end
+        end
+
+        # SR does validation of incoming arguments against method definitions
+        # so we need to fake our method definitions call here
+        klass.define_method(:method) do |name|
+          method = super(name)
+          params = self.class.instance_variable_get(:@__method_parameters)
+
+          if params && params[name]
+            method.define_singleton_method(:parameters) do
+              params[name]
+            end
+          end
+
+          method
         end
       end
     end
