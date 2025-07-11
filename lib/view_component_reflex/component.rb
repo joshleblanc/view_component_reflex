@@ -32,8 +32,12 @@ module ViewComponentReflex
       end
 
       def register_callbacks(key)
-        callbacks(key).each do |cb|
-          @stimulus_reflex.send("#{key}_reflex", *cb[:args], &cb[:blk])
+        ancestors.each do |klass|
+          next unless klass.respond_to?(:callbacks)
+          break if klass == ViewComponentReflex::Component
+          klass.callbacks(key).each do |cb|
+            @stimulus_reflex.send("#{key}_reflex", *cb[:args], &cb[:blk])
+          end
         end
       end
 
@@ -253,7 +257,7 @@ module ViewComponentReflex
         :@virtual_path, :@variant, :@current_template, :@output_buffer, :@key,
         :@helpers, :@controller, :@request, :@tag_builder, :@state_initialized,
         :@_content_evaluated, :@_render_in_block, :@__cached_content,
-        :@original_view_context, :@compiler, 
+        :@original_view_context, :@compiler,
       ]
     end
 
