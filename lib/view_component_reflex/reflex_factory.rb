@@ -39,7 +39,7 @@ module ViewComponentReflex
     # class.
     # This replaces the old method_missing implementation, and passes more strict validation of recent SR versions
     def build_reflex_instance
-      reflex_methods = @component.instance_methods - ViewComponentReflex::Component.instance_methods - [:call, :"_call_#{@component.name.underscore}"]
+      reflex_methods = @component.public_instance_methods - ViewComponentReflex::Component.instance_methods - [:call, :"_call_#{@component.name.underscore}"]
       component_allocate = @component.allocate
       Class.new(@component.reflex_base_class).tap do |klass|
         klass.instance_variable_set(:@__method_parameters, {})
