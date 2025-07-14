@@ -233,6 +233,34 @@ def after_state_initialized(parameters_changed)
 end
 ```
 
+### reflex_methods
+
+By default, all public instance methods are available as reflex methods. You can override this to explicitly define which methods should be available as reflexes:
+
+```ruby
+class MyComponent < ViewComponentReflex::Component
+  def self.reflex_methods
+    [:increment, :decrement, :reset]
+  end
+  
+  def increment
+    @count += 1
+  end
+  
+  def decrement
+    @count -= 1  
+  end
+  
+  def reset
+    @count = 0
+  end
+  
+  def private_helper_method
+    # This won't be available as a reflex since it's not in reflex_methods
+  end
+end
+```
+
 ## Custom reflex base class
 Reflexes typically inherit from a base ApplicationReflex. You can define the base class for a view_component_reflex by using the `reflex_base_class` accessor.
 The parent class must inherit ViewComponentReflex::Reflex, and will throw an error if it does not.

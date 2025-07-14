@@ -78,6 +78,10 @@ module ViewComponentReflex
       name.chomp("Component").underscore.dasherize.gsub("/", "--")
     end
 
+    def self.reflex_methods
+      public_instance_methods - ViewComponentReflex::Component.instance_methods - [:call, :"_call_#{name.underscore}"]
+    end
+
     def stimulus_reflex?
       helpers.controller.instance_variable_get(:@stimulus_reflex)
     end
